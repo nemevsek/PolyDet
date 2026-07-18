@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use PolyDet in your research, please cite it as below."
+title: "PolyDet: renormalised one-loop determinant around a polygonal bounce"
+abstract: >-
+  A Wolfram Language paclet that computes the renormalised one-loop
+  fluctuation determinant around a piecewise-linear (polygonal) bounce in
+  false-vacuum decay. Companion to FindBounce: consumes a polygonal bounce
+  (segment masses and matching radii) and returns ln det_ren via the
+  transfer-matrix multipole sum with optimal-truncation acceleration and
+  MS-bar renormalisation (D = 3, 4). Sectors: single scalar, coupled
+  multi-scalar, Dirac fermion (Yukawa), and Abelian gauge boson.
+type: software
+authors:
+  - family-names: "Nemevšek"
+    given-names: "Miha"
+    email: miha.nemevsek@ijs.si
+    affiliation: "Jožef Stefan Institute"
+version: "0.4.0"
+date-released: "2026-07-18"
+license: MIT
+repository-code: "https://github.com/nemevsek/PolyDet"
+url: "https://github.com/nemevsek/PolyDet"
+keywords:
+  - false vacuum decay
+  - bounce
+  - functional determinant
+  - Gel'fand-Yaglom
+  - FindBounce
+  - Wolfram Language
