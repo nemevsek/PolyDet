@@ -3,14 +3,14 @@ name: tests
 # Runs the PolyDet paclet test suite (Tests/PolyDet.wlt via Tests/run.wls) in the
 # official Wolfram Engine container.
 #
-# ONE-TIME SETUP (required — the job fails fast until this secret exists):
-#   The free Wolfram Engine still needs a license to run headless in CI. Use an
-#   on-demand license *entitlement* (Wolfram's recommended CI path, see
-#   WolframResearch/WL-FunctionCompile-CI-Template):
-#     1. Sign in at https://account.wolfram.com and create an on-demand license
-#        entitlement (a string like O-WSTD-XXXX-...).
-#     2. In this repo: Settings -> Secrets and variables -> Actions -> New secret,
-#        name it exactly  WOLFRAM_LICENSE_ENTITLEMENTID  with that string as value.
+# The free Wolfram Engine still needs a license to run headless in CI. Until the
+# license secret is configured, the `test` job is SKIPPED (not failed) — so you get
+# no red X and no failure emails. To enable the tests:
+#   1. Sign in at https://account.wolfram.com and create an on-demand license
+#      entitlement (a string like O-WSTD-XXXX-...); this is Wolfram's recommended
+#      CI path (see WolframResearch/WL-FunctionCompile-CI-Template).
+#   2. In this repo: Settings -> Secrets and variables -> Actions -> New secret,
+#      name it exactly  WOLFRAM_LICENSE_ENTITLEMENTID  with that string as value.
 #   wolframscript reads WOLFRAMSCRIPT_ENTITLEMENTID and activates automatically —
 #   no mathpass file, no node-locked activation.
 #
@@ -24,7 +24,26 @@ on:
   workflow_dispatch:
 
 jobs:
+  # Cheap gate (no container pull): decide whether a license is configured.
+  gate:
+    runs-on: ubuntu-latest
+    outputs:
+      licensed: ${{ steps.check.outputs.licensed }}
+    steps:
+      - id: check
+        env:
+          ENT: ${{ secrets.WOLFRAM_LICENSE_ENTITLEMENTID }}
+        run: |
+          if [ -n "$ENT" ]; then
+            echo "licensed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "licensed=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::WOLFRAM_LICENSE_ENTITLEMENTID secret not set — skipping the test job. See .github/workflows/tests.yml for setup."
+          fi
+
   test:
+    needs: gate
+    if: needs.gate.outputs.licensed == 'true'
     runs-on: ubuntu-latest
     container:
       image: wolframresearch/wolframengine:latest
@@ -33,13 +52,6 @@ jobs:
       WOLFRAMSCRIPT_ENTITLEMENTID: ${{ secrets.WOLFRAM_LICENSE_ENTITLEMENTID }}
     steps:
       - uses: actions/checkout@v4
-
-      - name: Check license entitlement is configured
-        run: |
-          if [ -z "$WOLFRAMSCRIPT_ENTITLEMENTID" ]; then
-            echo "::error::Repo secret WOLFRAM_LICENSE_ENTITLEMENTID is not set. See the header of .github/workflows/tests.yml for setup."
-            exit 1
-          fi
 
       - name: Run PolyDet test suite
         run: |
