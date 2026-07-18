@@ -1,0 +1,49 @@
+name: tests
+
+# Runs the PolyDet paclet test suite (Tests/PolyDet.wlt via Tests/run.wls) in the
+# official Wolfram Engine container.
+#
+# ONE-TIME SETUP (required — the job fails fast until this secret exists):
+#   The free Wolfram Engine still needs a license to run headless in CI. Use an
+#   on-demand license *entitlement* (Wolfram's recommended CI path, see
+#   WolframResearch/WL-FunctionCompile-CI-Template):
+#     1. Sign in at https://account.wolfram.com and create an on-demand license
+#        entitlement (a string like O-WSTD-XXXX-...).
+#     2. In this repo: Settings -> Secrets and variables -> Actions -> New secret,
+#        name it exactly  WOLFRAM_LICENSE_ENTITLEMENTID  with that string as value.
+#   wolframscript reads WOLFRAMSCRIPT_ENTITLEMENTID and activates automatically —
+#   no mathpass file, no node-locked activation.
+#
+# NOTE: the runner's exit code is an unreliable MKL-shutdown artifact, so the pass/
+# fail gate below greps the printed "[ALL PASS]" line, not the exit status.
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: wolframresearch/wolframengine:latest
+      options: --user root
+    env:
+      WOLFRAMSCRIPT_ENTITLEMENTID: ${{ secrets.WOLFRAM_LICENSE_ENTITLEMENTID }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check license entitlement is configured
+        run: |
+          if [ -z "$WOLFRAMSCRIPT_ENTITLEMENTID" ]; then
+            echo "::error::Repo secret WOLFRAM_LICENSE_ENTITLEMENTID is not set. See the header of .github/workflows/tests.yml for setup."
+            exit 1
+          fi
+
+      - name: Run PolyDet test suite
+        run: |
+          set -o pipefail
+          wolframscript -file PolyDet/Tests/run.wls 2>&1 | tee out.log || true
+          echo "----"
+          grep -q '\[ALL PASS\]' out.log
