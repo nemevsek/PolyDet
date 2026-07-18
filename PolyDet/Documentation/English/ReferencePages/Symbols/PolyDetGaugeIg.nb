@@ -1,0 +1,218 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      8255,        209]
+NotebookOptionsPosition[      6166,        171]
+NotebookOutlinePosition[      6594,        187]
+CellTagsIndexPosition[      6551,        184]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Categorization", "CategorizationSection",ExpressionUUID->"e21a8bc9-30ad-4604-b1f3-d4744d57d9da"],
+
+Cell["Symbol", "Categorization",
+ CellLabel->
+  "Entity Type",ExpressionUUID->"68e2ec74-3c12-4698-b218-90d06b6922f8"],
+
+Cell["PolyDet", "Categorization",
+ CellLabel->
+  "Paclet Name",ExpressionUUID->"07957d6b-481e-4a3d-aaef-584acd5e6f75"],
+
+Cell["PolyDet`", "Categorization",
+ CellLabel->"Context",ExpressionUUID->"4cfd93fb-493f-4aec-ad47-7a1f0187c52f"],
+
+Cell["PolyDet/ref/PolyDetGaugeIg", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"480f1a73-a95d-4ffb-948a-1993254b9fb8"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",ExpressionUUID->"cd729ad9-8579-4307-9e65-7db51a9eba19"],
+
+Cell["gauge boson", "Keywords",ExpressionUUID->"09ea67bb-5446-4f19-b839-afe728c8ec16"],
+
+Cell["wave function", "Keywords",ExpressionUUID->"866f01e8-9b28-4206-887f-f4e78d904887"]
+}, Closed]],
+
+Cell["PolyDetGaugeIg", "ObjectName",ExpressionUUID->"5a012a97-8111-499e-8006-418cc9fe772c"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  RowBox[{"PolyDetGaugeIg", "[", 
+   RowBox[{
+    StyleBox["mA2", "TI"], ",", 
+    StyleBox["ma2", "TI"], ",", 
+    StyleBox["dmA", "TI"], ",", 
+    StyleBox["radii", "TI"]}], "]"}]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "be6d2357-e2be-428e-a5e4-55e74c82bb99"],
+ "\[LineSeparator]",
+ "the gradient (wave-function) coefficient ",
+ Cell[BoxData[
+  SubscriptBox["I", "g"]], "InlineFormula",ExpressionUUID->
+  "03bb5316-35d5-4817-90ee-ef4fefc48a39"],
+ ", the leading ",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{"1", "/", "("}], "j", "+", "1", ")"}]], "InlineFormula",
+  ExpressionUUID->"9135d952-73ca-4dae-9900-624ad4838eec"],
+ " of the gauge-Goldstone mixing residual.",
+ "\n"
+}], "Usage",ExpressionUUID->"af756bc5-882d-4d02-9149-68bf6ea027cb"],
+
+Cell[CellGroupData[{
+
+Cell["Details and Options", "NotesSection",ExpressionUUID->"6f28e281-8dbc-4a88-99e3-34553616ab31"],
+
+Cell[TextData[{
+ "The gradient (wave-function) coefficient ",
+ Cell[BoxData[
+  SubscriptBox["I", "g"]], "InlineFormula",ExpressionUUID->
+  "7da375aa-f055-48bd-92cb-9693de55dba8"],
+ ", fitted from the high-j gauge-Goldstone mixing residual; the \
+continuum-robust value is the moment ",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{"-", 
+    SuperscriptBox["g", "2"]}], "\[Integral]", 
+   SuperscriptBox["\[Rho]", "3"], 
+   SuperscriptBox[
+    OverscriptBox["\[Phi]", "."], "2"]}]], "InlineFormula",ExpressionUUID->
+  "76fcce9c-700e-49bc-b940-0a59669c4d92"],
+ "."
+}], "Notes",ExpressionUUID->"f0a445fe-90b4-48b1-9b52-bf4812b02d4d"],
+
+Cell[BoxData[GridBox[{
+   {Cell["", "ModInfo",ExpressionUUID->
+     "1fa4aacd-c00a-40a6-a487-eb6ea3f029c2"], Cell[BoxData[
+     StyleBox["\"\<Window\>\"", "InlineCode"]], "TableText",ExpressionUUID->
+     "52ef122b-8277-4ac5-95bb-90a50a24adb2"], Cell[BoxData[
+     StyleBox[
+      RowBox[{"{", 
+       RowBox[{"22", ",", " ", "28"}], "}"}], "InlineCode"]], "TableText",
+     ExpressionUUID->"e6a977bb-6649-4479-bf7c-3073dbffc557"], Cell[
+    "the high-j window {jmin, jmax} for the I_g fit", "TableText",
+     ExpressionUUID->"97a3f007-807a-45fe-a218-9a2931868c0f"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "f0fd8407-7cf3-40cb-9a38-7f6857a9a9d7"], Cell[BoxData[
+     StyleBox["WorkingPrecision", "InlineCode"]], "TableText",ExpressionUUID->
+     "d6d437aa-4330-42d8-8846-78fde1010967"], Cell[BoxData[
+     StyleBox["Automatic", "InlineCode"]], "TableText",ExpressionUUID->
+     "cf7fde7a-d6d9-48ea-9eb0-7a8815615fc1"], Cell["\<\
+the working precision (Automatic chooses machine vs scaled arbitrary \
+precision)\
+\>", "TableText",ExpressionUUID->"825fc09e-231e-4446-9e4b-ae4dc530b4cb"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "011acc1a-946f-44b9-9460-f91fabd65ddd"], Cell[BoxData[
+     StyleBox["\"\<Xi\>\"", "InlineCode"]], "TableText",ExpressionUUID->
+     "0046c3cf-4779-4a2c-a60f-8b129eff27a0"], Cell[BoxData[
+     StyleBox["1", "InlineCode"]], "TableText",ExpressionUUID->
+     "3730b1d8-02de-44d1-a452-527500b932a7"], Cell["\<\
+the gauge parameter xi (1 = background Feynman; xi != 1 uses the chi-reduced \
+longitudinal block)\
+\>", "TableText",ExpressionUUID->"f5fcab78-5e2a-4628-a6e7-98368d8b89b4"]}
+  },
+  GridBoxAlignment->{
+   "Columns" -> {{Left}}, "Rows" -> {{Baseline}}}]], "3ColumnTableMod",Express\
+ionUUID->"21f276c8-9c68-4541-a5d1-7470744ddb6a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Examples", "PrimaryExamplesSection",ExpressionUUID->"24f5ef8f-6388-4d9a-b6c6-ec9355b1cbe7"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<PolyDet`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"ab85b318-240b-4723-aed0-4b45990d8d9a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mA2", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox["1", "2"], ",", 
+     FractionBox["1", "5"], ",", "1", ",", 
+     FractionBox["9", "10"]}], "}"}]}], ";", 
+  RowBox[{"ma2", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox["3", "2"], ",", 
+     FractionBox["1", "5"], ",", "1", ",", 
+     FractionBox["2", "5"]}], "}"}]}], ";", 
+  RowBox[{"dmA", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox["1", "2"], ",", 
+     RowBox[{"-", 
+      FractionBox["1", "5"]}], ",", 
+     FractionBox["1", "10"]}], "}"}]}], ";", 
+  RowBox[{"radii", "=", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "5", ",", "7"}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[2]:=",ExpressionUUID->"67375c18-8841-4cd1-8b4b-82e39bbaabe7"],
+
+Cell[BoxData[
+ RowBox[{"PolyDetGaugeIg", "[", 
+  RowBox[{"mA2", ",", "ma2", ",", "dmA", ",", "radii"}], "]"}]], "Input",
+ CellLabel->"In[3]:=",ExpressionUUID->"7e23bc77-b7dd-4b98-b1bb-4aa6f95a9537"]
+}, Open  ]]
+},
+TaggingRules->{"Paclet" -> "PolyDet"},
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"5aa45115-0c14-4674-81a0-4d20a319a487"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 102, 0, 70, "CategorizationSection",ExpressionUUID->"e21a8bc9-30ad-4604-b1f3-d4744d57d9da"],
+Cell[685, 24, 117, 2, 70, "Categorization",ExpressionUUID->"68e2ec74-3c12-4698-b218-90d06b6922f8"],
+Cell[805, 28, 118, 2, 70, "Categorization",ExpressionUUID->"07957d6b-481e-4a3d-aaef-584acd5e6f75"],
+Cell[926, 32, 112, 1, 70, "Categorization",ExpressionUUID->"4cfd93fb-493f-4aec-ad47-7a1f0187c52f"],
+Cell[1041, 35, 126, 1, 70, "Categorization",ExpressionUUID->"480f1a73-a95d-4ffb-948a-1993254b9fb8"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1204, 41, 90, 0, 70, "KeywordsSection",ExpressionUUID->"cd729ad9-8579-4307-9e65-7db51a9eba19"],
+Cell[1297, 43, 86, 0, 70, "Keywords",ExpressionUUID->"09ea67bb-5446-4f19-b839-afe728c8ec16"],
+Cell[1386, 45, 88, 0, 70, "Keywords",ExpressionUUID->"866f01e8-9b28-4206-887f-f4e78d904887"]
+}, Closed]],
+Cell[1489, 48, 91, 0, 70, "ObjectName",ExpressionUUID->"5a012a97-8111-499e-8006-418cc9fe772c"],
+Cell[1583, 50, 799, 22, 70, "Usage",ExpressionUUID->"af756bc5-882d-4d02-9149-68bf6ea027cb"],
+Cell[CellGroupData[{
+Cell[2407, 76, 98, 0, 70, "NotesSection",ExpressionUUID->"6f28e281-8dbc-4a88-99e3-34553616ab31"],
+Cell[2508, 78, 622, 16, 70, "Notes",ExpressionUUID->"f0a445fe-90b4-48b1-9b52-bf4812b02d4d"],
+Cell[3133, 96, 1775, 32, 70, "3ColumnTableMod",ExpressionUUID->"21f276c8-9c68-4541-a5d1-7470744ddb6a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4945, 133, 97, 0, 70, "PrimaryExamplesSection",ExpressionUUID->"24f5ef8f-6388-4d9a-b6c6-ec9355b1cbe7"],
+Cell[5045, 135, 151, 2, 70, "Input",ExpressionUUID->"ab85b318-240b-4723-aed0-4b45990d8d9a"],
+Cell[5199, 139, 750, 24, 70, "Input",ExpressionUUID->"67375c18-8841-4cd1-8b4b-82e39bbaabe7"],
+Cell[5952, 165, 198, 3, 70, "Input",ExpressionUUID->"7e23bc77-b7dd-4b98-b1bb-4aa6f95a9537"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

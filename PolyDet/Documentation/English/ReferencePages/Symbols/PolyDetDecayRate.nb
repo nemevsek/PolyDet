@@ -1,0 +1,627 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     25759,        618]
+NotebookOptionsPosition[     20663,        543]
+NotebookOutlinePosition[     21299,        565]
+CellTagsIndexPosition[     21220,        560]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Categorization", "CategorizationSection",ExpressionUUID->"1ab06df0-f354-4df3-894d-9a9d40203498"],
+
+Cell["Symbol", "Categorization",
+ CellLabel->
+  "Entity Type",ExpressionUUID->"02905361-ec72-47f5-a873-8dc1e75dd688"],
+
+Cell["PolyDet", "Categorization",
+ CellLabel->
+  "Paclet Name",ExpressionUUID->"d3f2a2dd-e15c-47ec-a25f-743fde099ab7"],
+
+Cell["PolyDet`", "Categorization",
+ CellLabel->"Context",ExpressionUUID->"e3c38766-f42f-4bf1-a646-ca4d9fd205b1"],
+
+Cell["PolyDet/ref/PolyDetDecayRate", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"aa464e12-7cec-4c97-9211-d06f801ebea8"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",ExpressionUUID->"5d7c07f5-6cbd-4d15-8ed6-f34640c6fdba"],
+
+Cell["decay rate", "Keywords",ExpressionUUID->"b8358ee6-1fba-42f7-bcbe-c62e5082cd38"],
+
+Cell["false vacuum decay", "Keywords",ExpressionUUID->"386c2d82-5470-4764-9045-80f65749a0cc"],
+
+Cell["multi-sector", "Keywords",ExpressionUUID->"1aedc5b7-5cd6-4a34-9747-e05f355b67e8"],
+
+Cell["Standard Model", "Keywords",ExpressionUUID->"19d3bfa2-2c89-4539-9372-9b16658bf47e"]
+}, Closed]],
+
+Cell["PolyDetDecayRate", "ObjectName",ExpressionUUID->"00eeda81-b483-477a-bd23-f7ba9fc71b79"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  RowBox[{"PolyDetDecayRate", "[", 
+   RowBox[{
+    StyleBox["Vpp", "TI"], ",", 
+    StyleBox["bf", "TI"], ",", 
+    StyleBox["extra", "TI"]}], "]"}]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "020c251d-67c2-4254-9489-a7b10aafd56b"],
+ "\[LineSeparator]",
+ "the COMPLETE one-loop decay rate ",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{"ln", "("}], "\[CapitalGamma]", "/", 
+   StyleBox["V",
+    FontSlant->"Italic"], ")"}]], "InlineFormula",ExpressionUUID->
+  "c8e018f9-3042-45d8-939e-6e3c5a97005d"],
+ " from a FindBounce BounceFunction ",
+ StyleBox["bf",
+  FontSlant->"Italic"],
+ ": the driving Higgs scalar (V'' = ",
+ StyleBox["Vpp",
+  FontSlant->"Italic"],
+ ", translational zero modes removed) plus a list of ",
+ StyleBox["extra",
+  FontSlant->"Italic"],
+ " field sectors, assembled with the one-loop signs (scalar +, gauge +, \
+fermion \[Minus]) at one shared ",
+ Cell[BoxData[
+ "\[Mu]"], "InlineFormula",ExpressionUUID->
+  "007feb14-8977-4bda-a68e-ae5553eb581f"],
+ ". Each sector is an Association tagged ",
+ StyleBox["\"Scalar\"",
+  FontSlant->"Italic"],
+ " / ",
+ StyleBox["\"Fermion\"",
+  FontSlant->"Italic"],
+ " / ",
+ StyleBox["\"Gauge\"",
+  FontSlant->"Italic"],
+ ".",
+ "\n"
+}], "Usage",ExpressionUUID->"c84d9709-3d05-42ed-afe6-21353c4ab1c2"],
+
+Cell[CellGroupData[{
+
+Cell["Details and Options", "NotesSection",ExpressionUUID->"1f23d167-3b24-4ef3-839d-f94d6bd0b4bf"],
+
+Cell[TextData[{
+ "Assembles every sector with the correct one-loop sign \[LongDash] scalars \
+and gauge bosons add, Dirac fermions subtract (the ",
+ Cell[BoxData[
+  SuperscriptBox[
+   RowBox[{"(", 
+    RowBox[{"-", "1"}], ")"}], "F"]], "InlineFormula",ExpressionUUID->
+  "fecf14bf-7684-43d4-8cd3-5af9148b0db0"],
+ " sign) \[LongDash] into a single ",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{"ln", "("}], "\[CapitalGamma]", "/", 
+   StyleBox["V",
+    FontSlant->"Italic"], ")"}]], "InlineFormula",ExpressionUUID->
+  "b73cae7b-327c-41de-8244-3f2966728a2b"],
+ " at one shared scale \[Mu]."
+}], "Notes",ExpressionUUID->"0bfe9ec6-d6c7-49d4-9372-fe2e96ebeb80"],
+
+Cell[TextData[{
+ "The driving Higgs scalar (second derivative ",
+ StyleBox["Vpp",
+  FontSlant->"Italic"],
+ ") carries the translational zero modes, removed automatically."
+}], "Notes",ExpressionUUID->"22ab3ca7-ba34-404e-ad08-8211b7b90594"],
+
+Cell[BoxData[GridBox[{
+   {Cell["", "ModInfo",ExpressionUUID->
+     "e1c6bd44-0cb8-47a6-a6a5-fc533d52a7eb"], Cell[BoxData[
+     StyleBox["\"\<Scale\>\"", "InlineCode"]], "TableText",ExpressionUUID->
+     "72bb381e-16d0-47e4-ab1e-3e847e8c6e6e"], Cell[BoxData[
+     StyleBox["1", "InlineCode"]], "TableText",ExpressionUUID->
+     "c00e71fb-7354-4b6d-8e3d-2afe14c9ebbe"], Cell[
+    "the MS-bar renormalisation scale mu", "TableText",ExpressionUUID->
+     "171c1505-8513-4052-8560-e654a620a3dd"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "1f625ba9-90f9-4a7a-bed7-9e6cb0345a57"], Cell[BoxData[
+     StyleBox["\"\<ZeroRemoval\>\"", "InlineCode"]], "TableText",
+     ExpressionUUID->"3d39c792-631a-49a4-bf9a-67e24ae362c4"], Cell[BoxData[
+     StyleBox["True", "InlineCode"]], "TableText",ExpressionUUID->
+     "283e86d7-f2f4-4269-b5e3-c459789cfbc1"], Cell["\<\
+remove the l=1 translational zero modes (via the reduced ratio R_1')\
+\>", "TableText",ExpressionUUID->"64e51cb4-cf1a-45df-bd80-8cd3c0536c32"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "3941fe56-5c21-4b4c-a5a1-30be185b825b"], Cell[BoxData[
+     StyleBox["\"\<Goldstones\>\"", "InlineCode"]], "TableText",
+     ExpressionUUID->"de0256e5-89b2-4eb2-bdba-048d94f1191d"], Cell[BoxData[
+     StyleBox["0", "InlineCode"]], "TableText",ExpressionUUID->
+     "1196cfbf-a042-4bbb-a44b-e047602a0a55"], Cell["\<\
+the number of broken-global-symmetry Goldstone zero modes to remove\
+\>", "TableText",ExpressionUUID->"2af708ba-b548-4f5e-8ecc-9484089a966a"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "4d6f3d6b-cbc1-452b-8a90-f99772dfe5c2"], Cell[BoxData[
+     StyleBox["\"\<ChargeNorm\>\"", "InlineCode"]], "TableText",
+     ExpressionUUID->"5636dc43-fc2c-4903-a766-1b745325d338"], Cell[BoxData[
+     StyleBox["1", "InlineCode"]], "TableText",ExpressionUUID->
+     "bf69aec4-9731-4ba0-8f15-8987d8536a99"], Cell[
+    "the charge norm Q of the Goldstone mode (orbit measure)", "TableText",
+     ExpressionUUID->"a34b653b-56a1-4a21-88db-3e296881ee9f"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "c315b5c0-3883-424b-91f0-22f86813945a"], Cell[BoxData[
+     StyleBox["\"\<OrbitVolume\>\"", "InlineCode"]], "TableText",
+     ExpressionUUID->"90c022fd-e2b0-4f97-93ad-620ed625611e"], Cell[BoxData[
+     StyleBox[
+      RowBox[{"2", "*", "Pi"}], "InlineCode"]], "TableText",ExpressionUUID->
+     "e74c9efe-8d17-416f-ab12-bfee3f9c84dd"], Cell[
+    "the symmetry-orbit volume Vol(G/H) (default 2 Pi for U(1))", "TableText",
+     ExpressionUUID->"6ca848c4-0119-44f5-8b88-b33488a23fdf"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "27b2f628-3d52-4a7d-a0c6-86ec26c61854"], Cell[BoxData[
+     StyleBox["\"\<Ig\>\"", "InlineCode"]], "TableText",ExpressionUUID->
+     "29936894-d663-4354-bf8a-179daa738434"], Cell[BoxData[
+     StyleBox["Automatic", "InlineCode"]], "TableText",ExpressionUUID->
+     "028638b2-c3c3-42f1-af9a-e26fcd51d08d"], Cell["\<\
+the gauge gradient coefficient I_g (Automatic: polygon fit; or a number = the \
+moment)\
+\>", "TableText",ExpressionUUID->"961b0d54-5bdc-4c25-8cef-d7591820becb"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "667a5929-891b-4ac6-8f58-a5bd4136412c"], Cell[BoxData[
+     StyleBox["\"\<Target\>\"", "InlineCode"]], "TableText",ExpressionUUID->
+     "b182d9b6-6f27-4161-960f-c1e1237b0f03"], Cell[BoxData[
+     StyleBox["Automatic", "InlineCode"]], "TableText",ExpressionUUID->
+     "6b2f9615-8438-4f37-af80-fdcc82abc4b8"], Cell["\<\
+the target relative accuracy, which sets Nsum via the nu_max law\
+\>", "TableText",ExpressionUUID->"eb30f0a2-02ab-49ca-9b67-d48965d220d6"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "4cdf32a8-d324-4e03-b035-a4a28bc32679"], Cell[BoxData[
+     StyleBox["\"\<Breakdown\>\"", "InlineCode"]], "TableText",ExpressionUUID->
+     "3c6af209-6bbb-46e1-b6b1-7cf5e14cfbf5"], Cell[BoxData[
+     StyleBox["False", "InlineCode"]], "TableText",ExpressionUUID->
+     "4f9ca225-3a41-4394-ad32-674113634f08"], Cell["\<\
+return the per-sector breakdown Association instead of the rate value\
+\>", "TableText",ExpressionUUID->"04daed7e-6b19-4f28-87a4-8400837cb6e9"]}
+  },
+  GridBoxAlignment->{
+   "Columns" -> {{Left}}, "Rows" -> {{Baseline}}}]], "3ColumnTableMod",Express\
+ionUUID->"e39f5cf2-c80b-4216-997e-fb7578764ad1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Examples", "PrimaryExamplesSection",ExpressionUUID->"a0ccb264-8af4-4e6b-a861-00366e28d061"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<PolyDet`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"e109906c-6c07-4512-bec8-da9f157ea98f"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<FindBounce`\>\"", "]"}]], "Input",
+ CellLabel->"In[2]:=",ExpressionUUID->"bf13d49a-4ab0-4b8f-9425-53f78f73fd6d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"V", "[", "x_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "8"], " ", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox["x", "2"], "-", "1"}], ")"}], "2"]}], "+", 
+    FractionBox[
+     RowBox[{"x", "-", "1"}], "10"]}]}], ";", 
+  RowBox[{"Vpp", "=", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"3", " ", 
+        SuperscriptBox["#1", "2"]}], "-", "1"}], ")"}]}], "&"}]}], 
+  ";"}]], "Input",
+ CellLabel->"In[3]:=",ExpressionUUID->"2a9b88a4-8072-49d8-8d77-28f9478dd236"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"tv", ",", "mid", ",", "fv"}], "}"}], "=", 
+   RowBox[{"Sort", "[", 
+    RowBox[{"Re", "[", 
+     RowBox[{"x", "/.", "\[VeryThinSpace]", 
+      RowBox[{"NSolve", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          SubscriptBox["\[PartialD]", "x"], 
+          RowBox[{"V", "[", "x", "]"}]}], "\[Equal]", "0"}], ",", "x"}], 
+       "]"}]}], "]"}], "]"}]}], ";", 
+  RowBox[{"bf", "=", 
+   RowBox[{"FindBounce", "[", 
+    RowBox[{
+     RowBox[{"V", "[", "x", "]"}], ",", "x", ",", 
+     RowBox[{"{", 
+      RowBox[{"fv", ",", "tv"}], "}"}]}], "]"}]}], ";"}]], "Input",
+ CellLabel->"In[4]:=",ExpressionUUID->"9731ba10-bdd3-4198-9ae0-bdb9f1362577"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sectors", "=", 
+   RowBox[{"{", 
+    RowBox[{"Association", "[", 
+     RowBox[{
+      RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<Scalar\>\""}], ",", 
+      RowBox[{"\"\<Mass2\>\"", "\[Rule]", 
+       RowBox[{"Function", "[", 
+        RowBox[{"ph", ",", 
+         RowBox[{
+          FractionBox["1", "2"], "+", 
+          FractionBox[
+           RowBox[{"4", " ", 
+            SuperscriptBox["ph", "2"]}], "5"]}]}], "]"}]}]}], "]"}], "}"}]}], 
+  ";"}]], "Input",
+ CellLabel->"In[5]:=",ExpressionUUID->"d17b514c-8a20-4a4e-8617-755c46778b9c"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<FindBounce`\>\"", "]"}]], "Input",
+ CellLabel->"In[6]:=",ExpressionUUID->"f81262df-7f6c-45a5-9501-44bf18d6a86b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Uu", "[", "s_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{"6", " ", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"s", "-", 
+        FractionBox["2", "25"]}], ")"}], "2"], " ", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"s", "-", 
+        FractionBox["18", "25"]}], ")"}], "2"]}], "-", 
+    RowBox[{
+     FractionBox["3", "25"], " ", 
+     RowBox[{"(", 
+      RowBox[{"s", "-", 
+       FractionBox["2", "25"]}], ")"}]}]}]}], ";"}]], "Input",
+ CellLabel->"In[7]:=",ExpressionUUID->"f0d916d8-ce96-4cba-a538-195024f44591"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"VuU", "[", "ph_", "]"}], ":=", 
+   RowBox[{"Uu", "[", 
+    FractionBox[
+     SuperscriptBox["ph", "2"], "2"], "]"}]}], ";", 
+  RowBox[{"VppU", "=", 
+   RowBox[{
+    RowBox[{
+     SuperscriptBox["VuU", "\[Prime]\[Prime]",
+      MultilineFunction->None], "[", "#1", "]"}], "&"}]}], ";", 
+  RowBox[{"VaaU", "=", 
+   RowBox[{
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["VuU", "\[Prime]",
+       MultilineFunction->None], "[", "#1", "]"}], "#1"], "&"}]}], ";", 
+  RowBox[{"gU", "=", 
+   FractionBox["7", "10"]}], ";"}]], "Input",
+ CellLabel->"In[8]:=",ExpressionUUID->"fdd0e5ad-c86e-4ca2-855a-cd31312361d7"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"fvU", ",", "tvU"}], "}"}], "=", 
+   RowBox[{"MinMax", "[", 
+    RowBox[{"ph", "/.", "\[VeryThinSpace]", 
+     RowBox[{"Solve", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           SuperscriptBox["VuU", "\[Prime]",
+            MultilineFunction->None], "[", "ph", "]"}], "\[Equal]", "0"}], 
+         ",", 
+         RowBox[{"ph", ">", "0"}]}], "}"}], ",", "ph", ",", 
+       TemplateBox[{},
+        "Reals"]}], "]"}]}], "]"}]}], ";", 
+  RowBox[{"bfU", "=", 
+   RowBox[{"FindBounce", "[", 
+    RowBox[{
+     RowBox[{"VuU", "[", "ph", "]"}], ",", "ph", ",", 
+     RowBox[{"{", 
+      RowBox[{"fvU", ",", "tvU"}], "}"}]}], "]"}]}], ";"}]], "Input",
+ CellLabel->"In[9]:=",ExpressionUUID->"3ba4eb61-604a-4a24-8047-48c3a9bfe965"],
+
+Cell[BoxData[
+ RowBox[{"PolyDetDecayRate", "[", 
+  RowBox[{"Vpp", ",", "bf", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Association", "[", 
+      RowBox[{
+       RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<Fermion\>\""}], ",", 
+       RowBox[{"\"\<Mass\>\"", "\[Rule]", 
+        RowBox[{"Function", "[", 
+         RowBox[{"ph", ",", "ph"}], "]"}]}], ",", 
+       RowBox[{"\"\<Mult\>\"", "\[Rule]", "3"}]}], "]"}], ",", 
+     RowBox[{"Association", "[", 
+      RowBox[{
+       RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<Scalar\>\""}], ",", 
+       RowBox[{"\"\<Mass2\>\"", "\[Rule]", 
+        RowBox[{"Function", "[", 
+         RowBox[{"ph", ",", 
+          RowBox[{
+           FractionBox["1", "2"], "+", 
+           FractionBox[
+            RowBox[{"4", " ", 
+             SuperscriptBox["ph", "2"]}], "5"]}]}], "]"}]}]}], "]"}]}], 
+    "}"}]}], "]"}]], "Input",
+ CellLabel->"In[10]:=",ExpressionUUID->"86cbc800-4618-44f3-b3bb-20301b888cef"],
+
+Cell[BoxData[
+ RowBox[{"PolyDetDecayRate", "[", 
+  RowBox[{"Vpp", ",", "bf", ",", "sectors", ",", 
+   RowBox[{"\"\<Breakdown\>\"", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellLabel->"In[11]:=",ExpressionUUID->"9dbe41c2-2800-495a-8808-016e8804ba0f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->
+  "ExtendedExamples",ExpressionUUID->"5c14d48e-2640-4073-a2da-447180190260"],
+
+Cell["Scope", "ExampleSection",ExpressionUUID->"887db9cd-93e0-4b51-8557-a7bd601e5173"],
+
+Cell["A spectator scalar of field-dependent mass:", "ExampleText",ExpressionUUID->"1154d4aa-c596-497a-bdd9-d14b41eb9e0e"],
+
+Cell[BoxData[
+ RowBox[{"PolyDetDecayRate", "[", 
+  RowBox[{"Vpp", ",", "bf", ",", 
+   RowBox[{"{", 
+    RowBox[{"Association", "[", 
+     RowBox[{
+      RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<Scalar\>\""}], ",", 
+      RowBox[{"\"\<Mass2\>\"", "\[Rule]", 
+       RowBox[{"Function", "[", 
+        RowBox[{"ph", ",", 
+         RowBox[{
+          FractionBox["1", "2"], "+", 
+          FractionBox[
+           RowBox[{"4", " ", 
+            SuperscriptBox["ph", "2"]}], "5"]}]}], "]"}]}]}], "]"}], "}"}]}], 
+  "]"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"41422930-2488-4f06-b345-f69bd53da318"],
+
+Cell["A Dirac fermion with colour multiplicity:", "ExampleText",ExpressionUUID->"3f38ab0e-2b68-43fb-97c6-01f1ad2d03b4"],
+
+Cell[BoxData[
+ RowBox[{"PolyDetDecayRate", "[", 
+  RowBox[{"Vpp", ",", "bf", ",", 
+   RowBox[{"{", 
+    RowBox[{"Association", "[", 
+     RowBox[{
+      RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<Fermion\>\""}], ",", 
+      RowBox[{"\"\<Mass\>\"", "\[Rule]", 
+       RowBox[{"Function", "[", 
+        RowBox[{"ph", ",", "ph"}], "]"}]}], ",", 
+      RowBox[{"\"\<Mult\>\"", "\[Rule]", "3"}]}], "]"}], "}"}]}], 
+  "]"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"11eacf31-02f4-4472-8656-deb9474fc148"],
+
+Cell["Applications", "ExampleSection",ExpressionUUID->"e8d46184-d2c7-488e-b908-ddcc006788a6"],
+
+Cell[TextData[{
+ "The genuine ",
+ "U(1)",
+ " Abelian-Higgs decay rate: the driving (radial Higgs) scalar plus a gauge \
+sector built from the same model. The would-be Goldstone is part of the gauge \
+block; ",
+ StyleBox["VppU",
+  FontSlant->"Italic"],
+ " is the radial second derivative and ",
+ StyleBox["VaaU",
+  FontSlant->"Italic"],
+ " the genuine angular curvature, both from the smooth ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["V",
+    FontSlant->"Italic"], "=", 
+   StyleBox["U",
+    FontSlant->"Italic"], "(", "\[Sigma]", ")"}]], "InlineFormula",
+  ExpressionUUID->"9281d24b-2e3d-48bf-98af-a564c9422bf7"],
+ ". The result is the complete one-loop ",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{"ln", "("}], "\[CapitalGamma]", "/", 
+   StyleBox["V",
+    FontSlant->"Italic"], ")"}]], "InlineFormula",ExpressionUUID->
+  "12658cc0-3d3e-4822-a7ec-f43feaa703e3"],
+ " (Higgs ",
+ Cell[BoxData[
+ "+"], "InlineFormula",ExpressionUUID->"4ddbd092-5fc0-4dba-82fd-3a485ca95d22"],
+ " gauge):"
+}], "ExampleText",ExpressionUUID->"fd8d5591-8c98-4912-ab69-1cf204494e44"],
+
+Cell[BoxData[
+ RowBox[{"PolyDetDecayRate", "[", 
+  RowBox[{"VppU", ",", "bfU", ",", 
+   RowBox[{"{", 
+    RowBox[{"Association", "[", 
+     RowBox[{
+      RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<Gauge\>\""}], ",", 
+      RowBox[{"\"\<Coupling\>\"", "\[Rule]", "gU"}], ",", 
+      RowBox[{"\"\<Vaa\>\"", "\[Rule]", "VaaU"}]}], "]"}], "}"}], ",", 
+   RowBox[{"\"\<Ig\>\"", "\[Rule]", 
+    RowBox[{"-", 
+     FractionBox["277", "10"]}]}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"309130aa-402f-4fa1-827c-1120a3afa82a"],
+
+Cell["Options", "ExampleSection",ExpressionUUID->"f7fef632-ac47-412b-ad6e-abf34dbf1b77"],
+
+Cell["Inspect the per-sector pieces:", "ExampleText",ExpressionUUID->"724542d9-ea14-4910-8287-5413202a3d4d"],
+
+Cell[BoxData[
+ RowBox[{"PolyDetDecayRate", "[", 
+  RowBox[{"Vpp", ",", "bf", ",", "sectors", ",", 
+   RowBox[{"\"\<Breakdown\>\"", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"cc954cf9-ca8e-40c2-b3f9-d7bad7264972"],
+
+Cell["Set the shared renormalisation scale:", "ExampleText",ExpressionUUID->"c1301671-a9da-47b0-a2ef-288780acbc6f"],
+
+Cell[BoxData[
+ RowBox[{"PolyDetDecayRate", "[", 
+  RowBox[{"Vpp", ",", "bf", ",", "sectors", ",", 
+   RowBox[{"\"\<Scale\>\"", "\[Rule]", "2"}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"2fb815eb-d6ba-4e86-83fb-acd7c7784c91"],
+
+Cell["Interactive Examples", "ExampleSection",ExpressionUUID->"f498f341-0304-4345-899f-18444ee51393"],
+
+Cell[TextData[{
+ "Drag the blue ",
+ StyleBox["Locator",
+  FontSlant->"Italic"],
+ " points to reshape the potential V(\[CurlyPhi]); the bounce action and the \
+decay rate ",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{"ln", "("}], "\[CapitalGamma]", "/", 
+   StyleBox["V",
+    FontSlant->"Italic"], ")"}]], "InlineFormula",ExpressionUUID->
+  "47eaf56a-a254-4ee6-8b46-566da338cb7e"],
+ " recompute live. A smooth degree-4 fit of the points supplies the curvature \
+V'' the determinant needs, while ",
+ StyleBox["FindBounce",
+  FontSlant->"Italic"],
+ " builds the polygonal bounce (needs ",
+ StyleBox["FindBounce`",
+  FontSlant->"Italic"],
+ " loaded)."
+}], "ExampleText",ExpressionUUID->"fc12e9c3-276d-407f-8494-43898862da45"],
+
+Cell["\<\
+DynamicModule[{pts = {{-1.3, 0.}, {-0.6, 0.45}, {0., 0.5}, {0.6, 0.25}, {1.3, \
+-0.35}}}, Framed[Row[{LocatorPane[Dynamic[pts], Dynamic[Module[{sp = \
+SortBy[pts, First], vf, x}, vf = Fit[sp, Table[x^k, {k, 0, 4}], x]; \
+Show[Plot[vf, {x, -1.7, 1.7}, PlotStyle -> Directive[Darker[Orange], Thick], \
+PlotRange -> All], Graphics[{Blue, Thick, Line[sp]}], Frame -> True, \
+PlotRange -> {{-1.7, 1.7}, {-0.4, 1.}}, FrameLabel -> {\"\[CurlyPhi]\", \"V(\
+\[CurlyPhi])\"}, ImageSize -> {Automatic, 240}, PlotLabel -> \"drag the \
+points\"]]], LocatorAutoCreate -> True], Spacer[14], Dynamic[Module[{sp = \
+SortBy[pts, First], bf, vf, Vpp, rate, x}, bf = Quiet[FindBounce[sp]]; \
+If[Head[bf] =!= BounceFunction ||  !NumericQ[bf[\"Action\"]] || \
+Re[bf[\"Action\"]] <= 0, Framed[Style[\"no metastable bounce \[LongDash] make \
+a barrier\", Gray, 14], ImageSize -> {340, 240}, Alignment -> Center], vf = \
+Fit[sp, Table[x^k, {k, 0, 4}], x]; Vpp = Function[ph, Evaluate[D[vf, {x, 2}] \
+/. x -> ph]]; rate = Quiet[PolyDetDecayRate[Vpp, bf, {}, \"Target\" -> \
+0.05]]; Column[{BouncePlot[bf, PerformanceGoal -> \"Speed\", ImageSize -> \
+{Automatic, 190}, PlotStyle -> Darker[Yellow, 0.2]], Grid[{{Subscript[\"S\", \
+\"0\"], NumberForm[bf[\"Action\"], 6]}, {\"ln(\[CapitalGamma]/V)\", \
+Style[NumberForm[Re[rate], 6], Bold]}}, Alignment -> {{Right, Left}}, Frame \
+-> All, BaseStyle -> {FontSize -> 13}]}]]], SynchronousUpdating -> False]}, \
+Alignment -> Top]]]\
+\>", "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"a0b7d4ff-9b6d-46cf-8351-14f4bdf47fa6"]
+}, Open  ]]
+},
+TaggingRules->{"Paclet" -> "PolyDet"},
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"5aa45115-0c14-4674-81a0-4d20a319a487"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ExtendedExamples"->{
+  Cell[14187, 386, 137, 2, 70, "ExtendedExamplesSection",ExpressionUUID->"5c14d48e-2640-4073-a2da-447180190260",
+   CellTags->"ExtendedExamples"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ExtendedExamples", 21049, 554}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 102, 0, 70, "CategorizationSection",ExpressionUUID->"1ab06df0-f354-4df3-894d-9a9d40203498"],
+Cell[685, 24, 117, 2, 70, "Categorization",ExpressionUUID->"02905361-ec72-47f5-a873-8dc1e75dd688"],
+Cell[805, 28, 118, 2, 70, "Categorization",ExpressionUUID->"d3f2a2dd-e15c-47ec-a25f-743fde099ab7"],
+Cell[926, 32, 112, 1, 70, "Categorization",ExpressionUUID->"e3c38766-f42f-4bf1-a646-ca4d9fd205b1"],
+Cell[1041, 35, 128, 1, 70, "Categorization",ExpressionUUID->"aa464e12-7cec-4c97-9211-d06f801ebea8"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1206, 41, 90, 0, 70, "KeywordsSection",ExpressionUUID->"5d7c07f5-6cbd-4d15-8ed6-f34640c6fdba"],
+Cell[1299, 43, 85, 0, 70, "Keywords",ExpressionUUID->"b8358ee6-1fba-42f7-bcbe-c62e5082cd38"],
+Cell[1387, 45, 93, 0, 70, "Keywords",ExpressionUUID->"386c2d82-5470-4764-9045-80f65749a0cc"],
+Cell[1483, 47, 87, 0, 70, "Keywords",ExpressionUUID->"1aedc5b7-5cd6-4a34-9747-e05f355b67e8"],
+Cell[1573, 49, 89, 0, 70, "Keywords",ExpressionUUID->"19d3bfa2-2c89-4539-9372-9b16658bf47e"]
+}, Closed]],
+Cell[1677, 52, 93, 0, 70, "ObjectName",ExpressionUUID->"00eeda81-b483-477a-bd23-f7ba9fc71b79"],
+Cell[1773, 54, 1305, 42, 70, "Usage",ExpressionUUID->"c84d9709-3d05-42ed-afe6-21353c4ab1c2"],
+Cell[CellGroupData[{
+Cell[3103, 100, 98, 0, 70, "NotesSection",ExpressionUUID->"1f23d167-3b24-4ef3-839d-f94d6bd0b4bf"],
+Cell[3204, 102, 650, 16, 70, "Notes",ExpressionUUID->"0bfe9ec6-d6c7-49d4-9372-fe2e96ebeb80"],
+Cell[3857, 120, 239, 5, 70, "Notes",ExpressionUUID->"22ab3ca7-ba34-404e-ad08-8211b7b90594"],
+Cell[4099, 127, 4228, 70, 70, "3ColumnTableMod",ExpressionUUID->"e39f5cf2-c80b-4216-997e-fb7578764ad1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8364, 202, 97, 0, 70, "PrimaryExamplesSection",ExpressionUUID->"a0ccb264-8af4-4e6b-a861-00366e28d061"],
+Cell[8464, 204, 151, 2, 70, "Input",ExpressionUUID->"e109906c-6c07-4512-bec8-da9f157ea98f"],
+Cell[8618, 208, 154, 2, 70, "Input",ExpressionUUID->"bf13d49a-4ab0-4b8f-9425-53f78f73fd6d"],
+Cell[8775, 212, 629, 22, 70, "Input",ExpressionUUID->"2a9b88a4-8072-49d8-8d77-28f9478dd236"],
+Cell[9407, 236, 721, 21, 70, "Input",ExpressionUUID->"9731ba10-bdd3-4198-9ae0-bdb9f1362577"],
+Cell[10131, 259, 571, 16, 70, "Input",ExpressionUUID->"d17b514c-8a20-4a4e-8617-755c46778b9c"],
+Cell[10705, 277, 154, 2, 70, "Input",ExpressionUUID->"f81262df-7f6c-45a5-9501-44bf18d6a86b"],
+Cell[10862, 281, 587, 19, 70, "Input",ExpressionUUID->"f0d916d8-ce96-4cba-a538-195024f44591"],
+Cell[11452, 302, 658, 20, 70, "Input",ExpressionUUID->"fdd0e5ad-c86e-4ca2-855a-cd31312361d7"],
+Cell[12113, 324, 840, 25, 70, "Input",ExpressionUUID->"3ba4eb61-604a-4a24-8047-48c3a9bfe965"],
+Cell[12956, 351, 942, 24, 70, "Input",ExpressionUUID->"86cbc800-4618-44f3-b3bb-20301b888cef"],
+Cell[13901, 377, 249, 4, 70, "Input",ExpressionUUID->"9dbe41c2-2800-495a-8808-016e8804ba0f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14187, 386, 137, 2, 70, "ExtendedExamplesSection",ExpressionUUID->"5c14d48e-2640-4073-a2da-447180190260",
+ CellTags->"ExtendedExamples"],
+Cell[14327, 390, 86, 0, 70, "ExampleSection",ExpressionUUID->"887db9cd-93e0-4b51-8557-a7bd601e5173"],
+Cell[14416, 392, 121, 0, 70, "ExampleText",ExpressionUUID->"1154d4aa-c596-497a-bdd9-d14b41eb9e0e"],
+Cell[14540, 394, 603, 16, 70, "Input",ExpressionUUID->"41422930-2488-4f06-b345-f69bd53da318"],
+Cell[15146, 412, 119, 0, 70, "ExampleText",ExpressionUUID->"3f38ab0e-2b68-43fb-97c6-01f1ad2d03b4"],
+Cell[15268, 414, 503, 12, 70, "Input",ExpressionUUID->"11eacf31-02f4-4472-8656-deb9474fc148"],
+Cell[15774, 428, 93, 0, 70, "ExampleSection",ExpressionUUID->"e8d46184-d2c7-488e-b908-ddcc006788a6"],
+Cell[15870, 430, 1051, 30, 70, "ExampleText",ExpressionUUID->"fd8d5591-8c98-4912-ab69-1cf204494e44"],
+Cell[16924, 462, 532, 12, 70, "Input",ExpressionUUID->"309130aa-402f-4fa1-827c-1120a3afa82a"],
+Cell[17459, 476, 88, 0, 70, "ExampleSection",ExpressionUUID->"f7fef632-ac47-412b-ad6e-abf34dbf1b77"],
+Cell[17550, 478, 108, 0, 70, "ExampleText",ExpressionUUID->"724542d9-ea14-4910-8287-5413202a3d4d"],
+Cell[17661, 480, 248, 4, 70, "Input",ExpressionUUID->"cc954cf9-ca8e-40c2-b3f9-d7bad7264972"],
+Cell[17912, 486, 115, 0, 70, "ExampleText",ExpressionUUID->"c1301671-a9da-47b0-a2ef-288780acbc6f"],
+Cell[18030, 488, 241, 4, 70, "Input",ExpressionUUID->"2fb815eb-d6ba-4e86-83fb-acd7c7784c91"],
+Cell[18274, 494, 101, 0, 70, "ExampleSection",ExpressionUUID->"f498f341-0304-4345-899f-18444ee51393"],
+Cell[18378, 496, 715, 20, 70, "ExampleText",ExpressionUUID->"fc12e9c3-276d-407f-8494-43898862da45"],
+Cell[19096, 518, 1551, 22, 70, "Input",ExpressionUUID->"a0b7d4ff-9b6d-46cf-8351-14f4bdf47fa6"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

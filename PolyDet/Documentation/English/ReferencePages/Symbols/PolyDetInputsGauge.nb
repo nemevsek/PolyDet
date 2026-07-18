@@ -1,0 +1,209 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7033,        200]
+NotebookOptionsPosition[      4995,        164]
+NotebookOutlinePosition[      5423,        180]
+CellTagsIndexPosition[      5380,        177]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Categorization", "CategorizationSection",ExpressionUUID->"1410ec18-64f4-4cb1-9d1d-27f10eb47070"],
+
+Cell["Symbol", "Categorization",
+ CellLabel->
+  "Entity Type",ExpressionUUID->"49b26192-b308-4675-b626-56d988bd83aa"],
+
+Cell["PolyDet", "Categorization",
+ CellLabel->
+  "Paclet Name",ExpressionUUID->"d1cf66dc-6a10-41ca-a8b3-f77a7ebb2f0b"],
+
+Cell["PolyDet`", "Categorization",
+ CellLabel->"Context",ExpressionUUID->"791601a3-cc57-469e-836d-3b9025fb84e7"],
+
+Cell["PolyDet/ref/PolyDetInputsGauge", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"d046948f-3673-41f3-9218-387c87f5b86a"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",ExpressionUUID->"0e779d49-878c-45dd-bb51-3022fa697efb"],
+
+Cell["gauge boson", "Keywords",ExpressionUUID->"8bbd2004-94ee-4ec0-99c4-37395090c7b9"],
+
+Cell["FindBounce", "Keywords",ExpressionUUID->"607fd581-c76c-4f08-b3c0-d9966bcf89e4"]
+}, Closed]],
+
+Cell["PolyDetInputsGauge", "ObjectName",ExpressionUUID->"a30b1839-d9fa-488c-be57-e08bcf87dd7f"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  RowBox[{"PolyDetInputsGauge", "[", 
+   RowBox[{
+    StyleBox["bf", "TI"], ",", 
+    StyleBox["g", "TI"], ",", 
+    StyleBox["Vaa", "TI"]}], "]"}]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "45c36d74-34f0-4e05-b338-083ff6a0e773"],
+ "\[LineSeparator]",
+ "extracts ",
+ Cell[BoxData[
+  RowBox[{"{", 
+   StyleBox["mA2",
+    FontSlant->"Italic"], ",", 
+   StyleBox["ma2",
+    FontSlant->"Italic"], ",", 
+   StyleBox["dmA",
+    FontSlant->"Italic"], ",", 
+   StyleBox["radii",
+    FontSlant->"Italic"], "}"}]], "InlineFormula",ExpressionUUID->
+  "66a54626-3ed5-48aa-8833-455b74f64854"],
+ " from a BounceFunction for the U(1) Higgs gauge determinant (",
+ Cell[BoxData[
+  RowBox[{
+   SubsuperscriptBox["m", "A", "2"], "=", 
+   SuperscriptBox["g", "2"], 
+   SuperscriptBox["\[Phi]", "2"]}]], "InlineFormula",ExpressionUUID->
+  "d7230117-7bbf-4748-83a5-1c4e90ef0b0b"],
+ ").",
+ "\n"
+}], "Usage",ExpressionUUID->"ad8ad905-e2c7-4d14-b7f8-096c44d101f1"],
+
+Cell[CellGroupData[{
+
+Cell["Examples", "PrimaryExamplesSection",ExpressionUUID->"8109f04b-f78a-4400-a043-84f23901167a"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<PolyDet`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"b54c0cf3-4d3a-436a-94f0-fa7fd1e25415"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<FindBounce`\>\"", "]"}]], "Input",
+ CellLabel->"In[2]:=",ExpressionUUID->"f5a7e0d6-3b65-4abe-9f28-0135053b4aff"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"V", "[", "x_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "8"], " ", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox["x", "2"], "-", "1"}], ")"}], "2"]}], "+", 
+    FractionBox[
+     RowBox[{"x", "-", "1"}], "10"]}]}], ";", 
+  RowBox[{"Vpp", "=", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"3", " ", 
+        SuperscriptBox["#1", "2"]}], "-", "1"}], ")"}]}], "&"}]}], 
+  ";"}]], "Input",
+ CellLabel->"In[3]:=",ExpressionUUID->"fe08ae96-d8f1-443a-b86e-a0f3d0b5817a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"tv", ",", "mid", ",", "fv"}], "}"}], "=", 
+   RowBox[{"Sort", "[", 
+    RowBox[{"Re", "[", 
+     RowBox[{"x", "/.", "\[VeryThinSpace]", 
+      RowBox[{"NSolve", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          SubscriptBox["\[PartialD]", "x"], 
+          RowBox[{"V", "[", "x", "]"}]}], "\[Equal]", "0"}], ",", "x"}], 
+       "]"}]}], "]"}], "]"}]}], ";", 
+  RowBox[{"bf", "=", 
+   RowBox[{"FindBounce", "[", 
+    RowBox[{
+     RowBox[{"V", "[", "x", "]"}], ",", "x", ",", 
+     RowBox[{"{", 
+      RowBox[{"fv", ",", "tv"}], "}"}]}], "]"}]}], ";"}]], "Input",
+ CellLabel->"In[4]:=",ExpressionUUID->"f04589b0-44f4-461a-92cd-e6e230a6246c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"g", "=", 
+   FractionBox["7", "10"]}], ";", 
+  RowBox[{"gp", "=", 
+   FractionBox["2", "5"]}], ";", 
+  RowBox[{"Vaa", "=", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["#1", "2"], "-", "1"}], ")"}]}], "&"}]}], 
+  ";"}]], "Input",
+ CellLabel->"In[5]:=",ExpressionUUID->"f187eebc-1312-4934-b251-37223e474bc1"],
+
+Cell[BoxData[
+ RowBox[{"PolyDetInputsGauge", "[", 
+  RowBox[{"bf", ",", "g", ",", "Vaa"}], "]"}]], "Input",
+ CellLabel->"In[6]:=",ExpressionUUID->"04ce3efa-d0e1-403b-8cc1-df76052fe94a"]
+}, Open  ]]
+},
+TaggingRules->{"Paclet" -> "PolyDet"},
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"5aa45115-0c14-4674-81a0-4d20a319a487"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 102, 0, 70, "CategorizationSection",ExpressionUUID->"1410ec18-64f4-4cb1-9d1d-27f10eb47070"],
+Cell[685, 24, 117, 2, 70, "Categorization",ExpressionUUID->"49b26192-b308-4675-b626-56d988bd83aa"],
+Cell[805, 28, 118, 2, 70, "Categorization",ExpressionUUID->"d1cf66dc-6a10-41ca-a8b3-f77a7ebb2f0b"],
+Cell[926, 32, 112, 1, 70, "Categorization",ExpressionUUID->"791601a3-cc57-469e-836d-3b9025fb84e7"],
+Cell[1041, 35, 130, 1, 70, "Categorization",ExpressionUUID->"d046948f-3673-41f3-9218-387c87f5b86a"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1208, 41, 90, 0, 70, "KeywordsSection",ExpressionUUID->"0e779d49-878c-45dd-bb51-3022fa697efb"],
+Cell[1301, 43, 86, 0, 70, "Keywords",ExpressionUUID->"8bbd2004-94ee-4ec0-99c4-37395090c7b9"],
+Cell[1390, 45, 85, 0, 70, "Keywords",ExpressionUUID->"607fd581-c76c-4f08-b3c0-d9966bcf89e4"]
+}, Closed]],
+Cell[1490, 48, 95, 0, 70, "ObjectName",ExpressionUUID->"a30b1839-d9fa-488c-be57-e08bcf87dd7f"],
+Cell[1588, 50, 998, 31, 70, "Usage",ExpressionUUID->"ad8ad905-e2c7-4d14-b7f8-096c44d101f1"],
+Cell[CellGroupData[{
+Cell[2611, 85, 97, 0, 70, "PrimaryExamplesSection",ExpressionUUID->"8109f04b-f78a-4400-a043-84f23901167a"],
+Cell[2711, 87, 151, 2, 70, "Input",ExpressionUUID->"b54c0cf3-4d3a-436a-94f0-fa7fd1e25415"],
+Cell[2865, 91, 154, 2, 70, "Input",ExpressionUUID->"f5a7e0d6-3b65-4abe-9f28-0135053b4aff"],
+Cell[3022, 95, 629, 22, 70, "Input",ExpressionUUID->"fe08ae96-d8f1-443a-b86e-a0f3d0b5817a"],
+Cell[3654, 119, 721, 21, 70, "Input",ExpressionUUID->"f04589b0-44f4-461a-92cd-e6e230a6246c"],
+Cell[4378, 142, 413, 14, 70, "Input",ExpressionUUID->"f187eebc-1312-4934-b251-37223e474bc1"],
+Cell[4794, 158, 185, 3, 70, "Input",ExpressionUUID->"04ce3efa-d0e1-403b-8cc1-df76052fe94a"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

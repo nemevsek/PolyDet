@@ -1,0 +1,163 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5558,        154]
+NotebookOptionsPosition[      3800,        121]
+NotebookOutlinePosition[      4228,        137]
+CellTagsIndexPosition[      4185,        134]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Categorization", "CategorizationSection",ExpressionUUID->"d4e85388-21ca-4c1a-a2bf-bee50af42693"],
+
+Cell["Symbol", "Categorization",
+ CellLabel->
+  "Entity Type",ExpressionUUID->"e60b07a6-a43f-4626-a64d-956cbd8d4e13"],
+
+Cell["PolyDet", "Categorization",
+ CellLabel->
+  "Paclet Name",ExpressionUUID->"33bba4e8-3cbe-4ea1-a57f-aa01e9c2e719"],
+
+Cell["PolyDet`", "Categorization",
+ CellLabel->"Context",ExpressionUUID->"bc75249f-997d-40da-b7e4-85efefae38cb"],
+
+Cell["PolyDet/ref/PolyDetLnRGaugeDa", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"45692df3-94f0-4a34-91e2-404d8983a419"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",ExpressionUUID->"16a6f98a-59c9-428a-b059-366827df5415"],
+
+Cell["gauge boson", "Keywords",ExpressionUUID->"d9c2e74a-8f5b-4711-80e0-aadf53d0dafb"],
+
+Cell["Goldstone", "Keywords",ExpressionUUID->"6a67044c-b7c3-4269-9d02-8ce35c9220bf"]
+}, Closed]],
+
+Cell["PolyDetLnRGaugeDa", "ObjectName",ExpressionUUID->"982c7af5-4eb6-4b14-b3bb-2f1b9b85e9c2"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  RowBox[{"PolyDetLnRGaugeDa", "[", 
+   RowBox[{
+    StyleBox["j", "TI"], ",", 
+    StyleBox["mA2", "TI"], ",", 
+    StyleBox["ma2", "TI"], ",", 
+    StyleBox["dmA", "TI"], ",", 
+    StyleBox["radii", "TI"]}], "]"}]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "895108d5-5ea7-429a-b6bd-195a01e77614"],
+ "\[LineSeparator]",
+ "the coupled diagonal-Goldstone block ",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{"ln", " ", "det", " "}], 
+   SubsuperscriptBox["R", "j", 
+    RowBox[{"(", "Da", ")"}]]}]], "InlineFormula",ExpressionUUID->
+  "5b0df656-83b5-4985-8f35-9f53f2151972"],
+ " (consecutive orders ",
+ Cell[BoxData[
+  RowBox[{"{", "j", ",", "j", "+", "2", ",", "j", "+", "1", "}"}]], 
+  "InlineFormula",ExpressionUUID->"dc4e5928-6334-409c-afac-4895c70542fa"],
+ ", gradient jump ",
+ StyleBox["dmA",
+  FontSlant->"Italic"],
+ ").",
+ "\n"
+}], "Usage",ExpressionUUID->"23204064-d44c-4781-9358-4998ac9fa972"],
+
+Cell[CellGroupData[{
+
+Cell["Examples", "PrimaryExamplesSection",ExpressionUUID->"fcce4c02-d113-4376-9806-e664648fcd35"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<PolyDet`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"238c25ee-3c72-4d72-a5a5-12af7c1d1253"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mA2", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox["1", "2"], ",", 
+     FractionBox["1", "5"], ",", "1", ",", 
+     FractionBox["9", "10"]}], "}"}]}], ";", 
+  RowBox[{"ma2", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox["3", "2"], ",", 
+     FractionBox["1", "5"], ",", "1", ",", 
+     FractionBox["2", "5"]}], "}"}]}], ";", 
+  RowBox[{"dmA", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox["1", "2"], ",", 
+     RowBox[{"-", 
+      FractionBox["1", "5"]}], ",", 
+     FractionBox["1", "10"]}], "}"}]}], ";", 
+  RowBox[{"radii", "=", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "5", ",", "7"}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[2]:=",ExpressionUUID->"c147bd5f-bacf-4934-9367-891b2b24af85"],
+
+Cell[BoxData[
+ RowBox[{"PolyDetLnRGaugeDa", "[", 
+  RowBox[{"3", ",", "mA2", ",", "ma2", ",", "dmA", ",", "radii"}], 
+  "]"}]], "Input",
+ CellLabel->"In[3]:=",ExpressionUUID->"2d5452c1-bdbe-44c9-8582-4443d8af6d9c"]
+}, Open  ]]
+},
+TaggingRules->{"Paclet" -> "PolyDet"},
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"5aa45115-0c14-4674-81a0-4d20a319a487"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 102, 0, 70, "CategorizationSection",ExpressionUUID->"d4e85388-21ca-4c1a-a2bf-bee50af42693"],
+Cell[685, 24, 117, 2, 70, "Categorization",ExpressionUUID->"e60b07a6-a43f-4626-a64d-956cbd8d4e13"],
+Cell[805, 28, 118, 2, 70, "Categorization",ExpressionUUID->"33bba4e8-3cbe-4ea1-a57f-aa01e9c2e719"],
+Cell[926, 32, 112, 1, 70, "Categorization",ExpressionUUID->"bc75249f-997d-40da-b7e4-85efefae38cb"],
+Cell[1041, 35, 129, 1, 70, "Categorization",ExpressionUUID->"45692df3-94f0-4a34-91e2-404d8983a419"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1207, 41, 90, 0, 70, "KeywordsSection",ExpressionUUID->"16a6f98a-59c9-428a-b059-366827df5415"],
+Cell[1300, 43, 86, 0, 70, "Keywords",ExpressionUUID->"d9c2e74a-8f5b-4711-80e0-aadf53d0dafb"],
+Cell[1389, 45, 84, 0, 70, "Keywords",ExpressionUUID->"6a67044c-b7c3-4269-9d02-8ce35c9220bf"]
+}, Closed]],
+Cell[1488, 48, 94, 0, 70, "ObjectName",ExpressionUUID->"982c7af5-4eb6-4b14-b3bb-2f1b9b85e9c2"],
+Cell[1585, 50, 953, 28, 70, "Usage",ExpressionUUID->"23204064-d44c-4781-9358-4998ac9fa972"],
+Cell[CellGroupData[{
+Cell[2563, 82, 97, 0, 70, "PrimaryExamplesSection",ExpressionUUID->"fcce4c02-d113-4376-9806-e664648fcd35"],
+Cell[2663, 84, 151, 2, 70, "Input",ExpressionUUID->"238c25ee-3c72-4d72-a5a5-12af7c1d1253"],
+Cell[2817, 88, 750, 24, 70, "Input",ExpressionUUID->"c147bd5f-bacf-4934-9367-891b2b24af85"],
+Cell[3570, 114, 214, 4, 70, "Input",ExpressionUUID->"2d5452c1-bdbe-44c9-8582-4443d8af6d9c"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

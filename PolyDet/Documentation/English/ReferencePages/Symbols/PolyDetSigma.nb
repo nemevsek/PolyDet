@@ -1,0 +1,295 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     12644,        286]
+NotebookOptionsPosition[      9597,        232]
+NotebookOutlinePosition[     10231,        254]
+CellTagsIndexPosition[     10153,        249]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Categorization", "CategorizationSection",ExpressionUUID->"67f58464-fe6a-49d7-a176-6c46e4d299d8"],
+
+Cell["Symbol", "Categorization",
+ CellLabel->
+  "Entity Type",ExpressionUUID->"294cd917-47b9-4403-af4a-ab136188d2e8"],
+
+Cell["PolyDet", "Categorization",
+ CellLabel->
+  "Paclet Name",ExpressionUUID->"8faedb0c-86bf-49df-96f4-c87dc46767a4"],
+
+Cell["PolyDet`", "Categorization",
+ CellLabel->"Context",ExpressionUUID->"101b4a5e-6336-4c99-86f6-9a6079376d51"],
+
+Cell["PolyDet/ref/PolyDetSigma", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"3c8b9cde-53e9-49e6-bc23-1ea0498e3e2a"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",ExpressionUUID->"f1459058-327e-476d-9633-8b37a1c50132"],
+
+Cell["renormalisation", "Keywords",ExpressionUUID->"32a3d965-4513-4b02-b2c8-e804b0f03fd2"],
+
+Cell["optimal truncation", "Keywords",ExpressionUUID->"311d49a5-df00-46ec-b4b5-851de779d181"]
+}, Closed]],
+
+Cell["PolyDetSigma", "ObjectName",ExpressionUUID->"82e650aa-9792-4109-a1f6-f361e7527cde"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  RowBox[{"PolyDetSigma", "[", 
+   RowBox[{
+    StyleBox["masses2", "TI"], ",", 
+    StyleBox["radii", "TI"]}], "]"}]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "1f462fae-1d4a-47f0-9ae6-87bddd889ed6"],
+ "\[LineSeparator]",
+ "the subtracted (UV-regulated, finite) fluctuation-determinant sum ",
+ Cell[BoxData[
+  SubscriptBox["\[CapitalSigma]", "D"]], "InlineFormula",ExpressionUUID->
+  "2d33ce45-ad15-41ac-bdf8-521d516242ef"],
+ " by optimal truncation; add the regulated divergent orders with PolyDetRen.",
+ "\n"
+}], "Usage",ExpressionUUID->"49da1375-40ca-4f86-9c1c-2021483f08c4"],
+
+Cell[CellGroupData[{
+
+Cell["Details and Options", "NotesSection",ExpressionUUID->"552eb48e-74dc-4735-8f10-e06471d462ff"],
+
+Cell[TextData[{
+ "The subtracted, finite multipole sum: every order of the large-",
+ Cell[BoxData[
+ "\[Nu]"], "InlineFormula",ExpressionUUID->
+  "a54fb87f-b363-4131-a209-d4ab411afe75"],
+ " Laurent ",
+ Cell[BoxData[
+  SubscriptBox["I", "p"]], "InlineFormula",ExpressionUUID->
+  "0c7c3ae5-c5cc-4a65-baca-88a7e13d6b32"],
+ " is removed and the convergent part restored by a \[Zeta]-function add-back \
+(optimal truncation)."
+}], "Notes",ExpressionUUID->"c9cef130-514f-4e72-84e1-da055d7405aa"],
+
+Cell["\<\
+Not yet renormalised \[LongDash] the divergent orders are dropped; use \
+PolyDetRen to put them back.\
+\>", "Notes",ExpressionUUID->"54caf987-f35e-4617-8d86-a9a4d9c6bd58"],
+
+Cell[BoxData[GridBox[{
+   {Cell["", "ModInfo",ExpressionUUID->
+     "624cce98-4f1c-403a-8c11-8a614941fb15"], Cell[BoxData[
+     StyleBox["\"\<Dimension\>\"", "InlineCode"]], "TableText",ExpressionUUID->
+     "26cea070-9d4e-466f-bafe-db5089241408"], Cell[BoxData[
+     StyleBox["4", "InlineCode"]], "TableText",ExpressionUUID->
+     "a76a62eb-6ffd-4393-8c71-c143e67740fc"], Cell[
+    "the spacetime dimension D (3 or 4)", "TableText",ExpressionUUID->
+     "f722e0c9-ada4-4c3f-93ca-bf869bf8d5c9"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "51fa89b2-f2aa-49f4-a7b6-6c9bc5ad0de3"], Cell[BoxData[
+     StyleBox["WorkingPrecision", "InlineCode"]], "TableText",ExpressionUUID->
+     "a0f7cdb6-1848-40d7-be6c-6a6edad7f0eb"], Cell[BoxData[
+     StyleBox["Automatic", "InlineCode"]], "TableText",ExpressionUUID->
+     "96057f7f-432b-4dd4-a0ce-0996dc388bea"], Cell["\<\
+the working precision (Automatic chooses machine vs scaled arbitrary \
+precision)\
+\>", "TableText",ExpressionUUID->"b3eb0dd5-ef4e-4e02-9599-9d46d35897f5"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "3eba31b0-6ba8-4758-a276-98c2c4ac8e2c"], Cell[BoxData[
+     StyleBox["\"\<Nsum\>\"", "InlineCode"]], "TableText",ExpressionUUID->
+     "e142e028-72f9-4cb4-bd93-42dd40161c66"], Cell[BoxData[
+     StyleBox["Automatic", "InlineCode"]], "TableText",ExpressionUUID->
+     "3250549d-46ac-4cf3-870a-a873e0ea4653"], Cell["\<\
+the number of multipoles summed explicitly (Automatic: from Target, else ~5 \
+x_max)\
+\>", "TableText",ExpressionUUID->"4de06ec4-cd80-4bb3-a705-da8536f98d34"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "6c553f97-0b82-4b86-8c00-d76a2189d0da"], Cell[BoxData[
+     StyleBox["\"\<Pmax\>\"", "InlineCode"]], "TableText",ExpressionUUID->
+     "087dc345-670a-4cfa-9393-36a65c6999b3"], Cell[BoxData[
+     StyleBox["11", "InlineCode"]], "TableText",ExpressionUUID->
+     "0eb92952-7589-4247-9c0e-69f7550dcae2"], Cell["\<\
+the highest Laurent order subtracted in the optimal truncation\
+\>", "TableText",ExpressionUUID->"e5a8daa1-35f6-4017-bcca-f6fdc3b07229"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "d1b8cce7-294a-42fe-a3a7-53503a78d08b"], Cell[BoxData[
+     StyleBox["\"\<Target\>\"", "InlineCode"]], "TableText",ExpressionUUID->
+     "104c6826-237b-4da2-bab1-0220025a1206"], Cell[BoxData[
+     StyleBox["Automatic", "InlineCode"]], "TableText",ExpressionUUID->
+     "12e4fc3e-3ee7-4fa7-97f0-1fd2acadf389"], Cell["\<\
+the target relative accuracy, which sets Nsum via the nu_max law\
+\>", "TableText",ExpressionUUID->"fe836459-e5b4-4cca-b991-b7db2defbca2"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "efa0e1df-89cf-488d-9147-8a40ac38adea"], Cell[BoxData[
+     StyleBox["\"\<NuMin\>\"", "InlineCode"]], "TableText",ExpressionUUID->
+     "42de70bb-0c0b-4575-89b4-1c36243f84cb"], Cell[BoxData[
+     StyleBox["0", "InlineCode"]], "TableText",ExpressionUUID->
+     "3f857029-c138-4553-b054-aa22e58d6d62"], Cell[
+    "drop multipoles below nu_min (extreme thin-wall fast path)", "TableText",
+     ExpressionUUID->"ce67eb49-b7ac-40e8-8e09-c709b7e14fc1"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "790f2ff3-0813-4ce1-9f2d-8fae1ff255ae"], Cell[BoxData[
+     StyleBox["\"\<Method\>\"", "InlineCode"]], "TableText",ExpressionUUID->
+     "76ec5aa0-f5bc-4e1d-96dc-6d275d223fc5"], Cell[BoxData[
+     StyleBox["\"\<Exact\>\"", "InlineCode"]], "TableText",ExpressionUUID->
+     "060163da-4790-498d-8510-32e04da91bea"], Cell[
+    "option", "TableText",ExpressionUUID->
+     "aecff686-59bd-40e3-b782-6dfb5251be85"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "3bfc12d8-1cc8-4daa-83e0-be286472879d"], Cell[BoxData[
+     StyleBox["\"\<NSub\>\"", "InlineCode"]], "TableText",ExpressionUUID->
+     "18a06c6c-4509-4e76-8621-08f51ed1c07f"], Cell[BoxData[
+     StyleBox["8", "InlineCode"]], "TableText",ExpressionUUID->
+     "3ae3dda9-f96f-4493-90b4-df816ed40096"], Cell[
+    "option", "TableText",ExpressionUUID->
+     "77a5183f-0d89-4a63-8d4f-4635069f1670"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "3cef2144-2b22-4289-a9ec-b777810db32e"], Cell[BoxData[
+     StyleBox["\"\<SubtractFrom\>\"", "InlineCode"]], "TableText",
+     ExpressionUUID->"619425f8-09a0-4c5a-be7e-3e74b475db6d"], Cell[BoxData[
+     StyleBox["Automatic", "InlineCode"]], "TableText",ExpressionUUID->
+     "e13be5b7-4806-4476-8d62-84f6e9229498"], Cell[
+    "option", "TableText",ExpressionUUID->
+     "650e5a97-f822-4b73-af7c-563efeb83f9e"]}
+  },
+  GridBoxAlignment->{
+   "Columns" -> {{Left}}, "Rows" -> {{Baseline}}}]], "3ColumnTableMod",Express\
+ionUUID->"4977ad84-fe57-49cc-99e6-b88dbcae688f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Examples", "PrimaryExamplesSection",ExpressionUUID->"0dcfb7fe-92aa-4dc4-839f-94e2e8be79c7"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<PolyDet`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"9faf9640-a19e-4e6c-8764-2179837935d3"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"m2", "=", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", 
+     RowBox[{"-", 
+      FractionBox["1", "2"]}], ",", "2", ",", 
+     FractionBox["13", "10"]}], "}"}]}], ";", 
+  RowBox[{"r", "=", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "5", ",", "7"}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[2]:=",ExpressionUUID->"1c63f05f-9fbb-41ea-9852-dbef123cf19e"],
+
+Cell[BoxData[
+ RowBox[{"PolyDetSigma", "[", 
+  RowBox[{"m2", ",", "r"}], "]"}]], "Input",
+ CellLabel->"In[3]:=",ExpressionUUID->"801ddf30-fb64-486e-94a3-2dfb3edef0ff"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->
+  "ExtendedExamples",ExpressionUUID->"958263e1-1591-4937-8cb8-567d1dea3093"],
+
+Cell["Options", "ExampleSection",ExpressionUUID->"90396077-f15d-47ae-b883-52abe4ed1d01"],
+
+Cell[TextData[{
+ "Trade accuracy for speed with ",
+ StyleBox["\"Target\"",
+  FontSlant->"Italic"],
+ " (sets ",
+ Cell[BoxData[
+  SubscriptBox["\[Nu]", "max"]], "InlineFormula",ExpressionUUID->
+  "6617f062-fab9-467e-a98d-f6dbd24f7162"],
+ "):"
+}], "ExampleText",ExpressionUUID->"a7946456-31ad-44f0-8783-e80aeb58630d"],
+
+Cell[BoxData[
+ RowBox[{"PolyDetSigma", "[", 
+  RowBox[{"m2", ",", "r", ",", 
+   RowBox[{"\"\<Target\>\"", "\[Rule]", 
+    FractionBox["1", "100"]}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"32a6edc1-0937-4b79-b4d8-8c023c81d8f3"],
+
+Cell["Subtract to a higher Laurent order:", "ExampleText",ExpressionUUID->"89f96c23-1853-4675-ad6d-7c74adf41866"],
+
+Cell[BoxData[
+ RowBox[{"PolyDetSigma", "[", 
+  RowBox[{"m2", ",", "r", ",", 
+   RowBox[{"\"\<Pmax\>\"", "\[Rule]", "8"}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"bd46eade-b2d8-44b2-b4c1-60468bfafa67"]
+}, Open  ]]
+},
+TaggingRules->{"Paclet" -> "PolyDet"},
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"5aa45115-0c14-4674-81a0-4d20a319a487"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ExtendedExamples"->{
+  Cell[8451, 199, 137, 2, 70, "ExtendedExamplesSection",ExpressionUUID->"958263e1-1591-4937-8cb8-567d1dea3093",
+   CellTags->"ExtendedExamples"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ExtendedExamples", 9983, 243}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 102, 0, 70, "CategorizationSection",ExpressionUUID->"67f58464-fe6a-49d7-a176-6c46e4d299d8"],
+Cell[685, 24, 117, 2, 70, "Categorization",ExpressionUUID->"294cd917-47b9-4403-af4a-ab136188d2e8"],
+Cell[805, 28, 118, 2, 70, "Categorization",ExpressionUUID->"8faedb0c-86bf-49df-96f4-c87dc46767a4"],
+Cell[926, 32, 112, 1, 70, "Categorization",ExpressionUUID->"101b4a5e-6336-4c99-86f6-9a6079376d51"],
+Cell[1041, 35, 124, 1, 70, "Categorization",ExpressionUUID->"3c8b9cde-53e9-49e6-bc23-1ea0498e3e2a"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1202, 41, 90, 0, 70, "KeywordsSection",ExpressionUUID->"f1459058-327e-476d-9633-8b37a1c50132"],
+Cell[1295, 43, 90, 0, 70, "Keywords",ExpressionUUID->"32a3d965-4513-4b02-b2c8-e804b0f03fd2"],
+Cell[1388, 45, 93, 0, 70, "Keywords",ExpressionUUID->"311d49a5-df00-46ec-b4b5-851de779d181"]
+}, Closed]],
+Cell[1496, 48, 89, 0, 70, "ObjectName",ExpressionUUID->"82e650aa-9792-4109-a1f6-f361e7527cde"],
+Cell[1588, 50, 637, 15, 70, "Usage",ExpressionUUID->"49da1375-40ca-4f86-9c1c-2021483f08c4"],
+Cell[CellGroupData[{
+Cell[2250, 69, 98, 0, 70, "NotesSection",ExpressionUUID->"552eb48e-74dc-4735-8f10-e06471d462ff"],
+Cell[2351, 71, 488, 11, 70, "Notes",ExpressionUUID->"c9cef130-514f-4e72-84e1-da055d7405aa"],
+Cell[2842, 84, 181, 3, 70, "Notes",ExpressionUUID->"54caf987-f35e-4617-8d86-a9a4d9c6bd58"],
+Cell[3026, 89, 4548, 78, 70, "3ColumnTableMod",ExpressionUUID->"4977ad84-fe57-49cc-99e6-b88dbcae688f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7611, 172, 97, 0, 70, "PrimaryExamplesSection",ExpressionUUID->"0dcfb7fe-92aa-4dc4-839f-94e2e8be79c7"],
+Cell[7711, 174, 151, 2, 70, "Input",ExpressionUUID->"9faf9640-a19e-4e6c-8764-2179837935d3"],
+Cell[7865, 178, 379, 11, 70, "Input",ExpressionUUID->"1c63f05f-9fbb-41ea-9852-dbef123cf19e"],
+Cell[8247, 191, 167, 3, 70, "Input",ExpressionUUID->"801ddf30-fb64-486e-94a3-2dfb3edef0ff"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8451, 199, 137, 2, 70, "ExtendedExamplesSection",ExpressionUUID->"958263e1-1591-4937-8cb8-567d1dea3093",
+ CellTags->"ExtendedExamples"],
+Cell[8591, 203, 88, 0, 70, "ExampleSection",ExpressionUUID->"90396077-f15d-47ae-b883-52abe4ed1d01"],
+Cell[8682, 205, 314, 9, 70, "ExampleText",ExpressionUUID->"a7946456-31ad-44f0-8783-e80aeb58630d"],
+Cell[8999, 216, 245, 5, 70, "Input",ExpressionUUID->"32a6edc1-0937-4b79-b4d8-8c023c81d8f3"],
+Cell[9247, 223, 113, 0, 70, "ExampleText",ExpressionUUID->"89f96c23-1853-4675-ad6d-7c74adf41866"],
+Cell[9363, 225, 218, 4, 70, "Input",ExpressionUUID->"bd46eade-b2d8-44b2-b4c1-60468bfafa67"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

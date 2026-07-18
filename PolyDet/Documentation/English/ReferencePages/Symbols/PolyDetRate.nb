@@ -1,0 +1,298 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11623,        289]
+NotebookOptionsPosition[      8487,        234]
+NotebookOutlinePosition[      9121,        256]
+CellTagsIndexPosition[      9043,        251]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Categorization", "CategorizationSection",ExpressionUUID->"2f8d6058-2c01-4154-8114-a83c0d22c2f8"],
+
+Cell["Symbol", "Categorization",
+ CellLabel->
+  "Entity Type",ExpressionUUID->"f6127bfc-ecd0-43b6-9f8b-ef55cd018caf"],
+
+Cell["PolyDet", "Categorization",
+ CellLabel->
+  "Paclet Name",ExpressionUUID->"d326a4a6-162b-4a86-9582-1b2bb32651e2"],
+
+Cell["PolyDet`", "Categorization",
+ CellLabel->"Context",ExpressionUUID->"67216578-2b11-4335-88a5-6e9ea72b0b06"],
+
+Cell["PolyDet/ref/PolyDetRate", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"1b5802dd-434e-4a52-bac7-caf173e5ef75"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",ExpressionUUID->"f9613d6a-79c4-4599-88d2-02aadaa758ac"],
+
+Cell["decay rate", "Keywords",ExpressionUUID->"8b81d120-e6cc-4ee2-8749-46a95e08a17e"],
+
+Cell["collective coordinate", "Keywords",ExpressionUUID->"2bc7fa31-0f4a-430f-9b39-fb4547513f57"]
+}, Closed]],
+
+Cell["PolyDetRate", "ObjectName",ExpressionUUID->"557724d9-cda5-4eae-bb33-b478f871c000"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  RowBox[{"PolyDetRate", "[", 
+   RowBox[{
+    StyleBox["lndetRen", "TI"], ",", 
+    StyleBox["S0", "TI"]}], "]"}]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "2451e4ce-9ec7-4944-8070-e310fa9cd4b9"],
+ "\[LineSeparator]",
+ "the nucleation-rate prefactor (Callan-Coleman) from the renormalised \
+determinant ",
+ StyleBox["lndetRen",
+  FontSlant->"Italic"],
+ " and the bounce action ",
+ Cell[BoxData[
+  SubscriptBox["S", "0"]], "InlineFormula",ExpressionUUID->
+  "1baa80e5-d932-4f5d-9a6b-d14c75479392"],
+ "; for the full multi-sector rate use PolyDetDecayRate.",
+ "\n"
+}], "Usage",ExpressionUUID->"88dc7b78-2eaa-4f1c-862a-de3e09c0c3ea"],
+
+Cell[CellGroupData[{
+
+Cell["Details and Options", "NotesSection",ExpressionUUID->"9d4b1b5f-c120-46c7-8c0c-ffe7a83264b2"],
+
+Cell[TextData[{
+ "The Callan-Coleman rate prefactor from a precomputed ",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{"ln", " "}], 
+   SubscriptBox["det", "ren"]}]], "InlineFormula",ExpressionUUID->
+  "fd32616d-22b0-4258-a1f1-da6f34747779"],
+ " and the bounce action ",
+ Cell[BoxData[
+  SubscriptBox["S", "0"]], "InlineFormula",ExpressionUUID->
+  "8060be7c-a387-4bca-9fd1-0c36f8980825"],
+ "; ",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{"ln", " "}], 
+   SubscriptBox["det", "ren"]}]], "InlineFormula",ExpressionUUID->
+  "d3f824cb-2224-4684-a06d-523f69133801"],
+ " is the zero-mode-removed (reduced) determinant from PolyDetRen / \
+PolyDetRenMat."
+}], "Notes",ExpressionUUID->"8dc62452-7410-4e13-a81c-ed7386e1be8b"],
+
+Cell["\<\
+For a multi-field model build the full rate with PolyDetDecayRate instead.\
+\>", "Notes",ExpressionUUID->"d33bfcc2-6064-4076-adc9-c392b19f1abf"],
+
+Cell[BoxData[GridBox[{
+   {Cell["", "ModInfo",ExpressionUUID->
+     "be4743a0-98e2-41ed-a309-117c09dd4c8d"], Cell[BoxData[
+     StyleBox["\"\<Dimension\>\"", "InlineCode"]], "TableText",ExpressionUUID->
+     "41b0a3b6-e9c5-4ecd-8346-7c975cdb8e23"], Cell[BoxData[
+     StyleBox["4", "InlineCode"]], "TableText",ExpressionUUID->
+     "1f1edd55-3d5b-410e-894d-7c703e67065c"], Cell[
+    "the spacetime dimension D (3 or 4)", "TableText",ExpressionUUID->
+     "40cdd78a-5d75-4982-a55f-04b0d00c9c4c"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "ec265add-dd5b-4d2a-81a6-eaf76def5b07"], Cell[BoxData[
+     StyleBox["\"\<Goldstones\>\"", "InlineCode"]], "TableText",
+     ExpressionUUID->"df762404-4cd2-4926-a1b6-362261ef269f"], Cell[BoxData[
+     StyleBox["0", "InlineCode"]], "TableText",ExpressionUUID->
+     "49ded7d5-72b7-4142-a6f0-cb9adf92cb92"], Cell["\<\
+the number of broken-global-symmetry Goldstone zero modes to remove\
+\>", "TableText",ExpressionUUID->"0fb9b012-184d-4d4c-8d79-118191c6ac7b"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "5ae83961-844d-457b-84a1-2b6d07c95f8d"], Cell[BoxData[
+     StyleBox["\"\<ChargeNorm\>\"", "InlineCode"]], "TableText",
+     ExpressionUUID->"3d18c186-e0fa-46e5-b898-23272629f37d"], Cell[BoxData[
+     StyleBox["1", "InlineCode"]], "TableText",ExpressionUUID->
+     "b49a716d-7981-4cc3-923f-357546f7434c"], Cell[
+    "the charge norm Q of the Goldstone mode (orbit measure)", "TableText",
+     ExpressionUUID->"3938ec91-ea8a-44df-bf02-189328fbeda3"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "68f1eda9-d1dc-4a96-931b-c5a9dd20f892"], Cell[BoxData[
+     StyleBox["\"\<OrbitVolume\>\"", "InlineCode"]], "TableText",
+     ExpressionUUID->"61ee1ff7-0239-4031-afeb-9a6c5e2ae4f7"], Cell[BoxData[
+     StyleBox[
+      RowBox[{"2", "*", "Pi"}], "InlineCode"]], "TableText",ExpressionUUID->
+     "76bf3c9a-ad2d-405d-98e9-6bfa18389722"], Cell[
+    "the symmetry-orbit volume Vol(G/H) (default 2 Pi for U(1))", "TableText",
+     ExpressionUUID->"2e3450a4-0515-4d95-b8b0-e05bc9ebc968"]}
+  },
+  GridBoxAlignment->{
+   "Columns" -> {{Left}}, "Rows" -> {{Baseline}}}]], "3ColumnTableMod",Express\
+ionUUID->"9869d691-4ede-4e17-acab-21657c39ce53"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Examples", "PrimaryExamplesSection",ExpressionUUID->"f724501e-0994-47fe-9f70-8fa2fd30afb0"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<PolyDet`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"cb049606-0b5a-4451-9ca1-a578705edc80"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<FindBounce`\>\"", "]"}]], "Input",
+ CellLabel->"In[2]:=",ExpressionUUID->"4a6bf7de-6fc2-4c2b-8d2f-f90f9389b17a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"V", "[", "x_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "8"], " ", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox["x", "2"], "-", "1"}], ")"}], "2"]}], "+", 
+    FractionBox[
+     RowBox[{"x", "-", "1"}], "10"]}]}], ";", 
+  RowBox[{"Vpp", "=", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"3", " ", 
+        SuperscriptBox["#1", "2"]}], "-", "1"}], ")"}]}], "&"}]}], 
+  ";"}]], "Input",
+ CellLabel->"In[3]:=",ExpressionUUID->"3b9948ec-cb1d-4618-a96a-e14497783679"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"tv", ",", "mid", ",", "fv"}], "}"}], "=", 
+   RowBox[{"Sort", "[", 
+    RowBox[{"Re", "[", 
+     RowBox[{"x", "/.", "\[VeryThinSpace]", 
+      RowBox[{"NSolve", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          SubscriptBox["\[PartialD]", "x"], 
+          RowBox[{"V", "[", "x", "]"}]}], "\[Equal]", "0"}], ",", "x"}], 
+       "]"}]}], "]"}], "]"}]}], ";", 
+  RowBox[{"bf", "=", 
+   RowBox[{"FindBounce", "[", 
+    RowBox[{
+     RowBox[{"V", "[", "x", "]"}], ",", "x", ",", 
+     RowBox[{"{", 
+      RowBox[{"fv", ",", "tv"}], "}"}]}], "]"}]}], ";"}]], "Input",
+ CellLabel->"In[4]:=",ExpressionUUID->"87945b1e-594b-4866-adfe-4a7f2a75e955"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"lndetRen", "=", 
+   RowBox[{"PolyDet", "[", 
+    RowBox[{
+     RowBox[{"V", "[", "x", "]"}], ",", "x", ",", "bf"}], "]"}]}], ";", 
+  RowBox[{"S0", "=", 
+   RowBox[{"bf", "[", "\"\<Action\>\"", "]"}]}], ";"}]], "Input",
+ CellLabel->"In[5]:=",ExpressionUUID->"092a84eb-94b0-4455-bc0e-54191ea4a517"],
+
+Cell[BoxData[
+ RowBox[{"PolyDetRate", "[", 
+  RowBox[{"lndetRen", ",", "S0"}], "]"}]], "Input",
+ CellLabel->"In[6]:=",ExpressionUUID->"04e56130-9777-49b2-a950-36387e792618"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->
+  "ExtendedExamples",ExpressionUUID->"c25eae7e-c6bf-4ce0-9c7a-27c43100c98c"],
+
+Cell["Options", "ExampleSection",ExpressionUUID->"19201d85-188a-4d9a-a48c-700bace56499"],
+
+Cell["A broken global U(1) adds a Goldstone orbit measure:", "ExampleText",ExpressionUUID->"a2037d49-258d-4b55-aa70-231c7f24c9e1"],
+
+Cell[BoxData[
+ RowBox[{"PolyDetRate", "[", 
+  RowBox[{"lndetRen", ",", "S0", ",", 
+   RowBox[{"\"\<Goldstones\>\"", "\[Rule]", "1"}], ",", 
+   RowBox[{"\"\<OrbitVolume\>\"", "\[Rule]", 
+    RowBox[{"2", " ", "\[Pi]"}]}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"5fc588ae-3169-408d-80b8-73297883dcdd"]
+}, Open  ]]
+},
+TaggingRules->{"Paclet" -> "PolyDet"},
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"5aa45115-0c14-4674-81a0-4d20a319a487"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ExtendedExamples"->{
+  Cell[7790, 217, 137, 2, 70, "ExtendedExamplesSection",ExpressionUUID->"c25eae7e-c6bf-4ce0-9c7a-27c43100c98c",
+   CellTags->"ExtendedExamples"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ExtendedExamples", 8873, 245}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 102, 0, 70, "CategorizationSection",ExpressionUUID->"2f8d6058-2c01-4154-8114-a83c0d22c2f8"],
+Cell[685, 24, 117, 2, 70, "Categorization",ExpressionUUID->"f6127bfc-ecd0-43b6-9f8b-ef55cd018caf"],
+Cell[805, 28, 118, 2, 70, "Categorization",ExpressionUUID->"d326a4a6-162b-4a86-9582-1b2bb32651e2"],
+Cell[926, 32, 112, 1, 70, "Categorization",ExpressionUUID->"67216578-2b11-4335-88a5-6e9ea72b0b06"],
+Cell[1041, 35, 123, 1, 70, "Categorization",ExpressionUUID->"1b5802dd-434e-4a52-bac7-caf173e5ef75"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1201, 41, 90, 0, 70, "KeywordsSection",ExpressionUUID->"f9613d6a-79c4-4599-88d2-02aadaa758ac"],
+Cell[1294, 43, 85, 0, 70, "Keywords",ExpressionUUID->"8b81d120-e6cc-4ee2-8749-46a95e08a17e"],
+Cell[1382, 45, 96, 0, 70, "Keywords",ExpressionUUID->"2bc7fa31-0f4a-430f-9b39-fb4547513f57"]
+}, Closed]],
+Cell[1493, 48, 88, 0, 70, "ObjectName",ExpressionUUID->"557724d9-cda5-4eae-bb33-b478f871c000"],
+Cell[1584, 50, 690, 19, 70, "Usage",ExpressionUUID->"88dc7b78-2eaa-4f1c-862a-de3e09c0c3ea"],
+Cell[CellGroupData[{
+Cell[2299, 73, 98, 0, 70, "NotesSection",ExpressionUUID->"9d4b1b5f-c120-46c7-8c0c-ffe7a83264b2"],
+Cell[2400, 75, 702, 19, 70, "Notes",ExpressionUUID->"8dc62452-7410-4e13-a81c-ed7386e1be8b"],
+Cell[3105, 96, 154, 2, 70, "Notes",ExpressionUUID->"d33bfcc2-6064-4076-adc9-c392b19f1abf"],
+Cell[3262, 100, 2180, 37, 70, "3ColumnTableMod",ExpressionUUID->"9869d691-4ede-4e17-acab-21657c39ce53"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5479, 142, 97, 0, 70, "PrimaryExamplesSection",ExpressionUUID->"f724501e-0994-47fe-9f70-8fa2fd30afb0"],
+Cell[5579, 144, 151, 2, 70, "Input",ExpressionUUID->"cb049606-0b5a-4451-9ca1-a578705edc80"],
+Cell[5733, 148, 154, 2, 70, "Input",ExpressionUUID->"4a6bf7de-6fc2-4c2b-8d2f-f90f9389b17a"],
+Cell[5890, 152, 629, 22, 70, "Input",ExpressionUUID->"3b9948ec-cb1d-4618-a96a-e14497783679"],
+Cell[6522, 176, 721, 21, 70, "Input",ExpressionUUID->"87945b1e-594b-4866-adfe-4a7f2a75e955"],
+Cell[7246, 199, 331, 8, 70, "Input",ExpressionUUID->"092a84eb-94b0-4455-bc0e-54191ea4a517"],
+Cell[7580, 209, 173, 3, 70, "Input",ExpressionUUID->"04e56130-9777-49b2-a950-36387e792618"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7790, 217, 137, 2, 70, "ExtendedExamplesSection",ExpressionUUID->"c25eae7e-c6bf-4ce0-9c7a-27c43100c98c",
+ CellTags->"ExtendedExamples"],
+Cell[7930, 221, 88, 0, 70, "ExampleSection",ExpressionUUID->"19201d85-188a-4d9a-a48c-700bace56499"],
+Cell[8021, 223, 130, 0, 70, "ExampleText",ExpressionUUID->"a2037d49-258d-4b55-aa70-231c7f24c9e1"],
+Cell[8154, 225, 317, 6, 70, "Input",ExpressionUUID->"5fc588ae-3169-408d-80b8-73297883dcdd"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

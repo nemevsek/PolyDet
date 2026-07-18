@@ -1,0 +1,457 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     18847,        448]
+NotebookOptionsPosition[     15306,        389]
+NotebookOutlinePosition[     15942,        411]
+CellTagsIndexPosition[     15863,        406]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Categorization", "CategorizationSection",ExpressionUUID->"2f4cd95a-099f-4eb5-8cd0-cd605258cdfb"],
+
+Cell["Symbol", "Categorization",
+ CellLabel->
+  "Entity Type",ExpressionUUID->"1bcee4a5-531f-4ce4-b654-8cd3d2f0f882"],
+
+Cell["PolyDet", "Categorization",
+ CellLabel->
+  "Paclet Name",ExpressionUUID->"52e1081b-2ff8-466a-ba72-9767567a80c2"],
+
+Cell["PolyDet`", "Categorization",
+ CellLabel->"Context",ExpressionUUID->"5172b8e7-24b7-4da5-b4c3-ccc6330ae6fe"],
+
+Cell["PolyDet/ref/PolyDetSigmaGaugeNonAbelian", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"7501e3e4-e623-47e8-adcc-5caa7c037e2d"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",ExpressionUUID->"21e6933c-f3a2-474e-a205-2921b7d98929"],
+
+Cell["gauge boson", "Keywords",ExpressionUUID->"c0228da1-268d-427d-a186-4c1b39310190"],
+
+Cell["non-Abelian", "Keywords",ExpressionUUID->"001d093d-f7c2-41ea-aaa1-8a30e2b10bb1"],
+
+Cell["SU(2)", "Keywords",ExpressionUUID->"bc3f655c-d79f-4a0e-9715-684a570dfc62"],
+
+Cell["Standard Model", "Keywords",ExpressionUUID->"1780a79c-52c9-4b7f-9fad-96f95515d514"]
+}, Closed]],
+
+Cell["PolyDetSigmaGaugeNonAbelian", "ObjectName",ExpressionUUID->"80a3e001-0334-489a-a9c6-4d62683a9f9a"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  RowBox[{"PolyDetSigmaGaugeNonAbelian", "[", 
+   RowBox[{
+    StyleBox["bf", "TI"], ",", 
+    StyleBox[Cell[BoxData[
+      RowBox[{"{", "{", 
+       SubscriptBox["g", "1"], ",", 
+       SubscriptBox["n", "1"], "}", ",", "\[Ellipsis]", "}"}]], 
+      "InlineFormula",ExpressionUUID->"b1c46761-4605-4f70-b1a1-640f67840325"],
+      "TI"]}], "]"}]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "23e98060-08ca-47ed-8a6b-9504f117e220"],
+ "\[LineSeparator]",
+ "the non-Abelian gauge-boson determinant as a sum of Abelian ",
+ Cell[BoxData[
+  SubscriptBox["\[CapitalSigma]", "gauge"]], "InlineFormula",ExpressionUUID->
+  "625cf9a4-619c-46ad-9bfa-39ec68e9780a"],
+ " blocks: along a fixed bounce direction ",
+ Cell[BoxData[
+  SubsuperscriptBox["M", "A", "2"]], "InlineFormula",ExpressionUUID->
+  "c09c2c8d-eca1-4096-9d48-847d2d34ce74"],
+ " = C ",
+ Cell[BoxData[
+  SubscriptBox["\[Phi]", "b"]], "InlineFormula",ExpressionUUID->
+  "3f71af07-ed02-44fd-9302-e52ea9b6f564"],
+ Cell[BoxData[
+ "\[VeryThinSpace]"], "InlineFormula",ExpressionUUID->
+  "a7ce78cb-407d-4e54-8325-b8257968f90a"],
+ " has a constant eigenbasis, so ",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{"ln", " "}], 
+   SubscriptBox["det", "ren"]}]], "InlineFormula",ExpressionUUID->
+  "d0494748-e786-4b14-8004-c6c1dcf70996"],
+ " factorises into per-channel U(1) determinants with effective couplings ",
+ Cell[BoxData[
+  SubscriptBox["g", "a"]], "InlineFormula",ExpressionUUID->
+  "5d9acec0-3942-4551-b9f6-21ad1b93c3e2"],
+ " and multiplicities ",
+ Cell[BoxData[
+  SubscriptBox["n", "a"]], "InlineFormula",ExpressionUUID->
+  "985d90ef-7319-4eb5-bc79-764cd3cef973"],
+ " (massless ",
+ Cell[BoxData[
+  RowBox[{
+   SubscriptBox["g", "a"], "=", "0"}]], "InlineFormula",ExpressionUUID->
+  "f813ad01-4358-4338-90fc-cdd1146a2bee"],
+ ", e.g. the photon, contribute 0). Returns ",
+ Cell[BoxData[
+  RowBox[{"\[LeftAssociation]", "\[CapitalSigma]", ",", 
+   SubsuperscriptBox["I", "1", "eff"], ",", 
+   SubsuperscriptBox["I", "3", "eff"], ",", 
+   SubscriptBox["I", "g"], ",", 
+   SubscriptBox["N", "sum"], "\[RightAssociation]"}]], "InlineFormula",
+  ExpressionUUID->"65def13e-6051-4b65-8d34-6d9eecf2abbf"],
+ " ",
+ Cell[BoxData[
+  RowBox[{"<|", "Sigma", ",", "Channels", "|>"}]], "InlineFormula",
+  ExpressionUUID->"53b87cc3-2a49-45d1-a3d9-ced80d361e09"],
+ ".",
+ "\n"
+}], "Usage",ExpressionUUID->"f898a358-f9ef-4eb2-bc42-1b7b1d16fca5"],
+
+Cell[CellGroupData[{
+
+Cell["Details and Options", "NotesSection",ExpressionUUID->"35d177ad-c92c-4d03-a618-00f540d3bd00"],
+
+Cell[TextData[{
+ "For a bounce along a fixed direction the gauge mass matrix ",
+ Cell[BoxData[
+  SubsuperscriptBox["M", "A", "2"]], "InlineFormula",ExpressionUUID->
+  "7cb387ec-f1c5-4601-b5a8-3f420289d506"],
+ " has a constant eigenbasis, so the determinant factorises into independent \
+U(1) ",
+ Cell[BoxData[
+  SubscriptBox["\[CapitalSigma]", "gauge"]], "InlineFormula",ExpressionUUID->
+  "7c0434ee-0ced-4d9c-9f38-2d4e1563a893"],
+ " blocks \[LongDash] one per coupling eigenvalue ",
+ Cell[BoxData[
+  SubscriptBox["g", "a"]], "InlineFormula",ExpressionUUID->
+  "0bd481b1-bd2d-43c3-a222-68c64e977474"],
+ ", weighted by its multiplicity ",
+ Cell[BoxData[
+  SubscriptBox["n", "a"]], "InlineFormula",ExpressionUUID->
+  "a7357617-6b9b-4e92-b4bc-db3e80a359e4"],
+ "."
+}], "Notes",ExpressionUUID->"96979940-5288-4c37-a242-57478698f738"],
+
+Cell[TextData[{
+ "Massless channels (",
+ Cell[BoxData[
+  RowBox[{
+   SubscriptBox["g", "a"], "=", "0"}]], "InlineFormula",ExpressionUUID->
+  "c5385bd7-2607-4105-9d89-2abebe8c2617"],
+ ", e.g. the photon) contribute 0. The group enters the rate only through the \
+orbit volume ",
+ Cell[BoxData[
+  RowBox[{"Vol", "(", "G", "/", "H", ")"}]], "InlineFormula",ExpressionUUID->
+  "c187ac24-1e45-40b0-b233-75781ee0a490"],
+ "."
+}], "Notes",ExpressionUUID->"65438a34-6282-42ca-a1da-ffc5eb204790"],
+
+Cell[BoxData[GridBox[{
+   {Cell["", "ModInfo",ExpressionUUID->
+     "7dd87e2a-6ede-4234-bfd0-c8279a4093fe"], Cell[BoxData[
+     StyleBox["\"\<Vaa\>\"", "InlineCode"]], "TableText",ExpressionUUID->
+     "27829367-0de8-48e6-8059-ff38304439c1"], Cell[BoxData[
+     StyleBox[
+      RowBox[{
+       RowBox[{"0", " ", "&"}], " "}], "InlineCode"]], "TableText",
+     ExpressionUUID->"f22581d3-14df-480f-b568-0d45516d1a18"], Cell["\<\
+the transverse (Goldstone) curvature d^2 V/d a^2 as a pure function of the \
+field\
+\>", "TableText",ExpressionUUID->"720d5d43-8deb-4f01-bac2-df2c8c222be5"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "89b1371b-7f5e-4ac7-b373-fb043fd97e6b"], Cell[BoxData[
+     StyleBox["\"\<Pmax\>\"", "InlineCode"]], "TableText",ExpressionUUID->
+     "6e42d7eb-bd35-49c6-a9ed-6564a3ee6c7b"], Cell[BoxData[
+     StyleBox["6", "InlineCode"]], "TableText",ExpressionUUID->
+     "b373ee90-318b-4e17-848f-5c24b474dbba"], Cell["\<\
+the highest Laurent order subtracted in the optimal truncation\
+\>", "TableText",ExpressionUUID->"b09fb0cc-927a-41ad-870e-7b4c5d341510"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "c39bd96f-fca3-4e38-9cf0-2e4e096c8c11"], Cell[BoxData[
+     StyleBox["\"\<Nsum\>\"", "InlineCode"]], "TableText",ExpressionUUID->
+     "01e7b1c5-890f-4e20-bc89-a8de31b165bd"], Cell[BoxData[
+     StyleBox["Automatic", "InlineCode"]], "TableText",ExpressionUUID->
+     "1672532a-1c4d-45eb-883f-9ba7ce020438"], Cell["\<\
+the number of multipoles summed explicitly (Automatic: from Target, else ~5 \
+x_max)\
+\>", "TableText",ExpressionUUID->"df5cff31-0c37-4b9b-ae56-00f2ef23a881"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "78e7918e-07c6-44ac-ac97-b3b2758e835c"], Cell[BoxData[
+     StyleBox["WorkingPrecision", "InlineCode"]], "TableText",ExpressionUUID->
+     "ce75f641-224f-4335-a57f-80cde9f5ea0c"], Cell[BoxData[
+     StyleBox["Automatic", "InlineCode"]], "TableText",ExpressionUUID->
+     "f42e00b6-14fc-4352-bfa8-cd65c0a8438f"], Cell["\<\
+the working precision (Automatic chooses machine vs scaled arbitrary \
+precision)\
+\>", "TableText",ExpressionUUID->"5fe090cf-97dd-4fad-ae34-cf40b3aab0e1"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "df9e9ed5-3324-4865-aa56-ca8308ce9055"], Cell[BoxData[
+     StyleBox["\"\<Ig\>\"", "InlineCode"]], "TableText",ExpressionUUID->
+     "33ac28d6-8b9d-4c56-b798-595f2a2f25eb"], Cell[BoxData[
+     StyleBox["Automatic", "InlineCode"]], "TableText",ExpressionUUID->
+     "dc364ad8-4751-439b-be33-553c3260d8d7"], Cell["\<\
+the gauge gradient coefficient I_g (Automatic: polygon fit; or a number = the \
+moment)\
+\>", "TableText",ExpressionUUID->"6ae7398b-b4cf-47b4-bc18-573f56935711"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "a234a381-045c-42dc-bab2-40b1e32c6481"], Cell[BoxData[
+     StyleBox["\"\<Xi\>\"", "InlineCode"]], "TableText",ExpressionUUID->
+     "abc0ab00-0faf-468c-8978-ba8dbaba24b9"], Cell[BoxData[
+     StyleBox["1", "InlineCode"]], "TableText",ExpressionUUID->
+     "780f367b-9e32-4e95-97f4-969ce7a420fa"], Cell["\<\
+the gauge parameter xi (1 = background Feynman; xi != 1 uses the chi-reduced \
+longitudinal block)\
+\>", "TableText",ExpressionUUID->"f0636fa7-9339-4941-917b-29fe15a1d3bb"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "c8f43e4e-75ce-4cb6-b569-ad09169e1e11"], Cell[BoxData[
+     StyleBox["\"\<Dimension\>\"", "InlineCode"]], "TableText",ExpressionUUID->
+     "fc9e3d9d-aa10-4f43-8658-a5cb7b2fcf92"], Cell[BoxData[
+     StyleBox["4", "InlineCode"]], "TableText",ExpressionUUID->
+     "91ba2ff2-680a-4aa5-9828-84265b11319f"], Cell[
+    "the spacetime dimension D (3 or 4)", "TableText",ExpressionUUID->
+     "89333d0d-fd44-4cc2-9a0d-f67d49c0ebbc"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "b5e31fb5-ffc6-46b1-83e7-6a755c0adee0"], Cell[BoxData[
+     StyleBox["\"\<Method\>\"", "InlineCode"]], "TableText",ExpressionUUID->
+     "47693230-f2fd-4e05-8eeb-264eff7bc15b"], Cell[BoxData[
+     StyleBox["\"\<Exact\>\"", "InlineCode"]], "TableText",ExpressionUUID->
+     "6f2cf706-2bd5-4546-90f6-8e1dae6895d1"], Cell[
+    "option", "TableText",ExpressionUUID->
+     "acbc827e-940b-4325-b1cc-c6f3572144ff"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "ac0e436a-6033-4c0e-b812-4f8c6325326c"], Cell[BoxData[
+     StyleBox["\"\<NSub\>\"", "InlineCode"]], "TableText",ExpressionUUID->
+     "728530d2-fe21-46b4-a234-39dc13867e02"], Cell[BoxData[
+     StyleBox["8", "InlineCode"]], "TableText",ExpressionUUID->
+     "1638998e-c5a6-4bc4-9589-fc9cd8399823"], Cell[
+    "option", "TableText",ExpressionUUID->
+     "837ab6b7-2fa6-4c1f-a7b3-e9a4a27b1c6e"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "bd3c40b5-74ee-429a-ad73-2b3fec912d0d"], Cell[BoxData[
+     StyleBox["\"\<ZeroRemoval\>\"", "InlineCode"]], "TableText",
+     ExpressionUUID->"66fb6bd7-4e83-47e6-b74f-fde0e920a856"], Cell[BoxData[
+     StyleBox["False", "InlineCode"]], "TableText",ExpressionUUID->
+     "95c2ee28-3fcd-4676-af6c-d9991f68e662"], Cell["\<\
+remove the l=1 translational zero modes (via the reduced ratio R_1')\
+\>", "TableText",ExpressionUUID->"d6a78b3e-9e8e-4be6-b181-e7d9bbc60a78"]}
+  },
+  GridBoxAlignment->{
+   "Columns" -> {{Left}}, "Rows" -> {{Baseline}}}]], "3ColumnTableMod",Express\
+ionUUID->"0a922b34-a154-4e56-9417-b5ed27245f54"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Examples", "PrimaryExamplesSection",ExpressionUUID->"007884d2-2838-429b-9fff-ecc2bcd9647a"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<PolyDet`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"c71a4228-95c0-4ee1-9849-7957005a264b"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<FindBounce`\>\"", "]"}]], "Input",
+ CellLabel->"In[2]:=",ExpressionUUID->"61f70ceb-a1c7-4c30-8b04-c9b765ec65a4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"V", "[", "x_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "8"], " ", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox["x", "2"], "-", "1"}], ")"}], "2"]}], "+", 
+    FractionBox[
+     RowBox[{"x", "-", "1"}], "10"]}]}], ";"}]], "Input",
+ CellLabel->"In[3]:=",ExpressionUUID->"9e186c44-d395-4033-a5ec-3e677e9eb548"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"tv", ",", "mid", ",", "fv"}], "}"}], "=", 
+   RowBox[{"Sort", "[", 
+    RowBox[{"Re", "[", 
+     RowBox[{"x", "/.", "\[VeryThinSpace]", 
+      RowBox[{"NSolve", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          SubscriptBox["\[PartialD]", "x"], 
+          RowBox[{"V", "[", "x", "]"}]}], "\[Equal]", "0"}], ",", "x"}], 
+       "]"}]}], "]"}], "]"}]}], ";", 
+  RowBox[{"bf", "=", 
+   RowBox[{"FindBounce", "[", 
+    RowBox[{
+     RowBox[{"V", "[", "x", "]"}], ",", "x", ",", 
+     RowBox[{"{", 
+      RowBox[{"fv", ",", "tv"}], "}"}], ",", 
+     RowBox[{"FieldPoints", "\[Rule]", "9"}]}], "]"}]}], ";"}]], "Input",
+ CellLabel->"In[4]:=",ExpressionUUID->"f4ea5b33-a708-4162-914e-6e138f76c22d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"g", "=", 
+   FractionBox["7", "10"]}], ";", 
+  RowBox[{"gp", "=", 
+   FractionBox["2", "5"]}], ";", 
+  RowBox[{"Vaa", "=", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["#1", "2"], "-", "1"}], ")"}]}], "&"}]}], 
+  ";"}]], "Input",
+ CellLabel->"In[5]:=",ExpressionUUID->"c1978855-43f1-493e-8c45-715efe5bb495"],
+
+Cell[BoxData[
+ RowBox[{"PolyDetSigmaGaugeNonAbelian", "[", 
+  RowBox[{"bf", ",", 
+   RowBox[{"{", 
+    RowBox[{"{", 
+     RowBox[{"g", ",", "1"}], "}"}], "}"}], ",", 
+   RowBox[{"\"\<Vaa\>\"", "\[Rule]", "Vaa"}], ",", 
+   RowBox[{"\"\<Ig\>\"", "\[Rule]", 
+    RowBox[{"-", "540"}]}], ",", 
+   RowBox[{"\"\<Nsum\>\"", "\[Rule]", "24"}]}], "]"}]], "Input",
+ CellLabel->"In[6]:=",ExpressionUUID->"5ff2e714-11f1-47f4-8020-7d67387c703b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->
+  "ExtendedExamples",ExpressionUUID->"d1be1791-82ba-4385-908b-05f7dcffa861"],
+
+Cell["Applications", "ExampleSection",ExpressionUUID->"b6a337c1-1cf1-4c16-be43-b6a969165351"],
+
+Cell[TextData[{
+ "SU(2) doublet \[LongDash] three degenerate ",
+ Cell[BoxData[
+  SubscriptBox["m", "W"]], "InlineFormula",ExpressionUUID->
+  "72f83b73-f637-40f9-9f62-53a4a52a6a7c"],
+ " channels:"
+}], "ExampleText",ExpressionUUID->"87e8028d-757c-41f9-9459-8ccf818dc8a4"],
+
+Cell[BoxData[
+ RowBox[{"PolyDetSigmaGaugeNonAbelian", "[", 
+  RowBox[{"bf", ",", 
+   RowBox[{"{", 
+    RowBox[{"{", 
+     RowBox[{
+      FractionBox["g", "2"], ",", "3"}], "}"}], "}"}], ",", 
+   RowBox[{"\"\<Vaa\>\"", "\[Rule]", "Vaa"}], ",", 
+   RowBox[{"\"\<Ig\>\"", "\[Rule]", 
+    RowBox[{"-", "540"}]}], ",", 
+   RowBox[{"\"\<Nsum\>\"", "\[Rule]", "24"}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"7e6c6e55-29b4-44df-b9d8-9b0f74762430"],
+
+Cell["\<\
+Standard-Model electroweak \[LongDash] two W, one Z, one (massless) photon:\
+\>", "ExampleText",ExpressionUUID->"c11452b2-b029-46f4-9ecd-675bc2d9a995"],
+
+Cell[BoxData[
+ RowBox[{"PolyDetSigmaGaugeNonAbelian", "[", 
+  RowBox[{"bf", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["g", "2"], ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        SqrtBox[
+         RowBox[{
+          SuperscriptBox["g", "2"], "+", 
+          SuperscriptBox["gp", "2"]}]]}], ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"\"\<Vaa\>\"", "\[Rule]", "Vaa"}], ",", 
+   RowBox[{"\"\<Ig\>\"", "\[Rule]", 
+    RowBox[{"-", "540"}]}], ",", 
+   RowBox[{"\"\<Nsum\>\"", "\[Rule]", "24"}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"e15e21e4-5ac9-41d4-874f-fcb13ac3e3de"]
+}, Open  ]]
+},
+TaggingRules->{"Paclet" -> "PolyDet"},
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"5aa45115-0c14-4674-81a0-4d20a319a487"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ExtendedExamples"->{
+  Cell[13389, 333, 137, 2, 70, "ExtendedExamplesSection",ExpressionUUID->"d1be1791-82ba-4385-908b-05f7dcffa861",
+   CellTags->"ExtendedExamples"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ExtendedExamples", 15692, 400}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 102, 0, 70, "CategorizationSection",ExpressionUUID->"2f4cd95a-099f-4eb5-8cd0-cd605258cdfb"],
+Cell[685, 24, 117, 2, 70, "Categorization",ExpressionUUID->"1bcee4a5-531f-4ce4-b654-8cd3d2f0f882"],
+Cell[805, 28, 118, 2, 70, "Categorization",ExpressionUUID->"52e1081b-2ff8-466a-ba72-9767567a80c2"],
+Cell[926, 32, 112, 1, 70, "Categorization",ExpressionUUID->"5172b8e7-24b7-4da5-b4c3-ccc6330ae6fe"],
+Cell[1041, 35, 139, 1, 70, "Categorization",ExpressionUUID->"7501e3e4-e623-47e8-adcc-5caa7c037e2d"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1217, 41, 90, 0, 70, "KeywordsSection",ExpressionUUID->"21e6933c-f3a2-474e-a205-2921b7d98929"],
+Cell[1310, 43, 86, 0, 70, "Keywords",ExpressionUUID->"c0228da1-268d-427d-a186-4c1b39310190"],
+Cell[1399, 45, 86, 0, 70, "Keywords",ExpressionUUID->"001d093d-f7c2-41ea-aaa1-8a30e2b10bb1"],
+Cell[1488, 47, 80, 0, 70, "Keywords",ExpressionUUID->"bc3f655c-d79f-4a0e-9715-684a570dfc62"],
+Cell[1571, 49, 89, 0, 70, "Keywords",ExpressionUUID->"1780a79c-52c9-4b7f-9fad-96f95515d514"]
+}, Closed]],
+Cell[1675, 52, 104, 0, 70, "ObjectName",ExpressionUUID->"80a3e001-0334-489a-a9c6-4d62683a9f9a"],
+Cell[1782, 54, 2421, 62, 70, "Usage",ExpressionUUID->"f898a358-f9ef-4eb2-bc42-1b7b1d16fca5"],
+Cell[CellGroupData[{
+Cell[4228, 120, 98, 0, 70, "NotesSection",ExpressionUUID->"35d177ad-c92c-4d03-a618-00f540d3bd00"],
+Cell[4329, 122, 828, 19, 70, "Notes",ExpressionUUID->"96979940-5288-4c37-a242-57478698f738"],
+Cell[5160, 143, 486, 12, 70, "Notes",ExpressionUUID->"65438a34-6282-42ca-a1da-ffc5eb204790"],
+Cell[5649, 157, 5217, 91, 70, "3ColumnTableMod",ExpressionUUID->"0a922b34-a154-4e56-9417-b5ed27245f54"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10903, 253, 97, 0, 70, "PrimaryExamplesSection",ExpressionUUID->"007884d2-2838-429b-9fff-ecc2bcd9647a"],
+Cell[11003, 255, 151, 2, 70, "Input",ExpressionUUID->"c71a4228-95c0-4ee1-9849-7957005a264b"],
+Cell[11157, 259, 154, 2, 70, "Input",ExpressionUUID->"61f70ceb-a1c7-4c30-8b04-c9b765ec65a4"],
+Cell[11314, 263, 411, 13, 70, "Input",ExpressionUUID->"9e186c44-d395-4033-a5ec-3e677e9eb548"],
+Cell[11728, 278, 773, 22, 70, "Input",ExpressionUUID->"f4ea5b33-a708-4162-914e-6e138f76c22d"],
+Cell[12504, 302, 413, 14, 70, "Input",ExpressionUUID->"c1978855-43f1-493e-8c45-715efe5bb495"],
+Cell[12920, 318, 432, 10, 70, "Input",ExpressionUUID->"5ff2e714-11f1-47f4-8020-7d67387c703b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13389, 333, 137, 2, 70, "ExtendedExamplesSection",ExpressionUUID->"d1be1791-82ba-4385-908b-05f7dcffa861",
+ CellTags->"ExtendedExamples"],
+Cell[13529, 337, 93, 0, 70, "ExampleSection",ExpressionUUID->"b6a337c1-1cf1-4c16-be43-b6a969165351"],
+Cell[13625, 339, 269, 6, 70, "ExampleText",ExpressionUUID->"87e8028d-757c-41f9-9459-8ccf818dc8a4"],
+Cell[13897, 347, 457, 11, 70, "Input",ExpressionUUID->"7e6c6e55-29b4-44df-b9d8-9b0f74762430"],
+Cell[14357, 360, 161, 2, 70, "ExampleText",ExpressionUUID->"c11452b2-b029-46f4-9ecd-675bc2d9a995"],
+Cell[14521, 364, 769, 22, 70, "Input",ExpressionUUID->"e15e21e4-5ac9-41d4-874f-fcb13ac3e3de"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

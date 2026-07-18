@@ -1,0 +1,657 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     23463,        648]
+NotebookOptionsPosition[     19483,        595]
+NotebookOutlinePosition[     19910,        611]
+CellTagsIndexPosition[     19867,        608]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Categorization", "CategorizationSection",ExpressionUUID->"9ba28cc5-f26d-489d-890e-9e2e446dbf57"],
+
+Cell["Tutorial", "Categorization",
+ CellLabel->
+  "Entity Type",ExpressionUUID->"6bc042c7-3c71-4f33-a77c-211ae416ecfc"],
+
+Cell["PolyDet", "Categorization",
+ CellLabel->
+  "Paclet Name",ExpressionUUID->"553075dd-2545-4bb8-880d-5cc1a2306e12"],
+
+Cell["PolyDet`", "Categorization",
+ CellLabel->"Context",ExpressionUUID->"6296bf55-aa0a-461e-9039-f03642169d3b"],
+
+Cell["PolyDet/tutorial/RGImprovedRate", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"1f09bca9-7dd7-4a7d-b41e-364805682fc3"]
+}, Closed]],
+
+Cell["The RG-Improved Decay Rate", "Title",ExpressionUUID->"64442fd1-46f9-4ba8-a281-bd9541625487"],
+
+Cell[TextData[{
+ "The one-loop rate depends on the renormalisation scale ",
+ Cell[BoxData[
+ "\[Mu]"], "InlineFormula",ExpressionUUID->
+  "de15d974-695a-4cea-b061-7f283affd5dc"],
+ " only through the first neglected (two-loop) order, so the variation of ",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{"ln", "("}], "\[CapitalGamma]", "/", 
+   StyleBox["V",
+    FontSlant->"Italic"], ")"}]], "InlineFormula",ExpressionUUID->
+  "928c0254-0ce8-4aff-b9b5-faf40da179a7"],
+ " as ",
+ Cell[BoxData[
+ "\[Mu]"], "InlineFormula",ExpressionUUID->
+  "5b4f1fdd-b66f-4df1-9e16-0aa81f11a778"],
+ " is moved around ",
+ Cell[BoxData[
+  OverscriptBox["m", "^"]], "InlineFormula",ExpressionUUID->
+  "25eb1338-df11-4953-8d3e-ca86538c9b8a"],
+ " (the false-vacuum mass) is a standard estimate of the higher-order \
+correction. ",
+ "This tutorial runs the single-scalar thin-wall model with two-loop \
+\[Beta]-functions and reads off that band. ",
+ "The complete scan is the shippable example ",
+ StyleBox["Examples/RGImprovedRate.wl",
+  FontSlant->"Italic"],
+ "."
+}], "Text",ExpressionUUID->"90a8c811-fd2a-4f77-ac17-26a4f61b44fb"],
+
+Cell["Power counting", "TutorialSection",ExpressionUUID->"0acc1da0-3489-405b-9b3b-65c7f67a270f"],
+
+Cell[TextData[{
+ "Rescaling ",
+ Cell[BoxData[
+  RowBox[{"\[Phi]", "=", 
+   RowBox[{"v", " ", 
+    OverscriptBox["\[Phi]", "~"]}]}]], "InlineFormula",ExpressionUUID->
+  "f7f8bed9-a6e4-4480-83a7-07d5cb5afa05"],
+ " puts the coupling out front, ",
+ Cell[BoxData[
+  RowBox[{"S", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"1", "/", "\[Lambda]"}], ")"}], " ", 
+    OverscriptBox["S", "^"], "[", 
+    OverscriptBox["\[Phi]", "~"], "]"}]}]], "InlineFormula",ExpressionUUID->
+  "d1bc2001-5171-4c1c-9931-e10b5a831f15"],
+ ", so ",
+ Cell[BoxData[
+  RowBox[{"1", "/", "\[Lambda]"}]], "InlineFormula",ExpressionUUID->
+  "32789651-722e-4e8d-af0d-23ce172f342f"],
+ " plays the role of ",
+ Cell[BoxData[
+  RowBox[{"1", "/", "\[HBar]"}]], "InlineFormula",ExpressionUUID->
+  "eec07699-97c1-4fdb-afb2-885dfa670f5a"],
+ " and the loop expansion is an expansion in \[Lambda]: the bounce ",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{"-", 
+    OverscriptBox["S", "^"]}], "/", "\[Lambda]"}]], "InlineFormula",
+  ExpressionUUID->"464bc0e7-d22a-4e25-9142-f580eed30321"],
+ " is LO ",
+ Cell[BoxData[
+  RowBox[{"O", "(", 
+   RowBox[{"1", "/", "\[Lambda]"}], ")"}]], "InlineFormula",ExpressionUUID->
+  "999dd04f-2ac9-4cca-b1c6-f6c4fc791991"],
+ ", the one-loop determinant is NLO ",
+ Cell[BoxData[
+  RowBox[{"O", "(", "1", ")"}]], "InlineFormula",ExpressionUUID->
+  "21ef3710-cc7c-4ac9-8135-baa873cc9026"],
+ ", and two loops are ",
+ Cell[BoxData[
+  RowBox[{
+   SubsuperscriptBox["N", "", "2"], "LO"}]], "InlineFormula",ExpressionUUID->
+  "28e0f380-370c-4610-91f4-b3047821d80b"],
+ " ",
+ Cell[BoxData[
+  RowBox[{"O", "(", "\[Lambda]", ")"}]], "InlineFormula",ExpressionUUID->
+  "42f6d5c3-4d09-4e6f-a1d9-25ae5da70ff3"],
+ "."
+}], "Text",ExpressionUUID->"31b41f83-510f-4bb6-842c-7ccd532a665f"],
+
+Cell["Load the packages", "TutorialSection",ExpressionUUID->"64c6086e-0d41-4edc-90a4-e6ea3a65582c"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<PolyDet`\>\"", "]"}]], "Input",ExpressionUUID->"8b473601-fc32-43ec-89f2-12fefe6a12dd"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<FindBounce`\>\"", "]"}]], "Input",ExpressionUUID->"1fca72c4-262a-4bf5-8ce1-5995d18ebaf2"],
+
+Cell["Two-loop running", "TutorialSection",ExpressionUUID->"76fb3d40-6856-46e4-ac5e-950fcf23e4f7"],
+
+Cell[TextData[{
+ "The real-singlet \[Beta]-functions (in the ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["V",
+    FontSlant->"Italic"], "\[Superset]", 
+   RowBox[{"\[Lambda]", " ", 
+    SuperscriptBox["\[Phi]", "4"], "/", "8"}]}]], "InlineFormula",
+  ExpressionUUID->"d68a60f2-1bbf-4780-92f1-11ead1282661"],
+ " normalisation, ",
+ Cell[BoxData[
+  RowBox[{"h", "=", 
+   RowBox[{"1", "/", 
+    RowBox[{"(", 
+     RowBox[{"16", 
+      SuperscriptBox["\[Pi]", "2"]}], ")"}]}]}]], "InlineFormula",
+  ExpressionUUID->"e7868550-a0db-4950-b854-1e15d7c36381"],
+ ") are ",
+ Cell[BoxData[
+  RowBox[{
+   SubscriptBox["\[Beta]", "\[Lambda]"], "=", 
+   RowBox[{
+    RowBox[{"9", "h", " ", 
+     SuperscriptBox["\[Lambda]", "2"]}], "-", 
+    RowBox[{"51", 
+     SuperscriptBox["h", "2"], 
+     SuperscriptBox["\[Lambda]", "3"]}]}]}]], "InlineFormula",ExpressionUUID->
+  "65ec8ea6-2836-4c3c-ae81-cf9bed4c70fb"],
+ " and ",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{
+    SubscriptBox["\[Beta]", 
+     RowBox[{"m", "2"}]], "/", 
+    SubsuperscriptBox["m", "", "2"]}], "=", 
+   RowBox[{
+    RowBox[{"3", "h", " ", "\[Lambda]"}], "-", 
+    RowBox[{
+     FractionBox["15", "2"], 
+     SuperscriptBox["h", "2"], 
+     SuperscriptBox["\[Lambda]", "2"]}]}]}]], "InlineFormula",ExpressionUUID->
+  "c6741021-8a0c-4ae9-a798-96fbbc3f9e33"],
+ ". They are produced by the RGBeta package (Thomsen, arXiv:2101.08265); here \
+we use the values directly. Integrate the couplings from ",
+ Cell[BoxData[
+  OverscriptBox["m", "^"]], "InlineFormula",ExpressionUUID->
+  "a223d109-9418-49cc-9bf9-a2f9e49c9117"],
+ " (",
+ Cell[BoxData[
+  RowBox[{"u", "=", 
+   RowBox[{
+    RowBox[{"ln", " "}], "\[Mu]"}], "=", "0"}]], "InlineFormula",
+  ExpressionUUID->"5a5930b8-a042-4a83-a7f0-78121501d7b7"],
+ ") outward, once at one loop and once at two:"
+}], "Text",ExpressionUUID->"5822681b-7df2-45c6-a425-275e5f0d4da6"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"h", "=", 
+   RowBox[{"N", "[", 
+    FractionBox["1", 
+     RowBox[{"16", " ", 
+      SuperscriptBox["\[Pi]", "2"]}]], "]"}]}], ";"}]], "Input",ExpressionUUID\
+->"f410c181-e55d-4e27-bc1f-0b21e928334c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"bLam", "[", 
+    RowBox[{"lam_", ",", "ord_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"9", " ", "h", " ", 
+     SuperscriptBox["lam", "2"]}], "-", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"ord", "\[Equal]", "2"}], ",", 
+      RowBox[{"51", " ", 
+       SuperscriptBox["h", "2"], " ", 
+       SuperscriptBox["lam", "3"]}], ",", "0"}], "]"}]}]}], ";"}]], "Input",Ex\
+pressionUUID->"1a811269-6737-4146-9a48-b352da87242f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"bMm", "[", 
+    RowBox[{"lam_", ",", "ord_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"3", " ", "h", " ", "lam"}], "-", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"ord", "\[Equal]", "2"}], ",", 
+      FractionBox[
+       RowBox[{"15", " ", 
+        SuperscriptBox["h", "2"], " ", 
+        SuperscriptBox["lam", "2"]}], "2"], ",", "0"}], "]"}]}]}], 
+  ";"}]], "Input",ExpressionUUID->"91d04a42-612f-4a28-9048-81e23cb44c24"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"flow", "[", "ord_", "]"}], ":=", 
+  RowBox[{"NDSolveValue", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        SuperscriptBox["la", "\[Prime]",
+         MultilineFunction->None], "[", "u", "]"}], "\[Equal]", 
+       RowBox[{"bLam", "[", 
+        RowBox[{
+         RowBox[{"la", "[", "u", "]"}], ",", "ord"}], "]"}]}], ",", 
+      RowBox[{
+       RowBox[{
+        SuperscriptBox["mm", "\[Prime]",
+         MultilineFunction->None], "[", "u", "]"}], "\[Equal]", 
+       RowBox[{
+        RowBox[{"bMm", "[", 
+         RowBox[{
+          RowBox[{"la", "[", "u", "]"}], ",", "ord"}], "]"}], " ", 
+        RowBox[{"mm", "[", "u", "]"}]}]}], ",", 
+      RowBox[{
+       RowBox[{"la", "[", "0", "]"}], "\[Equal]", "1"}], ",", 
+      RowBox[{
+       RowBox[{"mm", "[", "0", "]"}], "\[Equal]", 
+       RowBox[{"-", 
+        FractionBox["1", "4"]}]}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"la", ",", "mm"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"u", ",", 
+      RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "]"}]}]], "Input",ExpressionUUI\
+D->"222cc7f6-fae0-443c-85d4-4862423cc67b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"la1", ",", "mm1"}], "}"}], "=", 
+   RowBox[{"flow", "[", "1", "]"}]}], ";", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"la2", ",", "mm2"}], "}"}], "=", 
+   RowBox[{"flow", "[", "2", "]"}]}], ";"}]], "Input",ExpressionUUID->\
+"96a8e47f-84c0-4c38-a3eb-a6c16027d029"],
+
+Cell["The one-loop rate", "TutorialSection",ExpressionUUID->"4e87237e-e81f-49b3-8559-5b4069222cfb"],
+
+Cell[TextData[{
+ "Take the thin-wall bounce at ",
+ Cell[BoxData[
+  RowBox[{"\[CapitalDelta]", "=", 
+   FractionBox["1", "20"]}]], "InlineFormula",ExpressionUUID->
+  "09d0af3f-f9c7-4f7d-82c1-9c9582037aeb"],
+ ", extract the segment masses and radii, and evaluate the renormalised \
+determinant at ",
+ Cell[BoxData[
+  RowBox[{"\[Mu]", "=", 
+   OverscriptBox["m", "^"]}]], "InlineFormula",ExpressionUUID->
+  "8a8eac52-2c0d-42d4-b99f-3af9e840e05e"],
+ " (the scale ",
+ Cell[BoxData[
+  RowBox[{
+   SubscriptBox["\[Mu]", "B"], "=", 
+   RowBox[{
+    SuperscriptBox["e", 
+     RowBox[{"\[Gamma]", "/", "2"}]], "/", 
+    RowBox[{"(", 
+     RowBox[{"2", 
+      SqrtBox["\[Pi]"]}], ")"}]}]}]], "InlineFormula",ExpressionUUID->
+  "9434eb6b-52c9-4e1f-9b47-28d114078f9b"],
+ "). We also need the log-coefficient ",
+ Cell[BoxData[
+  SubscriptBox["I", "3"]], "InlineFormula",ExpressionUUID->
+  "0fe7dfb2-864b-4c2e-b82a-d2eb01f8f327"],
+ " (the determinant runs as ",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{"d", 
+    SubscriptBox["\[CapitalSigma]", "D"], 
+    RowBox[{"/", "d"}], "ln", "\[Mu]"}], "=", 
+   SubscriptBox["I", "3"]}]], "InlineFormula",ExpressionUUID->
+  "1f72f2b8-0938-489e-b573-95a494ae75fb"],
+ ") and the tree action ",
+ Cell[BoxData[
+  SubscriptBox["S", "0"]], "InlineFormula",ExpressionUUID->
+  "dc6af6fe-b31a-4c7e-bd06-07934e2e8f37"],
+ ":"
+}], "Text",ExpressionUUID->"ccdd412d-8cf5-459e-95de-fad2523b33d0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"V", "[", "p_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "8"], " ", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox["p", "2"], "-", "1"}], ")"}], "2"]}], "+", 
+    FractionBox[
+     RowBox[{"p", "-", "1"}], "20"]}]}], ";", 
+  RowBox[{"Vpp", "=", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"3", " ", 
+        SuperscriptBox["#1", "2"]}], "-", "1"}], ")"}]}], "&"}]}], 
+  ";"}]], "Input",ExpressionUUID->"b5e386cb-d923-4758-9751-fdae743b07e3"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"tv", ",", "mid", ",", "fv"}], "}"}], "=", 
+   RowBox[{"Sort", "[", 
+    RowBox[{"Re", "[", 
+     RowBox[{"p", "/.", "\[VeryThinSpace]", 
+      RowBox[{"NSolve", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          SuperscriptBox["V", "\[Prime]",
+           MultilineFunction->None], "[", "p", "]"}], "\[Equal]", "0"}], ",", 
+        "p"}], "]"}]}], "]"}], "]"}]}], ";"}]], "Input",ExpressionUUID->\
+"b3a07b89-d407-4a79-ae0b-4f28e30f6bde"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"bf", "=", 
+   RowBox[{"FindBounce", "[", 
+    RowBox[{
+     RowBox[{"V", "[", "p", "]"}], ",", "p", ",", 
+     RowBox[{"{", 
+      RowBox[{"fv", ",", "tv"}], "}"}]}], "]"}]}], ";"}]], "Input",ExpressionU\
+UID->"0214d596-84c0-42be-8d68-e906546ac555"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"m2s", ",", "radii"}], "}"}], "=", 
+   RowBox[{"PolyDetInputs", "[", 
+    RowBox[{"Vpp", ",", "bf"}], "]"}]}], ";"}]], "Input",ExpressionUUID->\
+"3ce31a2f-2bb4-4c38-9f72-e283c5974ac0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"muB", "=", 
+   FractionBox[
+    RowBox[{"Exp", "[", 
+     FractionBox["EulerGamma", "2"], "]"}], 
+    RowBox[{"2", " ", 
+     SqrtBox["\[Pi]"]}]]}], ";"}]], "Input",ExpressionUUID->"2196600f-09cf-\
+4974-8a3e-7e5c0ed81cac"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"lndet0", "=", 
+   RowBox[{"PolyDetRen", "[", 
+    RowBox[{"m2s", ",", "radii", ",", 
+     RowBox[{"\"\<Scale\>\"", "\[Rule]", "muB"}], ",", 
+     RowBox[{"\"\<Target\>\"", "\[Rule]", 
+      FractionBox["1", "1000"]}]}], "]"}]}], ";"}]], "Input",ExpressionUUID->\
+"e578ffe0-1b73-4a01-8e48-ad73ae7801f9"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"I3", "=", 
+   RowBox[{
+    RowBox[{"PolyDetIp", "[", 
+     RowBox[{"m2s", ",", "radii", ",", "3"}], "]"}], "\[LeftDoubleBracket]", 
+    "3", "\[RightDoubleBracket]"}]}], ";", 
+  RowBox[{"S0hat", "=", 
+   RowBox[{"bf", "[", "\"\<Action\>\"", "]"}]}], ";"}]], "Input",ExpressionUUI\
+D->"7f34538e-6965-4ae1-ad49-ac2e3abbd976"],
+
+Cell["Assembling the rate at any scale", "TutorialSection",ExpressionUUID->"510abc2f-e76c-4e04-b71c-2c463530b13a"],
+
+Cell[TextData[{
+ "At scale \[Mu] the couplings give ",
+ Cell[BoxData[
+  RowBox[{
+   SubscriptBox["S", "0"], "(", "\[Mu]", ")"}]], "InlineFormula",
+  ExpressionUUID->"8c1e6ffb-c1ee-41fa-8f9f-7ced5013403e"],
+ "=",
+ Cell[BoxData[
+  RowBox[{
+   OverscriptBox["S", "^"], "/", 
+   RowBox[{"\[Lambda]", "(", "\[Mu]", ")"}]}]], "InlineFormula",
+  ExpressionUUID->"56736ac8-9979-41cd-9d1f-5b1a2f6f25f9"],
+ ", the determinant shifts by ",
+ Cell[BoxData[
+  RowBox[{
+   SubscriptBox["I", "3"], " ", "ln", 
+   RowBox[{"(", 
+    RowBox[{"\[Mu]", "/", 
+     OverscriptBox["m", "^"]}], ")"}]}]], "InlineFormula",ExpressionUUID->
+  "132a4ca3-d0fa-4020-92d6-61270dd3c2b6"],
+ ", and the dimensionful ",
+ Cell[BoxData[
+  SuperscriptBox[
+   OverscriptBox["m", "^"], "4"]], "InlineFormula",ExpressionUUID->
+  "4b4679ea-36a9-4982-afe4-c99ad6637af5"],
+ " of the prefactor restores the units. PolyDetRate does the Callan-Coleman \
+assembly:"
+}], "Text",ExpressionUUID->"6ab4ae8f-5a83-4540-aeec-1a8e7951f740"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"rate", "[", 
+   RowBox[{"la_", ",", "mm_", ",", "mu_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"laU", "=", 
+       RowBox[{"la", "[", 
+        RowBox[{"Log", "[", "mu", "]"}], "]"}]}], ",", 
+      RowBox[{"m2U", "=", 
+       RowBox[{"mm", "[", 
+        RowBox[{"Log", "[", "mu", "]"}], "]"}]}], ",", "mhU"}], "}"}], ",", 
+    RowBox[{
+     RowBox[{"mhU", "=", 
+      RowBox[{
+       SqrtBox["laU"], " ", 
+       SqrtBox[
+        RowBox[{"-", 
+         FractionBox[
+          RowBox[{"4", " ", "m2U"}], "laU"]}]]}]}], ";", 
+     RowBox[{
+      RowBox[{"PolyDetRate", "[", 
+       RowBox[{
+        RowBox[{"lndet0", "+", 
+         RowBox[{"I3", " ", 
+          RowBox[{"Log", "[", 
+           FractionBox["mu", "mhU"], "]"}]}]}], ",", 
+        FractionBox["S0hat", "laU"]}], "]"}], "+", 
+      RowBox[{"4", " ", 
+       RowBox[{"Log", "[", "mhU", "]"}]}]}]}]}], "]"}]}]], "Input",ExpressionU\
+UID->"3b854c0d-7e4d-410e-9c78-5aca8580a24f"],
+
+Cell[BoxData[
+ RowBox[{"rate", "[", 
+  RowBox[{"la1", ",", "mm1", ",", "1"}], "]"}]], "Input",ExpressionUUID->\
+"31fac2fc-2e68-48e0-bd1a-5fefa8835729"],
+
+Cell["Scale variation as a higher-order estimate", "TutorialSection",ExpressionUUID->"d8a9e324-1f27-406d-a32a-a37740d05cb6"],
+
+Cell[TextData[{
+ "Vary ",
+ Cell[BoxData[
+ "\[Mu]"], "InlineFormula",ExpressionUUID->
+  "501a393b-beb6-4e7e-97bb-3b7bb93c3706"],
+ " over ",
+ Cell[BoxData[
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{
+     OverscriptBox["m", "^"], "/", "2"}], ",", 
+    RowBox[{"2", 
+     OverscriptBox["m", "^"]}]}], ")"}]], "InlineFormula",ExpressionUUID->
+  "da1c2843-a6cc-4ad0-9ac2-2e58cb170b34"],
+ ". With one-loop running the band is tiny \[LongDash] the explicit ",
+ Cell[BoxData[
+  RowBox[{
+   SubscriptBox["I", "3"], " ", "ln", "\[Mu]"}]], "InlineFormula",
+  ExpressionUUID->"be06284c-4923-4446-bdc7-9a1bea02d655"],
+ " of the determinant cancels the one-loop running of \[Lambda] in the action \
+(the Baratella cancellation ",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{"d", 
+    RowBox[{"/", "d"}], "ln", "\[Mu]"}], "[", 
+   RowBox[{
+    SubscriptBox["S", "R"], "+", 
+    RowBox[{
+     FractionBox["1", "2"], 
+     SubscriptBox["\[CapitalSigma]", "D"]}]}], "]"}]], "InlineFormula",
+  ExpressionUUID->"e1f2e588-bb77-4e12-8604-28cb57530496"],
+ "=",
+ "0",
+ "), and ",
+ Cell[BoxData[
+  RowBox[{"\[Mu]", "=", 
+   OverscriptBox["m", "^"]}]], "InlineFormula",ExpressionUUID->
+  "bdc3c857-2989-49af-90c2-f8a01e7843a2"],
+ " sits near the stationary point:"
+}], "Text",ExpressionUUID->"af1f1f77-bcd0-42f2-9657-f1636a34dbc3"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"b1", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"rate", "[", 
+       RowBox[{"la1", ",", "mm1", ",", "#1"}], "]"}], "&"}], ")"}], "/@", 
+    RowBox[{"{", 
+     RowBox[{
+      FractionBox["1", "2"], ",", "1", ",", "2"}], "}"}]}]}], ";", 
+  FractionBox[
+   RowBox[{"100", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Max", "[", "b1", "]"}], "-", 
+      RowBox[{"Min", "[", "b1", "]"}]}], ")"}]}], 
+   RowBox[{"Abs", "[", 
+    RowBox[{"b1", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+    "]"}]]}]], "Input",ExpressionUUID->"3bbc8761-e6c9-48ed-ab2e-548cc86dbed0"],
+
+Cell[TextData[{
+ "Two-loop running of \[Lambda] in ",
+ Cell[BoxData[
+  SubscriptBox["S", "0"]], "InlineFormula",ExpressionUUID->
+  "82288d2a-4628-44b6-89aa-554245a819fd"],
+ " has no matching two-loop determinant, so it un-balances the cancellation \
+and exposes the genuine ",
+ Cell[BoxData[
+  RowBox[{
+   SubsuperscriptBox["N", "", "2"], "LO"}]], "InlineFormula",ExpressionUUID->
+  "889b8db3-64f7-4fdb-91da-66fe10668581"],
+ "-size sensitivity \[LongDash] the honest uncertainty of the one-loop rate:"
+}], "Text",ExpressionUUID->"765fd9e7-76b0-4afc-8edb-260653a65815"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"b2", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"rate", "[", 
+       RowBox[{"la2", ",", "mm2", ",", "#1"}], "]"}], "&"}], ")"}], "/@", 
+    RowBox[{"{", 
+     RowBox[{
+      FractionBox["1", "2"], ",", "1", ",", "2"}], "}"}]}]}], ";", 
+  FractionBox[
+   RowBox[{"100", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Max", "[", "b2", "]"}], "-", 
+      RowBox[{"Min", "[", "b2", "]"}]}], ")"}]}], 
+   RowBox[{"Abs", "[", 
+    RowBox[{"b2", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+    "]"}]]}]], "Input",ExpressionUUID->"5ebbe63d-638b-4ed4-93b7-6f3ad1405c93"],
+
+Cell[TextData[{
+ "The one-loop band is a few ",
+ Cell[BoxData[
+  SuperscriptBox["10", 
+   RowBox[{"-", "3"}]]], "InlineFormula",ExpressionUUID->
+  "98766f93-64f9-48fc-9f57-b441ddfeffef"],
+ "%, the two-loop band a few tenths of a percent. Scanning \[CapitalDelta] \
+and plotting both bands is the standalone example ",
+ StyleBox["Examples/RGImprovedRate.wl",
+  FontSlant->"Italic"],
+ ", which also extracts the \[Beta]-functions from RGBeta directly."
+}], "Text",ExpressionUUID->"dbe017d9-4d1b-432a-9922-7d5152b0b45e"]
+},
+TaggingRules->{"Paclet" -> "PolyDet"},
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Tutorial.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"5aa45115-0c14-4674-81a0-4d20a319a487"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 102, 0, 70, "CategorizationSection",ExpressionUUID->"9ba28cc5-f26d-489d-890e-9e2e446dbf57"],
+Cell[685, 24, 119, 2, 70, "Categorization",ExpressionUUID->"6bc042c7-3c71-4f33-a77c-211ae416ecfc"],
+Cell[807, 28, 118, 2, 70, "Categorization",ExpressionUUID->"553075dd-2545-4bb8-880d-5cc1a2306e12"],
+Cell[928, 32, 112, 1, 70, "Categorization",ExpressionUUID->"6296bf55-aa0a-461e-9039-f03642169d3b"],
+Cell[1043, 35, 131, 1, 70, "Categorization",ExpressionUUID->"1f09bca9-7dd7-4a7d-b41e-364805682fc3"]
+}, Closed]],
+Cell[1189, 39, 98, 0, 70, "Title",ExpressionUUID->"64442fd1-46f9-4ba8-a281-bd9541625487"],
+Cell[1290, 41, 1096, 28, 70, "Text",ExpressionUUID->"90a8c811-fd2a-4f77-ac17-26a4f61b44fb"],
+Cell[2389, 71, 96, 0, 70, "TutorialSection",ExpressionUUID->"0acc1da0-3489-405b-9b3b-65c7f67a270f"],
+Cell[2488, 73, 1755, 49, 70, "Text",ExpressionUUID->"31b41f83-510f-4bb6-842c-7ccd532a665f"],
+Cell[4246, 124, 99, 0, 70, "TutorialSection",ExpressionUUID->"64c6086e-0d41-4edc-90a4-e6ea3a65582c"],
+Cell[4348, 126, 128, 1, 70, "Input",ExpressionUUID->"8b473601-fc32-43ec-89f2-12fefe6a12dd"],
+Cell[4479, 129, 131, 1, 70, "Input",ExpressionUUID->"1fca72c4-262a-4bf5-8ce1-5995d18ebaf2"],
+Cell[4613, 132, 98, 0, 70, "TutorialSection",ExpressionUUID->"76fb3d40-6856-46e4-ac5e-950fcf23e4f7"],
+Cell[4714, 134, 1856, 54, 70, "Text",ExpressionUUID->"5822681b-7df2-45c6-a425-275e5f0d4da6"],
+Cell[6573, 190, 235, 7, 70, "Input",ExpressionUUID->"f410c181-e55d-4e27-bc1f-0b21e928334c"],
+Cell[6811, 199, 477, 14, 70, "Input",ExpressionUUID->"1a811269-6737-4146-9a48-b352da87242f"],
+Cell[7291, 215, 478, 14, 70, "Input",ExpressionUUID->"91d04a42-612f-4a28-9048-81e23cb44c24"],
+Cell[7772, 231, 1156, 34, 70, "Input",ExpressionUUID->"222cc7f6-fae0-443c-85d4-4862423cc67b"],
+Cell[8931, 267, 327, 10, 70, "Input",ExpressionUUID->"96a8e47f-84c0-4c38-a3eb-a6c16027d029"],
+Cell[9261, 279, 99, 0, 70, "TutorialSection",ExpressionUUID->"4e87237e-e81f-49b3-8559-5b4069222cfb"],
+Cell[9363, 281, 1402, 40, 70, "Text",ExpressionUUID->"ccdd412d-8cf5-459e-95de-fad2523b33d0"],
+Cell[10768, 323, 606, 21, 70, "Input",ExpressionUUID->"b5e386cb-d923-4758-9751-fdae743b07e3"],
+Cell[11377, 346, 517, 15, 70, "Input",ExpressionUUID->"b3a07b89-d407-4a79-ae0b-4f28e30f6bde"],
+Cell[11897, 363, 284, 8, 70, "Input",ExpressionUUID->"0214d596-84c0-42be-8d68-e906546ac555"],
+Cell[12184, 373, 248, 7, 70, "Input",ExpressionUUID->"3ce31a2f-2bb4-4c38-9f72-e283c5974ac0"],
+Cell[12435, 382, 257, 8, 70, "Input",ExpressionUUID->"2196600f-09cf-4974-8a3e-7e5c0ed81cac"],
+Cell[12695, 392, 337, 8, 70, "Input",ExpressionUUID->"e578ffe0-1b73-4a01-8e48-ad73ae7801f9"],
+Cell[13035, 402, 358, 9, 70, "Input",ExpressionUUID->"7f34538e-6965-4ae1-ad49-ac2e3abbd976"],
+Cell[13396, 413, 114, 0, 70, "TutorialSection",ExpressionUUID->"510abc2f-e76c-4e04-b71c-2c463530b13a"],
+Cell[13513, 415, 983, 27, 70, "Text",ExpressionUUID->"6ab4ae8f-5a83-4540-aeec-1a8e7951f740"],
+Cell[14499, 444, 1030, 32, 70, "Input",ExpressionUUID->"3b854c0d-7e4d-410e-9c78-5aca8580a24f"],
+Cell[15532, 478, 151, 3, 70, "Input",ExpressionUUID->"31fac2fc-2e68-48e0-bd1a-5fefa8835729"],
+Cell[15686, 483, 124, 0, 70, "TutorialSection",ExpressionUUID->"d8a9e324-1f27-406d-a32a-a37740d05cb6"],
+Cell[15813, 485, 1295, 39, 70, "Text",ExpressionUUID->"af1f1f77-bcd0-42f2-9657-f1636a34dbc3"],
+Cell[17111, 526, 637, 19, 70, "Input",ExpressionUUID->"3bbc8761-e6c9-48ed-ab2e-548cc86dbed0"],
+Cell[17751, 547, 568, 12, 70, "Text",ExpressionUUID->"765fd9e7-76b0-4afc-8edb-260653a65815"],
+Cell[18322, 561, 637, 19, 70, "Input",ExpressionUUID->"5ebbe63d-638b-4ed4-93b7-6f3ad1405c93"],
+Cell[18962, 582, 517, 11, 70, "Text",ExpressionUUID->"dbe017d9-4d1b-432a-9922-7d5152b0b45e"]
+}
+]
+*)
+
+(* End of internal cache information *)

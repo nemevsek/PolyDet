@@ -1,0 +1,171 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5757,        162]
+NotebookOptionsPosition[      3998,        129]
+NotebookOutlinePosition[      4426,        145]
+CellTagsIndexPosition[      4383,        142]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Categorization", "CategorizationSection",ExpressionUUID->"92356da1-be06-43e6-b83a-2a7cc0100f72"],
+
+Cell["Symbol", "Categorization",
+ CellLabel->
+  "Entity Type",ExpressionUUID->"0753f84c-5879-41f0-8d1d-5554d0268b90"],
+
+Cell["PolyDet", "Categorization",
+ CellLabel->
+  "Paclet Name",ExpressionUUID->"5c038bc2-d134-435c-8db6-1fce8a3627ff"],
+
+Cell["PolyDet`", "Categorization",
+ CellLabel->"Context",ExpressionUUID->"bf99b0ed-1fbf-4d5a-a02c-0152b587e92c"],
+
+Cell["PolyDet/ref/PolyDetIpMat", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"e48f2fd5-a74c-4e0f-8b4b-42fcb0275c5b"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",ExpressionUUID->"5c59d166-12e2-43b7-b595-26d3ce5d17cb"],
+
+Cell["multi-field", "Keywords",ExpressionUUID->"b5755dc9-833f-4eab-9a13-f5febdbde6ba"],
+
+Cell["asymptotics", "Keywords",ExpressionUUID->"e185071d-a555-43f3-95c0-bc30111d1dbc"]
+}, Closed]],
+
+Cell["PolyDetIpMat", "ObjectName",ExpressionUUID->"f48be0f5-83b5-4dfd-8ac5-2e359d73aaf5"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  RowBox[{"PolyDetIpMat", "[", 
+   RowBox[{
+    StyleBox["masses2", "TI"], ",", 
+    StyleBox["radii", "TI"], ",", 
+    StyleBox["pmax", "TI"]}], "]"}]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "0e41b111-d598-4d04-82da-7f88fc8f6e23"],
+ "\[LineSeparator]",
+ "the matrix (flavour-trace) Laurent coefficients ",
+ Cell[BoxData[
+  SubscriptBox["I", "p"]], "InlineFormula",ExpressionUUID->
+  "d1777ad7-b047-46a1-8dfb-7d94e6714485"],
+ " of ",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{"ln", " ", "det", " "}], 
+   SubscriptBox["R", "\[Nu]"]}]], "InlineFormula",ExpressionUUID->
+  "be3fc53c-7413-43d9-a72e-c2279563f093"],
+ " for coupled scalars.",
+ "\n"
+}], "Usage",ExpressionUUID->"2b5ac0ed-95f8-4060-a6de-f4188f88a78b"],
+
+Cell[CellGroupData[{
+
+Cell["Examples", "PrimaryExamplesSection",ExpressionUUID->"8cdec0c1-e657-4867-b975-20842cd20ba6"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<PolyDet`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"e0bbedc2-a430-40f5-98dc-2e322d7002a4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mm", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", 
+         FractionBox["1", "10"]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         FractionBox["1", "10"], ",", "2"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", 
+          FractionBox["1", "2"]}], ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", 
+         FractionBox["3", "2"]}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"2", ",", 
+         FractionBox["1", "5"]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         FractionBox["1", "5"], ",", "1"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}], "}"}]}], ";", 
+  RowBox[{"radii", "=", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "5", ",", "7"}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[2]:=",ExpressionUUID->"312186a2-829b-4af3-8cea-7e068227d138"],
+
+Cell[BoxData[
+ RowBox[{"PolyDetIpMat", "[", 
+  RowBox[{"mm", ",", "radii", ",", "4"}], "]"}]], "Input",
+ CellLabel->"In[3]:=",ExpressionUUID->"2d139f06-05b0-41e1-bbbb-e23f0f076b78"]
+}, Open  ]]
+},
+TaggingRules->{"Paclet" -> "PolyDet"},
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"5aa45115-0c14-4674-81a0-4d20a319a487"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 102, 0, 70, "CategorizationSection",ExpressionUUID->"92356da1-be06-43e6-b83a-2a7cc0100f72"],
+Cell[685, 24, 117, 2, 70, "Categorization",ExpressionUUID->"0753f84c-5879-41f0-8d1d-5554d0268b90"],
+Cell[805, 28, 118, 2, 70, "Categorization",ExpressionUUID->"5c038bc2-d134-435c-8db6-1fce8a3627ff"],
+Cell[926, 32, 112, 1, 70, "Categorization",ExpressionUUID->"bf99b0ed-1fbf-4d5a-a02c-0152b587e92c"],
+Cell[1041, 35, 124, 1, 70, "Categorization",ExpressionUUID->"e48f2fd5-a74c-4e0f-8b4b-42fcb0275c5b"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1202, 41, 90, 0, 70, "KeywordsSection",ExpressionUUID->"5c59d166-12e2-43b7-b595-26d3ce5d17cb"],
+Cell[1295, 43, 86, 0, 70, "Keywords",ExpressionUUID->"b5755dc9-833f-4eab-9a13-f5febdbde6ba"],
+Cell[1384, 45, 86, 0, 70, "Keywords",ExpressionUUID->"e185071d-a555-43f3-95c0-bc30111d1dbc"]
+}, Closed]],
+Cell[1485, 48, 89, 0, 70, "ObjectName",ExpressionUUID->"f48be0f5-83b5-4dfd-8ac5-2e359d73aaf5"],
+Cell[1577, 50, 767, 22, 70, "Usage",ExpressionUUID->"2b5ac0ed-95f8-4060-a6de-f4188f88a78b"],
+Cell[CellGroupData[{
+Cell[2369, 76, 97, 0, 70, "PrimaryExamplesSection",ExpressionUUID->"8cdec0c1-e657-4867-b975-20842cd20ba6"],
+Cell[2469, 78, 151, 2, 70, "Input",ExpressionUUID->"e0bbedc2-a430-40f5-98dc-2e322d7002a4"],
+Cell[2623, 82, 1175, 39, 70, "Input",ExpressionUUID->"312186a2-829b-4af3-8cea-7e068227d138"],
+Cell[3801, 123, 181, 3, 70, "Input",ExpressionUUID->"2d139f06-05b0-41e1-bbbb-e23f0f076b78"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

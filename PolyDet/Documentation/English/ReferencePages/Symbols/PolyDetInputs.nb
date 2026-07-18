@@ -1,0 +1,191 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6321,        182]
+NotebookOptionsPosition[      4377,        147]
+NotebookOutlinePosition[      4805,        163]
+CellTagsIndexPosition[      4762,        160]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Categorization", "CategorizationSection",ExpressionUUID->"898478bf-1d4f-43f7-bded-b3d46a27ba4f"],
+
+Cell["Symbol", "Categorization",
+ CellLabel->
+  "Entity Type",ExpressionUUID->"82b68a3b-b865-477c-a4b6-c9f187b97537"],
+
+Cell["PolyDet", "Categorization",
+ CellLabel->
+  "Paclet Name",ExpressionUUID->"9bb72e36-c0b8-44d2-b5ea-8181ee740c1d"],
+
+Cell["PolyDet`", "Categorization",
+ CellLabel->"Context",ExpressionUUID->"0c043bbe-5d4d-4567-ac39-798692c54dc9"],
+
+Cell["PolyDet/ref/PolyDetInputs", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"1ab9fb39-dbbc-4217-a415-92aefc8da959"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",ExpressionUUID->"8df7a4d1-5d9f-464b-b6eb-4081121c85c1"],
+
+Cell["FindBounce", "Keywords",ExpressionUUID->"e388a574-3b13-4ac0-8be5-55ed38f5de93"],
+
+Cell["bounce", "Keywords",ExpressionUUID->"dc7308e1-2f8e-483f-bbe1-36b6c7370e9f"]
+}, Closed]],
+
+Cell["PolyDetInputs", "ObjectName",ExpressionUUID->"2155973b-cbb2-4016-a6c8-431d3ee9390a"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  RowBox[{"PolyDetInputs", "[", 
+   RowBox[{
+    StyleBox["Vpp", "TI"], ",", 
+    StyleBox["bf", "TI"]}], "]"}]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "f867aaf9-8126-405c-9e21-604add868ecd"],
+ "\[LineSeparator]",
+ "extracts ",
+ Cell[BoxData[
+  RowBox[{"{", 
+   StyleBox["masses2",
+    FontSlant->"Italic"], ",", 
+   StyleBox["radii",
+    FontSlant->"Italic"], "}"}]], "InlineFormula",ExpressionUUID->
+  "cbb990eb-2ae3-4887-b421-1bf547c04d1f"],
+ " from a FindBounce BounceFunction ",
+ StyleBox["bf",
+  FontSlant->"Italic"],
+ ": segment-averaged ",
+ StyleBox["Vpp",
+  FontSlant->"Italic"],
+ " = V''(",
+ "\[Phi]",
+ ") on the polygon, radii from ",
+ StyleBox["bf",
+  FontSlant->"Italic"],
+ ".",
+ "\n"
+}], "Usage",ExpressionUUID->"f3fc14a1-c7b4-4059-beff-f27f492ac033"],
+
+Cell[CellGroupData[{
+
+Cell["Examples", "PrimaryExamplesSection",ExpressionUUID->"3e68c7ab-3d50-4723-9188-15f4266f3c01"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<PolyDet`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"bdc755a0-63ac-44b9-b95e-c1755fe45e42"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<FindBounce`\>\"", "]"}]], "Input",
+ CellLabel->"In[2]:=",ExpressionUUID->"b990c64a-497f-4009-8035-a7212290bb26"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"V", "[", "x_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "8"], " ", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox["x", "2"], "-", "1"}], ")"}], "2"]}], "+", 
+    FractionBox[
+     RowBox[{"x", "-", "1"}], "10"]}]}], ";", 
+  RowBox[{"Vpp", "=", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"3", " ", 
+        SuperscriptBox["#1", "2"]}], "-", "1"}], ")"}]}], "&"}]}], 
+  ";"}]], "Input",
+ CellLabel->"In[3]:=",ExpressionUUID->"743364c1-118a-45ac-96fe-e816e5c8141f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"tv", ",", "mid", ",", "fv"}], "}"}], "=", 
+   RowBox[{"Sort", "[", 
+    RowBox[{"Re", "[", 
+     RowBox[{"x", "/.", "\[VeryThinSpace]", 
+      RowBox[{"NSolve", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          SubscriptBox["\[PartialD]", "x"], 
+          RowBox[{"V", "[", "x", "]"}]}], "\[Equal]", "0"}], ",", "x"}], 
+       "]"}]}], "]"}], "]"}]}], ";", 
+  RowBox[{"bf", "=", 
+   RowBox[{"FindBounce", "[", 
+    RowBox[{
+     RowBox[{"V", "[", "x", "]"}], ",", "x", ",", 
+     RowBox[{"{", 
+      RowBox[{"fv", ",", "tv"}], "}"}]}], "]"}]}], ";"}]], "Input",
+ CellLabel->"In[4]:=",ExpressionUUID->"5d6ec5f6-4e5e-4a5e-a33a-0d500aff9cb6"],
+
+Cell[BoxData[
+ RowBox[{"PolyDetInputs", "[", 
+  RowBox[{"Vpp", ",", "bf"}], "]"}]], "Input",
+ CellLabel->"In[5]:=",ExpressionUUID->"caef0aee-43ba-408b-9952-6fa8194a9e4b"]
+}, Open  ]]
+},
+TaggingRules->{"Paclet" -> "PolyDet"},
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"5aa45115-0c14-4674-81a0-4d20a319a487"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 102, 0, 70, "CategorizationSection",ExpressionUUID->"898478bf-1d4f-43f7-bded-b3d46a27ba4f"],
+Cell[685, 24, 117, 2, 70, "Categorization",ExpressionUUID->"82b68a3b-b865-477c-a4b6-c9f187b97537"],
+Cell[805, 28, 118, 2, 70, "Categorization",ExpressionUUID->"9bb72e36-c0b8-44d2-b5ea-8181ee740c1d"],
+Cell[926, 32, 112, 1, 70, "Categorization",ExpressionUUID->"0c043bbe-5d4d-4567-ac39-798692c54dc9"],
+Cell[1041, 35, 125, 1, 70, "Categorization",ExpressionUUID->"1ab9fb39-dbbc-4217-a415-92aefc8da959"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1203, 41, 90, 0, 70, "KeywordsSection",ExpressionUUID->"8df7a4d1-5d9f-464b-b6eb-4081121c85c1"],
+Cell[1296, 43, 85, 0, 70, "Keywords",ExpressionUUID->"e388a574-3b13-4ac0-8be5-55ed38f5de93"],
+Cell[1384, 45, 81, 0, 70, "Keywords",ExpressionUUID->"dc7308e1-2f8e-483f-bbe1-36b6c7370e9f"]
+}, Closed]],
+Cell[1480, 48, 90, 0, 70, "ObjectName",ExpressionUUID->"2155973b-cbb2-4016-a6c8-431d3ee9390a"],
+Cell[1573, 50, 826, 30, 70, "Usage",ExpressionUUID->"f3fc14a1-c7b4-4059-beff-f27f492ac033"],
+Cell[CellGroupData[{
+Cell[2424, 84, 97, 0, 70, "PrimaryExamplesSection",ExpressionUUID->"3e68c7ab-3d50-4723-9188-15f4266f3c01"],
+Cell[2524, 86, 151, 2, 70, "Input",ExpressionUUID->"bdc755a0-63ac-44b9-b95e-c1755fe45e42"],
+Cell[2678, 90, 154, 2, 70, "Input",ExpressionUUID->"b990c64a-497f-4009-8035-a7212290bb26"],
+Cell[2835, 94, 629, 22, 70, "Input",ExpressionUUID->"743364c1-118a-45ac-96fe-e816e5c8141f"],
+Cell[3467, 118, 721, 21, 70, "Input",ExpressionUUID->"5d6ec5f6-4e5e-4a5e-a33a-0d500aff9cb6"],
+Cell[4191, 141, 170, 3, 70, "Input",ExpressionUUID->"caef0aee-43ba-408b-9952-6fa8194a9e4b"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

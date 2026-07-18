@@ -1,0 +1,304 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11505,        295]
+NotebookOptionsPosition[      8972,        257]
+NotebookOutlinePosition[      9399,        273]
+CellTagsIndexPosition[      9356,        270]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Categorization", "CategorizationSection",ExpressionUUID->"daafbb7a-e87e-4c88-b462-47dcaafb1c46"],
+
+Cell["Tutorial", "Categorization",
+ CellLabel->
+  "Entity Type",ExpressionUUID->"af9183dc-122f-44e0-a686-a8cdfa142222"],
+
+Cell["PolyDet", "Categorization",
+ CellLabel->
+  "Paclet Name",ExpressionUUID->"0638f5be-7466-4aa3-b430-3b483c2ef58a"],
+
+Cell["PolyDet`", "Categorization",
+ CellLabel->"Context",ExpressionUUID->"aced805d-a59f-4a84-8352-5b8885a7e694"],
+
+Cell["PolyDet/tutorial/PolyDetWorkflow", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"352b69d5-743d-47a6-b154-a266b0a65389"]
+}, Closed]],
+
+Cell["Computing a False-Vacuum Decay Rate", "Title",ExpressionUUID->"23da1459-429b-4782-a80c-c43bd8f83611"],
+
+Cell[TextData[{
+ "PolyDet computes the one-loop fluctuation determinant around a polygonal \
+bounce \[LongDash] the prefactor that multiplies ",
+ Cell[BoxData[
+  SuperscriptBox["e", 
+   RowBox[{"-", 
+    SubscriptBox["S", "0"]}]]], "InlineFormula",ExpressionUUID->
+  "07300bc7-47e5-4cdc-aa7d-568812c9e56b"],
+ " in the false-vacuum decay rate. It is a companion to FindBounce, which \
+supplies the bounce. This tutorial walks the full path: a potential, its \
+bounce, and the complete rate ",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{"ln", "("}], "\[CapitalGamma]", "/", 
+   StyleBox["V",
+    FontSlant->"Italic"], ")"}]], "InlineFormula",ExpressionUUID->
+  "7f5a6b2b-ed8a-4566-8b82-0a7c4143f75b"],
+ " including scalar, fermion and gauge fluctuations."
+}], "Text",ExpressionUUID->"a4fd73a0-afb0-4a46-b91a-4e3cb0f5f5f3"],
+
+Cell["Load the packages", "TutorialSection",ExpressionUUID->"3df35055-0f92-4f7a-801b-f82fea2daea3"],
+
+Cell["\<\
+PolyDet supplies the determinant; FindBounce supplies the bounce.\
+\>", "Text",ExpressionUUID->"6966aaa9-f2c6-4ab3-9ed9-e46fa5ad0de2"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<PolyDet`\>\"", "]"}]], "Input",ExpressionUUID->"14e5012f-023c-49f1-ac70-145632213d25"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<FindBounce`\>\"", "]"}]], "Input",ExpressionUUID->"28b15b40-325b-44bb-a043-d0b9b3248a8c"],
+
+Cell["The bounce", "TutorialSection",ExpressionUUID->"090c4546-074a-4212-9239-c0ebd7ad44e7"],
+
+Cell[TextData[{
+ "Take the thin-wall quartic ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["V",
+    FontSlant->"Italic"], "=", 
+   FractionBox["1", "8"], 
+   SuperscriptBox[
+    RowBox[{"(", 
+     SuperscriptBox["\[Phi]", "2"], "-", "1", ")"}], "2"], "+", 
+   "\[CapitalDelta]", 
+   RowBox[{"(", 
+    RowBox[{"\[Phi]", "-", "1"}], ")"}]}]], "InlineFormula",ExpressionUUID->
+  "3e488c89-4ece-4960-84ba-aff1d4789841"],
+ " (here ",
+ Cell[BoxData[
+  RowBox[{"\[CapitalDelta]", "=", 
+   FractionBox["1", "10"]}]], "InlineFormula",ExpressionUUID->
+  "f1375fc7-31c7-4d3d-a1eb-5285fa65345d"],
+ "), locate its two vacua, and solve for the bounce with FindBounce."
+}], "Text",ExpressionUUID->"f5f56581-4644-4605-b4fe-91488623c9c6"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"V", "[", "phi_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "8"], " ", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox["phi", "2"], "-", "1"}], ")"}], "2"]}], "+", 
+    FractionBox[
+     RowBox[{"phi", "-", "1"}], "10"]}]}], ";", 
+  RowBox[{"Vpp", "=", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"3", " ", 
+        SuperscriptBox["#1", "2"]}], "-", "1"}], ")"}]}], "&"}]}], 
+  ";"}]], "Input",ExpressionUUID->"8d1f98ff-2d5a-4b1e-9cca-b5e4c3e38b51"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"tv", ",", "mid", ",", "fv"}], "}"}], "=", 
+   RowBox[{"Sort", "[", 
+    RowBox[{"Re", "[", 
+     RowBox[{"phi", "/.", "\[VeryThinSpace]", 
+      RowBox[{"NSolve", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          SuperscriptBox["V", "\[Prime]",
+           MultilineFunction->None], "[", "phi", "]"}], "\[Equal]", "0"}], 
+        ",", "phi"}], "]"}]}], "]"}], "]"}]}], ";"}]], "Input",ExpressionUUID->\
+"d00aa90c-0465-4a03-a4a3-44821b6054e7"],
+
+Cell[BoxData[
+ RowBox[{"bf", "=", 
+  RowBox[{"FindBounce", "[", 
+   RowBox[{
+    RowBox[{"V", "[", "phi", "]"}], ",", "phi", ",", 
+    RowBox[{"{", 
+     RowBox[{"fv", ",", "tv"}], "}"}]}], "]"}]}]], "Input",ExpressionUUID->\
+"9cc12a08-0262-4681-bad5-0e41fbe88c77"],
+
+Cell["The scalar determinant", "TutorialSection",ExpressionUUID->"54bf31eb-b6f7-4383-ad8b-6db5ed4d2eb5"],
+
+Cell["\<\
+The driving (Higgs) scalar determinant follows in one call \[LongDash] \
+PolyDet differentiates the potential, extracts the segment masses and radii, \
+and renormalises (translational zero modes removed):\
+\>", "Text",ExpressionUUID->"8560925a-904d-455c-8048-0e3c54fb59e5"],
+
+Cell[BoxData[
+ RowBox[{"PolyDet", "[", 
+  RowBox[{
+   RowBox[{"V", "[", "phi", "]"}], ",", "phi", ",", "bf"}], "]"}]], "Input",Ex\
+pressionUUID->"ac1494ce-c25a-40aa-8ae3-d4f4c2b4dd05"],
+
+Cell["The complete multi-sector rate", "TutorialSection",ExpressionUUID->"ed11df78-4f48-4aa9-a33b-579d716a423f"],
+
+Cell[TextData[{
+ "For the full rate, hand PolyDetDecayRate the second derivative ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["Vpp",
+    FontSlant->"Italic"], "=", 
+   StyleBox["V",
+    FontSlant->"Italic"], "''"}]], "InlineFormula",ExpressionUUID->
+  "ae59645f-5ae2-40e3-a268-f0d376ee8869"],
+ ", the bounce, and a list of the extra field sectors. Each is an \
+Association: a scalar by its ",
+ Cell[BoxData[
+  SubsuperscriptBox["m", "", "2"]], "InlineFormula",ExpressionUUID->
+  "51248db4-8511-406c-97e0-68d21678e6d6"],
+ "(\[Phi]), a Dirac fermion by its signed mass ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["M",
+    FontSlant->"Italic"], "(", "\[Phi]", ")"}]], "InlineFormula",
+  ExpressionUUID->"001e640d-362c-425e-8799-0bb404cbd969"],
+ " (with a multiplicity for colour), a gauge boson by its coupling. The \
+sectors combine with the correct one-loop signs (scalar +, fermion \[Minus], \
+gauge +) into ",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{"ln", "("}], "\[CapitalGamma]", "/", 
+   StyleBox["V",
+    FontSlant->"Italic"], ")"}]], "InlineFormula",ExpressionUUID->
+  "10d52666-f6b9-463d-8860-c3c68b88488e"],
+ ":"
+}], "Text",ExpressionUUID->"d7296593-9168-4a9a-8600-5ffda9305dde"],
+
+Cell[BoxData[
+ RowBox[{"PolyDetDecayRate", "[", 
+  RowBox[{"Vpp", ",", "bf", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Association", "[", 
+      RowBox[{
+       RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<Fermion\>\""}], ",", 
+       RowBox[{"\"\<Mass\>\"", "\[Rule]", 
+        RowBox[{"(", 
+         RowBox[{"#1", "&"}], ")"}]}], ",", 
+       RowBox[{"\"\<Mult\>\"", "\[Rule]", "3"}]}], "]"}], ",", 
+     RowBox[{"Association", "[", 
+      RowBox[{
+       RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<Scalar\>\""}], ",", 
+       RowBox[{"\"\<Mass2\>\"", "\[Rule]", 
+        RowBox[{"Function", "[", 
+         RowBox[{"ph", ",", 
+          RowBox[{
+           FractionBox["1", "2"], "+", 
+           FractionBox[
+            RowBox[{"4", " ", 
+             SuperscriptBox["ph", "2"]}], "5"]}]}], "]"}]}]}], "]"}]}], 
+    "}"}]}], "]"}]], "Input",ExpressionUUID->"96ba5282-c2f5-4285-b1de-\
+01e3ca62a5a1"],
+
+Cell[TextData[{
+ "The result is ",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{"ln", "("}], "\[CapitalGamma]", "/", 
+   StyleBox["V",
+    FontSlant->"Italic"], ")"}]], "InlineFormula",ExpressionUUID->
+  "1fa001c9-41c9-48ca-a153-6985b441d486"],
+ "; the rate is ",
+ Cell[BoxData[
+  RowBox[{"\[CapitalGamma]", "/", 
+   StyleBox["V",
+    FontSlant->"Italic"], "=", 
+   SuperscriptBox["e", Cell[BoxData[
+     RowBox[{
+      RowBox[{"ln", "("}], "\[CapitalGamma]", "/", 
+      StyleBox["V",
+       FontSlant->"Italic"], ")"}]], "InlineFormula",ExpressionUUID->
+     "9d310ebe-964d-4fb1-8055-9f58233d59c9"]]}]], "InlineFormula",
+  ExpressionUUID->"70f360a0-f8c5-4f8a-a45c-cfe59fa6ea07"],
+ ". Use ",
+ StyleBox["\"Breakdown\"",
+  FontSlant->"Italic"],
+ "\[Rule]True for the per-sector pieces and ",
+ StyleBox["\"Scale\"",
+  FontSlant->"Italic"],
+ " to set the renormalisation scale shared by all sectors. A gauge sector ",
+ Cell[BoxData[
+  RowBox[{"\[LeftAssociation]", 
+   StyleBox["\"\<Type\>\"",
+    FontSlant->"Italic"], "\[Rule]", 
+   StyleBox["\"\<Gauge\>\"",
+    FontSlant->"Italic"], ",", " ", "\[Ellipsis]", "\[RightAssociation]"}]], 
+  "InlineFormula",ExpressionUUID->"868b72e6-0e76-4857-81e9-0c53efc2875a"],
+ " adds the U(1) Higgs vector \[LongDash] see PolyDetDecayRate."
+}], "Text",ExpressionUUID->"e84abc81-dc78-4ce9-b707-5591a8400d2b"]
+},
+TaggingRules->{"Paclet" -> "PolyDet"},
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Tutorial.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"5aa45115-0c14-4674-81a0-4d20a319a487"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 102, 0, 70, "CategorizationSection",ExpressionUUID->"daafbb7a-e87e-4c88-b462-47dcaafb1c46"],
+Cell[685, 24, 119, 2, 70, "Categorization",ExpressionUUID->"af9183dc-122f-44e0-a686-a8cdfa142222"],
+Cell[807, 28, 118, 2, 70, "Categorization",ExpressionUUID->"0638f5be-7466-4aa3-b430-3b483c2ef58a"],
+Cell[928, 32, 112, 1, 70, "Categorization",ExpressionUUID->"aced805d-a59f-4a84-8352-5b8885a7e694"],
+Cell[1043, 35, 132, 1, 70, "Categorization",ExpressionUUID->"352b69d5-743d-47a6-b154-a266b0a65389"]
+}, Closed]],
+Cell[1190, 39, 107, 0, 70, "Title",ExpressionUUID->"23da1459-429b-4782-a80c-c43bd8f83611"],
+Cell[1300, 41, 814, 18, 70, "Text",ExpressionUUID->"a4fd73a0-afb0-4a46-b91a-4e3cb0f5f5f3"],
+Cell[2117, 61, 99, 0, 70, "TutorialSection",ExpressionUUID->"3df35055-0f92-4f7a-801b-f82fea2daea3"],
+Cell[2219, 63, 144, 2, 70, "Text",ExpressionUUID->"6966aaa9-f2c6-4ab3-9ed9-e46fa5ad0de2"],
+Cell[2366, 67, 128, 1, 70, "Input",ExpressionUUID->"14e5012f-023c-49f1-ac70-145632213d25"],
+Cell[2497, 70, 131, 1, 70, "Input",ExpressionUUID->"28b15b40-325b-44bb-a043-d0b9b3248a8c"],
+Cell[2631, 73, 92, 0, 70, "TutorialSection",ExpressionUUID->"090c4546-074a-4212-9239-c0ebd7ad44e7"],
+Cell[2726, 75, 716, 20, 70, "Text",ExpressionUUID->"f5f56581-4644-4605-b4fe-91488623c9c6"],
+Cell[3445, 97, 612, 21, 70, "Input",ExpressionUUID->"8d1f98ff-2d5a-4b1e-9cca-b5e4c3e38b51"],
+Cell[4060, 120, 523, 15, 70, "Input",ExpressionUUID->"d00aa90c-0465-4a03-a4a3-44821b6054e7"],
+Cell[4586, 137, 265, 7, 70, "Input",ExpressionUUID->"9cc12a08-0262-4681-bad5-0e41fbe88c77"],
+Cell[4854, 146, 104, 0, 70, "TutorialSection",ExpressionUUID->"54bf31eb-b6f7-4383-ad8b-6db5ed4d2eb5"],
+Cell[4961, 148, 283, 4, 70, "Text",ExpressionUUID->"8560925a-904d-455c-8048-0e3c54fb59e5"],
+Cell[5247, 154, 184, 4, 70, "Input",ExpressionUUID->"ac1494ce-c25a-40aa-8ae3-d4f4c2b4dd05"],
+Cell[5434, 160, 112, 0, 70, "TutorialSection",ExpressionUUID->"ed11df78-4f48-4aa9-a33b-579d716a423f"],
+Cell[5549, 162, 1177, 30, 70, "Text",ExpressionUUID->"d7296593-9168-4a9a-8600-5ffda9305dde"],
+Cell[6729, 194, 902, 24, 70, "Input",ExpressionUUID->"96ba5282-c2f5-4285-b1de-01e3ca62a5a1"],
+Cell[7634, 220, 1334, 35, 70, "Text",ExpressionUUID->"e84abc81-dc78-4ce9-b707-5591a8400d2b"]
+}
+]
+*)
+
+(* End of internal cache information *)

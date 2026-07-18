@@ -1,0 +1,419 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     15803,        410]
+NotebookOptionsPosition[     12403,        363]
+NotebookOutlinePosition[     12830,        379]
+CellTagsIndexPosition[     12787,        376]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Categorization", "CategorizationSection",ExpressionUUID->"20d5f288-e421-4759-a6b5-deb380d5ab08"],
+
+Cell["Tutorial", "Categorization",
+ CellLabel->
+  "Entity Type",ExpressionUUID->"909608d8-9d71-4f1f-ae4c-c0b700f6a11c"],
+
+Cell["PolyDet", "Categorization",
+ CellLabel->
+  "Paclet Name",ExpressionUUID->"14977733-2781-4312-a64a-d3d96b2658df"],
+
+Cell["PolyDet`", "Categorization",
+ CellLabel->"Context",ExpressionUUID->"9ede1257-7196-4a37-8ba4-3ad31cf6f8c2"],
+
+Cell["PolyDet/tutorial/PolyDetGaugeU1", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"815e452d-681c-491e-ba7e-b22619be97d7"]
+}, Closed]],
+
+Cell["The Abelian-Higgs Gauge Sector", "Title",ExpressionUUID->"27fed121-d84f-4b4e-acfd-a9e91d696312"],
+
+Cell[TextData[{
+ "A gauged ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["U",
+    FontSlant->"Italic"], "(", "1", ")"}]], "InlineFormula",ExpressionUUID->
+  "b0db0612-9ff0-4f66-bb12-a10ab189f1aa"],
+ " adds a vector boson to the false-vacuum decay. ",
+ "The complex Higgs ",
+ Cell[BoxData[
+  RowBox[{"\[CapitalPhi]", "=", 
+   RowBox[{"(", 
+    RowBox[{
+     StyleBox["h",
+      FontSlant->"Italic"], "+", 
+     RowBox[{"\[ImaginaryI]", " ", 
+      StyleBox["a",
+       FontSlant->"Italic"]}]}], ")"}], "/", 
+   SqrtBox["2"]}]], "InlineFormula",ExpressionUUID->
+  "bf89f751-93a2-498b-a8ab-c778364f9121"],
+ " carries two real fields: the radial ",
+ StyleBox["h",
+  FontSlant->"Italic"],
+ " (which drives the bounce) and the angular Goldstone ",
+ StyleBox["a",
+  FontSlant->"Italic"],
+ " (eaten by the gauge boson). PolyDet handles the genuinely coupled \
+gauge-plus-Goldstone block automatically; this tutorial runs the full sector \
+on a self-consistent bounce."
+}], "Text",ExpressionUUID->"e0cea7d2-0e00-4ff9-979a-a014cca1eed0"],
+
+Cell["Load the packages", "TutorialSection",ExpressionUUID->"4f43885a-6a03-455b-b349-969b0f9d32ae"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<PolyDet`\>\"", "]"}]], "Input",ExpressionUUID->"8cf54d5e-d719-4f69-a756-2162c5469579"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<FindBounce`\>\"", "]"}]], "Input",ExpressionUUID->"66c448c4-642b-498b-80ec-f81475d0db12"],
+
+Cell["A genuine U(1)-invariant model", "TutorialSection",ExpressionUUID->"0915b3e3-3a9d-4b92-b51f-32673cdfeda7"],
+
+Cell[TextData[{
+ "For the determinant to respect the symmetry the potential must be a smooth \
+function of ",
+ Cell[BoxData[
+  RowBox[{"\[Sigma]", "=", 
+   SubsuperscriptBox[
+    RowBox[{"|", "\[CapitalPhi]", "|"}], "", "2"], "=", 
+   RowBox[{
+    SubsuperscriptBox["\[Phi]", "", "2"], "/", "2"}]}]], "InlineFormula",
+  ExpressionUUID->"59cb023b-c4f1-4873-b46e-e0c3cf852d7e"],
+ ", so the angular direction is flat at the vacua. A double well in ",
+ Cell[BoxData[
+ "\[Sigma]"], "InlineFormula",ExpressionUUID->
+  "bbc40306-89d6-485f-93e6-f50ee51d5bea"],
+ " with two ",
+ StyleBox["nonzero",
+  FontSlant->"Italic"],
+ " minima keeps the gauge boson ",
+ Cell[BoxData[
+  RowBox[{
+   SubsuperscriptBox["m", "A", "2"], "=", 
+   RowBox[{
+    SubsuperscriptBox["g", "", "2"], 
+    SubsuperscriptBox["\[Phi]", "", "2"]}]}]], "InlineFormula",ExpressionUUID->
+  "9d22a271-24c4-4385-a728-60a0bd0bcb1d"],
+ " massive in both vacua (required by the transfer-matrix prefactor). The \
+would-be Goldstone curvature ",
+ Cell[BoxData[
+  RowBox[{
+   SubscriptBox["V", "aa"], "=", 
+   RowBox[{
+    RowBox[{
+     StyleBox["V",
+      FontSlant->"Italic"], "'"}], "/", "\[Phi]"}]}]], "InlineFormula",
+  ExpressionUUID->"5d48e8da-da66-43eb-aa0a-8b365e623710"],
+ " is then genuine \[LongDash] it vanishes at the vacua and turns tachyonic \
+in the wall."
+}], "Text",ExpressionUUID->"ac33df4d-c521-42f5-b3b4-50acc949b910"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"U", "[", "s_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{"6", " ", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"s", "-", 
+        FractionBox["2", "25"]}], ")"}], "2"], " ", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"s", "-", 
+        FractionBox["18", "25"]}], ")"}], "2"]}], "-", 
+    RowBox[{
+     FractionBox["3", "25"], " ", 
+     RowBox[{"(", 
+      RowBox[{"s", "-", 
+       FractionBox["2", "25"]}], ")"}]}]}]}], ";"}]], "Input",ExpressionUUID->\
+"993f9b94-8eb8-4cb8-96d6-523e9ec483a2"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"VU", "[", "ph_", "]"}], ":=", 
+   RowBox[{"U", "[", 
+    FractionBox[
+     SuperscriptBox["ph", "2"], "2"], "]"}]}], ";", 
+  RowBox[{"Vaa", "=", 
+   RowBox[{
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["VU", "\[Prime]",
+       MultilineFunction->None], "[", "#1", "]"}], "#1"], "&"}]}], ";", 
+  RowBox[{"g", "=", 
+   FractionBox["7", "10"]}], ";"}]], "Input",ExpressionUUID->"b15310af-fa81-\
+44c9-8f02-cab148c0be77"],
+
+Cell["The bounce", "TutorialSection",ExpressionUUID->"80073e6f-71a0-4c7f-a95d-8634d4b7d005"],
+
+Cell[TextData[{
+ "Locate the two vacua and solve for the ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["D",
+    FontSlant->"Italic"], "=", "4"}]], "InlineFormula",ExpressionUUID->
+  "98366787-3685-4856-abae-a8ac40d5c536"],
+ " bounce."
+}], "Text",ExpressionUUID->"0c79efdf-3545-4a9b-b04a-51a253bf7832"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"fv", ",", "tv"}], "}"}], "=", 
+   RowBox[{"MinMax", "[", 
+    RowBox[{"ph", "/.", "\[VeryThinSpace]", 
+     RowBox[{"Solve", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           SuperscriptBox["VU", "\[Prime]",
+            MultilineFunction->None], "[", "ph", "]"}], "\[Equal]", "0"}], 
+         ",", 
+         RowBox[{"ph", ">", "0"}]}], "}"}], ",", "ph", ",", 
+       TemplateBox[{},
+        "Reals"]}], "]"}]}], "]"}]}], ";"}]], "Input",ExpressionUUID->\
+"312fe674-5aa2-4552-ba88-1fde6da87a85"],
+
+Cell[BoxData[
+ RowBox[{"bf", "=", 
+  RowBox[{"FindBounce", "[", 
+   RowBox[{
+    RowBox[{"VU", "[", "ph", "]"}], ",", "ph", ",", 
+    RowBox[{"{", 
+     RowBox[{"fv", ",", "tv"}], "}"}]}], "]"}]}]], "Input",ExpressionUUID->\
+"6706bd8d-9f8d-45aa-9442-39d6a1052f3e"],
+
+Cell["Gauge and Goldstone masses", "TutorialSection",ExpressionUUID->"ad5f728b-eadd-4ccd-9fad-9d7f9936974e"],
+
+Cell[TextData[{
+ "PolyDetInputsGauge reads the segment fields off the bounce and returns the \
+shell gauge masses ",
+ Cell[BoxData[
+  SubsuperscriptBox["m", "A", "2"]], "InlineFormula",ExpressionUUID->
+  "980fa68e-e9cb-428e-b309-16060ac9a1f4"],
+ ", the would-be Goldstone masses ",
+ Cell[BoxData[
+  RowBox[{
+   SubsuperscriptBox["m", "a", "2"], "=", 
+   RowBox[{
+    SubsuperscriptBox["m", "A", "2"], "+", 
+    SubscriptBox["V", "aa"]}]}]], "InlineFormula",ExpressionUUID->
+  "e4e898a8-5fbb-47a2-8fc4-9d4f61cf15ed"],
+ ", the gradient jumps ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["g",
+    FontSlant->"Italic"], " ", "\[CapitalDelta]", "\[Phi]"}]], 
+  "InlineFormula",ExpressionUUID->"d8fda861-6d0e-4a1c-81c8-b0ab4d29508a"],
+ " and the radii."
+}], "Text",ExpressionUUID->"8f565183-a781-4402-85a3-991f38085ddb"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"mA2", ",", "ma2", ",", "dmA", ",", "radii"}], "}"}], "=", 
+   RowBox[{"PolyDetInputsGauge", "[", 
+    RowBox[{"bf", ",", "g", ",", "Vaa"}], "]"}]}], ";"}]], "Input",ExpressionU\
+UID->"0d6017a7-3ce1-4f63-b8c1-37d6b3378ef1"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  SubscriptBox["V", "aa"]], "InlineFormula",ExpressionUUID->
+  "974f8db7-e304-4d17-8e69-bef4d6b3e7b2"],
+ " is small at the ends (vacua) and tachyonic in the middle (the wall):"
+}], "Text",ExpressionUUID->"b4dba78e-ca32-4e1a-bf46-f9b358a7dd29"],
+
+Cell[BoxData[
+ RowBox[{"ma2", "-", "mA2"}]], "Input",ExpressionUUID->"32969d92-9b72-417f-84de-aadbe9a1d9f5"],
+
+Cell["The gauge determinant", "TutorialSection",ExpressionUUID->"7d77c3a2-f4b4-4410-a7b6-190d0a816bfa"],
+
+Cell[TextData[{
+ "The gradient (wave-function) coefficient ",
+ Cell[BoxData[
+  SubscriptBox["I", "g"]], "InlineFormula",ExpressionUUID->
+  "c9a00d99-4e01-4a2d-b943-bf5261e4a85a"],
+ " is the converged continuum moment ",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{"-", 
+    SubsuperscriptBox["g", "", "2"]}], "\[Integral]", 
+   SubsuperscriptBox["\[Rho]", "", "3"], 
+   SubsuperscriptBox[
+    OverscriptBox["\[Phi]", "."], "", "2"]}]], "InlineFormula",ExpressionUUID->
+  "b9e0650e-7216-4e84-bd4d-2181d841b974"],
+ " \[LongDash] cleaner than the finite-polygon fit. PolyDetSigmaGauge then \
+assembles the renormalised ",
+ Cell[BoxData[
+  SubscriptBox["\[CapitalSigma]", "gauge"]], "InlineFormula",ExpressionUUID->
+  "dbe8fabd-bccb-422f-b23e-75c6c830b9c9"],
+ " (transverse + coupled diagonal-Goldstone, ghost collapse) with the \
+closed-form trace ",
+ Cell[BoxData[
+  SubsuperscriptBox["I", "3", "eff"]], "InlineFormula",ExpressionUUID->
+  "0333a3ed-cacb-482a-b88c-8775e2c660e7"],
+ " and ",
+ Cell[BoxData[
+  SubscriptBox["I", "g"]], "InlineFormula",ExpressionUUID->
+  "85ab2546-bfef-4a01-9c59-f9c38fc11f8d"],
+ "; the physical output is the running ",
+ Cell[BoxData[
+  RowBox[{
+   SubsuperscriptBox["I", "3", "eff"], "+", 
+   SubscriptBox["I", "g"]}]], "InlineFormula",ExpressionUUID->
+  "a5d4c914-2bbc-4114-a13a-d1b2f5d5b437"],
+ "."
+}], "Text",ExpressionUUID->"3b839557-c323-4bb0-8b63-de7db5cb91e2"],
+
+Cell[BoxData[
+ RowBox[{"Ig", "=", 
+  RowBox[{
+   RowBox[{"-", 
+    SuperscriptBox["g", "2"]}], " ", 
+   RowBox[{"NIntegrate", "[", 
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["rho", "3"], " ", 
+      SuperscriptBox[
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{
+          RowBox[{"bf", "[", "\"\<Bounce\>\"", "]"}], "\[LeftDoubleBracket]", 
+          "1", "\[RightDoubleBracket]"}], "\[Prime]",
+         MultilineFunction->None], "[", "rho", "]"}], "2"]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"rho", ",", "0", ",", 
+       FractionBox[
+        RowBox[{"13", " ", 
+         RowBox[{"Max", "[", "radii", "]"}]}], "10"]}], "}"}]}], 
+    "]"}]}]}]], "Input",ExpressionUUID->"84e31b25-287d-4e9f-be43-\
+285ea8e6d7a4"],
+
+Cell[BoxData[
+ RowBox[{"sg", "=", 
+  RowBox[{"PolyDetSigmaGauge", "[", 
+   RowBox[{"mA2", ",", "ma2", ",", "dmA", ",", "radii", ",", 
+    RowBox[{"\"\<Ig\>\"", "\[Rule]", "Ig"}]}], "]"}]}]], "Input",ExpressionUUI\
+D->"3ddde961-4104-431d-9ab6-802b2be152b8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sg", "[", "\"\<I3eff\>\"", "]"}], "+", "Ig"}]], "Input",ExpressionU\
+UID->"515e4545-45cb-4ba9-a795-dfbda1404671"],
+
+Cell["The complete decay rate", "TutorialSection",ExpressionUUID->"8623da88-00f9-497c-b3d1-9cf1ea253a9a"],
+
+Cell[TextData[{
+ "Hand the radial second derivative ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["VU",
+    FontSlant->"Italic"], "''"}]], "InlineFormula",ExpressionUUID->
+  "8f0b39ec-5f1f-49d3-9f86-396921db3448"],
+ ", the bounce, and the gauge sector to PolyDetDecayRate. The driving Higgs \
+determinant (translational zero modes removed) and the gauge determinant \
+combine \[LongDash] both add at one loop \[LongDash] into the complete ",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{"ln", "("}], "\[CapitalGamma]", "/", 
+   StyleBox["V",
+    FontSlant->"Italic"], ")"}]], "InlineFormula",ExpressionUUID->
+  "a6fd8447-ff5d-420d-9acd-3f9cecb647db"],
+ "."
+}], "Text",ExpressionUUID->"e2e9d3e9-f4e1-44ee-8e6d-a855e0fc75de"],
+
+Cell[BoxData[
+ RowBox[{"PolyDetDecayRate", "[", 
+  RowBox[{
+   SuperscriptBox["VU", "\[Prime]\[Prime]",
+    MultilineFunction->None], ",", "bf", ",", 
+   RowBox[{"{", 
+    RowBox[{"Association", "[", 
+     RowBox[{
+      RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<Gauge\>\""}], ",", 
+      RowBox[{"\"\<Coupling\>\"", "\[Rule]", "g"}], ",", 
+      RowBox[{"\"\<Vaa\>\"", "\[Rule]", "Vaa"}]}], "]"}], "}"}], ",", 
+   RowBox[{"\"\<Ig\>\"", "\[Rule]", "Ig"}]}], "]"}]], "Input",ExpressionUUID->\
+"bfe51296-9c86-417a-bd08-8761f16e9501"],
+
+Cell[TextData[{
+ "For the per-sector pieces use ",
+ StyleBox["\"Breakdown\"",
+  FontSlant->"Italic"],
+ "\[Rule]True. A non-Abelian gauge group factorises into U(1) blocks \
+\[LongDash] see PolyDetSigmaGaugeNonAbelian."
+}], "Text",ExpressionUUID->"4b813a66-21ce-4123-b026-f03380ece12b"]
+},
+TaggingRules->{"Paclet" -> "PolyDet"},
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Tutorial.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"5aa45115-0c14-4674-81a0-4d20a319a487"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 102, 0, 70, "CategorizationSection",ExpressionUUID->"20d5f288-e421-4759-a6b5-deb380d5ab08"],
+Cell[685, 24, 119, 2, 70, "Categorization",ExpressionUUID->"909608d8-9d71-4f1f-ae4c-c0b700f6a11c"],
+Cell[807, 28, 118, 2, 70, "Categorization",ExpressionUUID->"14977733-2781-4312-a64a-d3d96b2658df"],
+Cell[928, 32, 112, 1, 70, "Categorization",ExpressionUUID->"9ede1257-7196-4a37-8ba4-3ad31cf6f8c2"],
+Cell[1043, 35, 131, 1, 70, "Categorization",ExpressionUUID->"815e452d-681c-491e-ba7e-b22619be97d7"]
+}, Closed]],
+Cell[1189, 39, 102, 0, 70, "Title",ExpressionUUID->"27fed121-d84f-4b4e-acfd-a9e91d696312"],
+Cell[1294, 41, 1022, 29, 70, "Text",ExpressionUUID->"e0cea7d2-0e00-4ff9-979a-a014cca1eed0"],
+Cell[2319, 72, 99, 0, 70, "TutorialSection",ExpressionUUID->"4f43885a-6a03-455b-b349-969b0f9d32ae"],
+Cell[2421, 74, 128, 1, 70, "Input",ExpressionUUID->"8cf54d5e-d719-4f69-a756-2162c5469579"],
+Cell[2552, 77, 131, 1, 70, "Input",ExpressionUUID->"66c448c4-642b-498b-80ec-f81475d0db12"],
+Cell[2686, 80, 112, 0, 70, "TutorialSection",ExpressionUUID->"0915b3e3-3a9d-4b92-b51f-32673cdfeda7"],
+Cell[2801, 82, 1391, 37, 70, "Text",ExpressionUUID->"ac33df4d-c521-42f5-b3b4-50acc949b910"],
+Cell[4195, 121, 565, 19, 70, "Input",ExpressionUUID->"993f9b94-8eb8-4cb8-96d6-523e9ec483a2"],
+Cell[4763, 142, 471, 15, 70, "Input",ExpressionUUID->"b15310af-fa81-44c9-8f02-cab148c0be77"],
+Cell[5237, 159, 92, 0, 70, "TutorialSection",ExpressionUUID->"80073e6f-71a0-4c7f-a95d-8634d4b7d005"],
+Cell[5332, 161, 296, 8, 70, "Text",ExpressionUUID->"0c79efdf-3545-4a9b-b04a-51a253bf7832"],
+Cell[5631, 171, 616, 19, 70, "Input",ExpressionUUID->"312fe674-5aa2-4552-ba88-1fde6da87a85"],
+Cell[6250, 192, 264, 7, 70, "Input",ExpressionUUID->"6706bd8d-9f8d-45aa-9442-39d6a1052f3e"],
+Cell[6517, 201, 108, 0, 70, "TutorialSection",ExpressionUUID->"ad5f728b-eadd-4ccd-9fad-9d7f9936974e"],
+Cell[6628, 203, 810, 21, 70, "Text",ExpressionUUID->"8f565183-a781-4402-85a3-991f38085ddb"],
+Cell[7441, 226, 287, 7, 70, "Input",ExpressionUUID->"0d6017a7-3ce1-4f63-b8c1-37d6b3378ef1"],
+Cell[7731, 235, 274, 5, 70, "Text",ExpressionUUID->"b4dba78e-ca32-4e1a-bf46-f9b358a7dd29"],
+Cell[8008, 242, 108, 1, 70, "Input",ExpressionUUID->"32969d92-9b72-417f-84de-aadbe9a1d9f5"],
+Cell[8119, 245, 103, 0, 70, "TutorialSection",ExpressionUUID->"7d77c3a2-f4b4-4410-a7b6-190d0a816bfa"],
+Cell[8225, 247, 1389, 35, 70, "Text",ExpressionUUID->"3b839557-c323-4bb0-8b63-de7db5cb91e2"],
+Cell[9617, 284, 731, 22, 70, "Input",ExpressionUUID->"84e31b25-287d-4e9f-be43-285ea8e6d7a4"],
+Cell[10351, 308, 256, 5, 70, "Input",ExpressionUUID->"3ddde961-4104-431d-9ab6-802b2be152b8"],
+Cell[10610, 315, 148, 3, 70, "Input",ExpressionUUID->"515e4545-45cb-4ba9-a795-dfbda1404671"],
+Cell[10761, 320, 105, 0, 70, "TutorialSection",ExpressionUUID->"8623da88-00f9-497c-b3d1-9cf1ea253a9a"],
+Cell[10869, 322, 710, 17, 70, "Text",ExpressionUUID->"e2e9d3e9-f4e1-44ee-8e6d-a855e0fc75de"],
+Cell[11582, 341, 529, 12, 70, "Input",ExpressionUUID->"bfe51296-9c86-417a-bd08-8761f16e9501"],
+Cell[12114, 355, 285, 6, 70, "Text",ExpressionUUID->"4b813a66-21ce-4123-b026-f03380ece12b"]
+}
+]
+*)
+
+(* End of internal cache information *)

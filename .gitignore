@@ -1,0 +1,6 @@
+# build artifacts
+build/
+*.paclet
+# OS / editor cruft
+.DS_Store
+*~

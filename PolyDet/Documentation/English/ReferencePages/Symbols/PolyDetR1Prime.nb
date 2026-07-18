@@ -1,0 +1,270 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     10065,        261]
+NotebookOptionsPosition[      7297,        210]
+NotebookOutlinePosition[      7931,        232]
+CellTagsIndexPosition[      7853,        227]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Categorization", "CategorizationSection",ExpressionUUID->"cf7b03b1-2cd7-4718-8492-7a1bb0a5c16d"],
+
+Cell["Symbol", "Categorization",
+ CellLabel->
+  "Entity Type",ExpressionUUID->"cda12ffd-7818-45a3-8c76-33f9def22065"],
+
+Cell["PolyDet", "Categorization",
+ CellLabel->
+  "Paclet Name",ExpressionUUID->"7b3dab6d-79ca-4a02-884d-c5f3e6971d8a"],
+
+Cell["PolyDet`", "Categorization",
+ CellLabel->"Context",ExpressionUUID->"c019f5ed-e13d-4fe2-a522-edcc9319d357"],
+
+Cell["PolyDet/ref/PolyDetR1Prime", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"b441b35f-d6b9-4acc-8cc5-81d61b663a6f"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",ExpressionUUID->"6b8a3f36-9ec9-458e-b7e4-6c3fc0166521"],
+
+Cell["zero mode", "Keywords",ExpressionUUID->"4151d98c-68d1-4b51-825d-b7c65d86cb56"],
+
+Cell["translational", "Keywords",ExpressionUUID->"cb0f57f4-faab-4165-9dfc-890a2fab8194"]
+}, Closed]],
+
+Cell["PolyDetR1Prime", "ObjectName",ExpressionUUID->"f1008c53-5520-4ad5-b44e-ef2c45df1c51"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  RowBox[{"PolyDetR1Prime", "[", 
+   RowBox[{
+    StyleBox["masses2", "TI"], ",", 
+    StyleBox["radii", "TI"]}], "]"}]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "882239e6-5471-4538-9ddd-a33bd82871f4"],
+ "\[LineSeparator]",
+ "the reduced ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["l",
+    FontSlant->"Italic"], "=", "1"}]], "InlineFormula",ExpressionUUID->
+  "17f41fe7-b4d3-4c4c-b8c0-608e99aca066"],
+ " ratio ",
+ Cell[BoxData[
+  SubsuperscriptBox["R", "1", "\[Prime]"]], "InlineFormula",ExpressionUUID->
+  "bd111259-b84d-489e-b7c1-20eea3086598"],
+ " that replaces the removed translational zero mode (",
+ Cell[BoxData[
+  RowBox[{
+   SubscriptBox["R", 
+    RowBox[{
+     StyleBox["l",
+      FontSlant->"Italic"], "=", "1"}]], "=", "0"}]], "InlineFormula",
+  ExpressionUUID->"a0c0f152-5c5f-406e-82de-2af43649cc10"],
+ ", ",
+ Cell[BoxData[
+  RowBox[{
+   SubscriptBox["d", "1"], "=", 
+   StyleBox["D",
+    FontSlant->"Italic"]}]], "InlineFormula",ExpressionUUID->
+  "933ab20f-6de5-4dc5-aba6-9c3dfabccecc"],
+ "); ",
+ "\[RightArrow] ",
+ Cell[BoxData[
+  RowBox[{
+   SuperscriptBox["e", 
+    RowBox[{
+     StyleBox["D",
+      FontSlant->"Italic"], "-", "1"}]], 
+   RowBox[{"/", "12"}]}]], "InlineFormula",ExpressionUUID->
+  "46b492c4-e2d4-433c-a215-e092169ada5a"],
+ " in the thin-wall limit.",
+ "\n"
+}], "Usage",ExpressionUUID->"3e9ecc4e-735b-4586-a940-2cb66dc72431"],
+
+Cell[CellGroupData[{
+
+Cell["Details and Options", "NotesSection",ExpressionUUID->"bd0a320a-04d2-4fbc-ab53-418dd9c6a0cb"],
+
+Cell[TextData[{
+ "The reduced ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["l",
+    FontSlant->"Italic"], "=", "1"}]], "InlineFormula",ExpressionUUID->
+  "d34afcf0-7fa9-4b52-8f7a-80c06cd046bb"],
+ " ratio ",
+ Cell[BoxData[
+  SubsuperscriptBox["R", "1", "\[Prime]"]], "InlineFormula",ExpressionUUID->
+  "0268fad3-610d-4fbc-a3e2-b11d82a9bbac"],
+ " that replaces the removed translational zero mode; \[RightArrow] ",
+ Cell[BoxData[
+  RowBox[{
+   SuperscriptBox["e", 
+    RowBox[{
+     StyleBox["D",
+      FontSlant->"Italic"], "-", "1"}]], 
+   RowBox[{"/", "12"}]}]], "InlineFormula",ExpressionUUID->
+  "a28e6150-3396-4358-a093-9c82fa861d21"],
+ " in the thin-wall limit. The ",
+ StyleBox["\"Multipole\"",
+  FontSlant->"Italic"],
+ " option selects ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["l",
+    FontSlant->"Italic"], "=", "1"}]], "InlineFormula",ExpressionUUID->
+  "0ded27d8-2677-476a-9135-f5be3f411ed0"],
+ " (translational) or l = 0 (Goldstone)."
+}], "Notes",ExpressionUUID->"407d077a-8f6a-4ae6-9123-e44c8db3a875"],
+
+Cell[BoxData[GridBox[{
+   {Cell["", "ModInfo",ExpressionUUID->
+     "c9ee298a-e4d2-4184-bf39-0e24cd03cbe2"], Cell[BoxData[
+     StyleBox["\"\<Dimension\>\"", "InlineCode"]], "TableText",ExpressionUUID->
+     "a9503b67-0e70-485e-9356-6635656b6112"], Cell[BoxData[
+     StyleBox["4", "InlineCode"]], "TableText",ExpressionUUID->
+     "d8cf117f-699e-42da-9b0b-c09ddbddad5c"], Cell[
+    "the spacetime dimension D (3 or 4)", "TableText",ExpressionUUID->
+     "44ad3d2a-0a5b-4862-aaad-2e33658ee887"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "1b9c16f2-7fc6-4319-8c34-3486673c4a68"], Cell[BoxData[
+     StyleBox["\"\<Multipole\>\"", "InlineCode"]], "TableText",ExpressionUUID->
+     "4eeb7d34-1502-482c-a9da-0fda86b303a6"], Cell[BoxData[
+     StyleBox["1", "InlineCode"]], "TableText",ExpressionUUID->
+     "58e733f4-ed35-4ea8-a47a-4d3866dcedc9"], Cell["\<\
+the multipole l of the removed zero mode (1 translational, 0 Goldstone)\
+\>", "TableText",ExpressionUUID->"c5ab532d-2ff7-4295-9940-767755c1a02f"]},
+   {Cell["", "ModInfo",ExpressionUUID->
+     "40a27ae0-60f0-4615-95e1-55cbfeaec644"], Cell[BoxData[
+     StyleBox["WorkingPrecision", "InlineCode"]], "TableText",ExpressionUUID->
+     "49f3cf72-7d53-4f72-b379-8cf7fb961e79"], Cell[BoxData[
+     StyleBox["80", "InlineCode"]], "TableText",ExpressionUUID->
+     "32d44800-e578-4c77-9633-0e7061ccc465"], Cell["\<\
+the working precision (Automatic chooses machine vs scaled arbitrary \
+precision)\
+\>", "TableText",ExpressionUUID->"93542eae-c950-45f4-a5a8-fa7bd739aea7"]}
+  },
+  GridBoxAlignment->{
+   "Columns" -> {{Left}}, "Rows" -> {{Baseline}}}]], "3ColumnTableMod",Express\
+ionUUID->"53492851-4106-4ff6-8a19-4e022a676b87"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Examples", "PrimaryExamplesSection",ExpressionUUID->"41dbdece-52e2-46ac-bec9-ef23b7f009c8"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<PolyDet`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"340d0757-2823-4d3c-b89d-767472cedd6a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"m2", "=", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", 
+     RowBox[{"-", 
+      FractionBox["1", "2"]}], ",", "2", ",", 
+     FractionBox["13", "10"]}], "}"}]}], ";", 
+  RowBox[{"r", "=", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "5", ",", "7"}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[2]:=",ExpressionUUID->"a55e67de-0128-4f72-97e2-3e690e3a9f89"],
+
+Cell[BoxData[
+ RowBox[{"PolyDetR1Prime", "[", 
+  RowBox[{"m2", ",", "r"}], "]"}]], "Input",
+ CellLabel->"In[3]:=",ExpressionUUID->"081dec14-5c6b-4c35-9de8-0b944c069613"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->
+  "ExtendedExamples",ExpressionUUID->"93174383-b9d7-4cc9-a0ac-ce8bb4e5e273"],
+
+Cell["Options", "ExampleSection",ExpressionUUID->"2b9f7baf-5aca-47d7-b080-6eeef6041b8a"],
+
+Cell["The l = 0 Goldstone mode of a broken global symmetry:", "ExampleText",ExpressionUUID->"d3c03020-4bb8-4f85-8ff8-53ee35fc697f"],
+
+Cell[BoxData[
+ RowBox[{"PolyDetR1Prime", "[", 
+  RowBox[{"m2", ",", "r", ",", 
+   RowBox[{"\"\<Multipole\>\"", "\[Rule]", "0"}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"4c51afbf-d48d-4218-a6b4-9557578a3933"]
+}, Open  ]]
+},
+TaggingRules->{"Paclet" -> "PolyDet"},
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"5aa45115-0c14-4674-81a0-4d20a319a487"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ExtendedExamples"->{
+  Cell[6691, 195, 137, 2, 70, "ExtendedExamplesSection",ExpressionUUID->"93174383-b9d7-4cc9-a0ac-ce8bb4e5e273",
+   CellTags->"ExtendedExamples"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ExtendedExamples", 7683, 221}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 102, 0, 70, "CategorizationSection",ExpressionUUID->"cf7b03b1-2cd7-4718-8492-7a1bb0a5c16d"],
+Cell[685, 24, 117, 2, 70, "Categorization",ExpressionUUID->"cda12ffd-7818-45a3-8c76-33f9def22065"],
+Cell[805, 28, 118, 2, 70, "Categorization",ExpressionUUID->"7b3dab6d-79ca-4a02-884d-c5f3e6971d8a"],
+Cell[926, 32, 112, 1, 70, "Categorization",ExpressionUUID->"c019f5ed-e13d-4fe2-a522-edcc9319d357"],
+Cell[1041, 35, 126, 1, 70, "Categorization",ExpressionUUID->"b441b35f-d6b9-4acc-8cc5-81d61b663a6f"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1204, 41, 90, 0, 70, "KeywordsSection",ExpressionUUID->"6b8a3f36-9ec9-458e-b7e4-6c3fc0166521"],
+Cell[1297, 43, 84, 0, 70, "Keywords",ExpressionUUID->"4151d98c-68d1-4b51-825d-b7c65d86cb56"],
+Cell[1384, 45, 88, 0, 70, "Keywords",ExpressionUUID->"cb0f57f4-faab-4165-9dfc-890a2fab8194"]
+}, Closed]],
+Cell[1487, 48, 91, 0, 70, "ObjectName",ExpressionUUID->"f1008c53-5520-4ad5-b44e-ef2c45df1c51"],
+Cell[1581, 50, 1416, 46, 70, "Usage",ExpressionUUID->"3e9ecc4e-735b-4586-a940-2cb66dc72431"],
+Cell[CellGroupData[{
+Cell[3022, 100, 98, 0, 70, "NotesSection",ExpressionUUID->"bd0a320a-04d2-4fbc-ab53-418dd9c6a0cb"],
+Cell[3123, 102, 1009, 30, 70, "Notes",ExpressionUUID->"407d077a-8f6a-4ae6-9123-e44c8db3a875"],
+Cell[4135, 134, 1677, 29, 70, "3ColumnTableMod",ExpressionUUID->"53492851-4106-4ff6-8a19-4e022a676b87"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5849, 168, 97, 0, 70, "PrimaryExamplesSection",ExpressionUUID->"41dbdece-52e2-46ac-bec9-ef23b7f009c8"],
+Cell[5949, 170, 151, 2, 70, "Input",ExpressionUUID->"340d0757-2823-4d3c-b89d-767472cedd6a"],
+Cell[6103, 174, 379, 11, 70, "Input",ExpressionUUID->"a55e67de-0128-4f72-97e2-3e690e3a9f89"],
+Cell[6485, 187, 169, 3, 70, "Input",ExpressionUUID->"081dec14-5c6b-4c35-9de8-0b944c069613"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6691, 195, 137, 2, 70, "ExtendedExamplesSection",ExpressionUUID->"93174383-b9d7-4cc9-a0ac-ce8bb4e5e273",
+ CellTags->"ExtendedExamples"],
+Cell[6831, 199, 88, 0, 70, "ExampleSection",ExpressionUUID->"2b9f7baf-5aca-47d7-b080-6eeef6041b8a"],
+Cell[6922, 201, 131, 0, 70, "ExampleText",ExpressionUUID->"d3c03020-4bb8-4f85-8ff8-53ee35fc697f"],
+Cell[7056, 203, 225, 4, 70, "Input",ExpressionUUID->"4c51afbf-d48d-4218-a6b4-9557578a3933"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

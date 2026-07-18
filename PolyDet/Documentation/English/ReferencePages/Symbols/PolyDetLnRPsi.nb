@@ -1,0 +1,149 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5208,        140]
+NotebookOptionsPosition[      3450,        107]
+NotebookOutlinePosition[      3878,        123]
+CellTagsIndexPosition[      3835,        120]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Categorization", "CategorizationSection",ExpressionUUID->"a73921a2-3ec0-4073-b0ee-b97749d0d3d6"],
+
+Cell["Symbol", "Categorization",
+ CellLabel->
+  "Entity Type",ExpressionUUID->"d48fcf8b-88e9-46e2-9a98-b86febb49cdf"],
+
+Cell["PolyDet", "Categorization",
+ CellLabel->
+  "Paclet Name",ExpressionUUID->"427e5e82-46d6-49f2-b0d1-31e0cafdca86"],
+
+Cell["PolyDet`", "Categorization",
+ CellLabel->"Context",ExpressionUUID->"419b0497-0fff-4eab-a401-fc6ee5be924e"],
+
+Cell["PolyDet/ref/PolyDetLnRPsi", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"2d323443-c60d-42bb-a2a8-d88e66019238"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",ExpressionUUID->"230dc0bf-6a9e-45fb-ba34-3e284f4f5c6f"],
+
+Cell["Dirac fermion", "Keywords",ExpressionUUID->"27e40c4d-b3f9-4525-b366-a4b022d0cf04"],
+
+Cell["transfer matrix", "Keywords",ExpressionUUID->"cc739a35-355a-4896-8636-050c3cf2850e"]
+}, Closed]],
+
+Cell["PolyDetLnRPsi", "ObjectName",ExpressionUUID->"c9ef3b25-6f97-41e9-b68f-aea218546080"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  RowBox[{"PolyDetLnRPsi", "[", 
+   RowBox[{
+    StyleBox["nu", "TI"], ",", 
+    StyleBox["masses", "TI"], ",", 
+    StyleBox["radii", "TI"]}], "]"}]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "34954ae7-9a53-4472-b523-540be6f56c16"],
+ "\[LineSeparator]",
+ "the Dirac-fermion log-ratio ",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{"ln", " "}], 
+   SubsuperscriptBox["R", "\[Nu]", "\[Psi]"], "=", 
+   RowBox[{"2", " ", "ln"}], "\[LeftBracketingBar]", 
+   SubscriptBox["r", "\[Nu]"], "\[RightBracketingBar]"}]], "InlineFormula",
+  ExpressionUUID->"df7c2cf3-702a-4edb-be0e-7e1126ef9013"],
+ " (first-order adjacent-order Bessel chain; signed ",
+ Cell[BoxData[
+  RowBox[{
+   SubscriptBox["M", "s"], "=", "m", "+", 
+   RowBox[{"y", "\[ThinSpace]"}], 
+   SubscriptBox["\[Phi]", "s"]}]], "InlineFormula",ExpressionUUID->
+  "8c06b038-0ca2-4054-99c5-eac4cb49f7e8"],
+ ").",
+ "\n"
+}], "Usage",ExpressionUUID->"cc6a668b-66a8-4244-98f0-8e14aa02aac1"],
+
+Cell[CellGroupData[{
+
+Cell["Examples", "PrimaryExamplesSection",ExpressionUUID->"934923af-d410-4815-a58b-e6a366240a3b"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<PolyDet`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"705923aa-304c-467a-8f52-3446f0d2cb86"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"M", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "1"}], ",", 
+     FractionBox["2", "5"], ",", 
+     FractionBox["9", "10"], ",", 
+     FractionBox["11", "10"]}], "}"}]}], ";", 
+  RowBox[{"r", "=", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "5", ",", "7"}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[2]:=",ExpressionUUID->"d79a52f2-50c3-4907-a7b1-3dfb68e65924"],
+
+Cell[BoxData[
+ RowBox[{"PolyDetLnRPsi", "[", 
+  RowBox[{"2", ",", "M", ",", "r"}], "]"}]], "Input",
+ CellLabel->"In[3]:=",ExpressionUUID->"8e93afb4-7d0d-4423-a222-dedc12fd62ef"]
+}, Open  ]]
+},
+TaggingRules->{"Paclet" -> "PolyDet"},
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"5aa45115-0c14-4674-81a0-4d20a319a487"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 102, 0, 70, "CategorizationSection",ExpressionUUID->"a73921a2-3ec0-4073-b0ee-b97749d0d3d6"],
+Cell[685, 24, 117, 2, 70, "Categorization",ExpressionUUID->"d48fcf8b-88e9-46e2-9a98-b86febb49cdf"],
+Cell[805, 28, 118, 2, 70, "Categorization",ExpressionUUID->"427e5e82-46d6-49f2-b0d1-31e0cafdca86"],
+Cell[926, 32, 112, 1, 70, "Categorization",ExpressionUUID->"419b0497-0fff-4eab-a401-fc6ee5be924e"],
+Cell[1041, 35, 125, 1, 70, "Categorization",ExpressionUUID->"2d323443-c60d-42bb-a2a8-d88e66019238"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1203, 41, 90, 0, 70, "KeywordsSection",ExpressionUUID->"230dc0bf-6a9e-45fb-ba34-3e284f4f5c6f"],
+Cell[1296, 43, 88, 0, 70, "Keywords",ExpressionUUID->"27e40c4d-b3f9-4525-b366-a4b022d0cf04"],
+Cell[1387, 45, 90, 0, 70, "Keywords",ExpressionUUID->"cc739a35-355a-4896-8636-050c3cf2850e"]
+}, Closed]],
+Cell[1492, 48, 90, 0, 70, "ObjectName",ExpressionUUID->"c9ef3b25-6f97-41e9-b68f-aea218546080"],
+Cell[1585, 50, 988, 27, 70, "Usage",ExpressionUUID->"cc6a668b-66a8-4244-98f0-8e14aa02aac1"],
+Cell[CellGroupData[{
+Cell[2598, 81, 97, 0, 70, "PrimaryExamplesSection",ExpressionUUID->"934923af-d410-4815-a58b-e6a366240a3b"],
+Cell[2698, 83, 151, 2, 70, "Input",ExpressionUUID->"705923aa-304c-467a-8f52-3446f0d2cb86"],
+Cell[2852, 87, 402, 12, 70, "Input",ExpressionUUID->"d79a52f2-50c3-4907-a7b1-3dfb68e65924"],
+Cell[3257, 101, 177, 3, 70, "Input",ExpressionUUID->"8e93afb4-7d0d-4423-a222-dedc12fd62ef"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
