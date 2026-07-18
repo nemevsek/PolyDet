@@ -2,6 +2,9 @@
 
 # PolyDet
 
+[![tests](https://github.com/nemevsek/PolyDet/actions/workflows/tests.yml/badge.svg)](https://github.com/nemevsek/PolyDet/actions/workflows/tests.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 **Renormalised one-loop fluctuation determinant around a polygonal bounce** (false-vacuum decay) — a Wolfram Language paclet and companion to [FindBounce](https://github.com/vguada/FindBounce). It *consumes* a polygonal bounce (segment masses + matching radii) and returns `ln det_ren` via the transfer-matrix multipole sum with optimal-truncation acceleration and MS-bar renormalisation (`D = 3, 4`). It is the next factor after FindBounce's action,
 `Gamma ~ (...) (det S'')^{-1/2} e^{-S}`.
 
